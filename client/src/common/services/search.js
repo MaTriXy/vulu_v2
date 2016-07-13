@@ -13,20 +13,20 @@ export class Search {
         this.client = this.algolia.Client('2K1ULUZLUW', '16f42d05d731eaf17e018a0442ff1fb2');
         this.index = this.client.initIndex('group');
 
-        //todo - delete this
-        this.getSearchResult();
     }
 
 
     getSearchResult(query) {
+        let deferred = this.$q.defer();
         this.index.search(query, function searchDone(err, content) {
             let searchresult = {};
             searchresult.err = err;
             searchresult.content = content;
             console.log(err, content);
-
-            return searchresult;
+            if (err){deferred.reject(err)}
+            deferred.resolve(searchresult);
         });
+        return deferred.promise;
     }
 
 }

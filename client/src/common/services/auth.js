@@ -128,6 +128,20 @@ export class Auth {
         return deferred.promise;
 
     }
+    /**
+     *
+     * @returns {*}
+     */
+    getSearchResult() {
+        let searchResult = this.Search.getSearchResult(this.$scope.query)
+        console.log("searchResult" + searchResult);
+        //const model = this.$localStorage.search;
+        /*    this.Search.get(model).then(Search_data => {
+         this.Search_data = Search_data;
+         return Search_data;
+         });
+         */
+    }
 
     getToken() {
         return this.$sessionStorage.authData && this.$sessionStorage.authData.Token;

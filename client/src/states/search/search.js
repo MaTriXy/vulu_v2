@@ -11,7 +11,7 @@ export class SearchController {
     }
 
   /**
-   * Get updated portfolio on any question change
+   *
    * @returns {*}
    */
   getSearchResult() {

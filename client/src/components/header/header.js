@@ -3,33 +3,92 @@ import template from './header.html';
 class HeaderController {
 
   /* @ngInject */
-  constructor() {
-    //this.$translate = $translate;
-
-    //this.Auth          = Auth;
-    //this.SignInManager = SignInManager;
-    //this.GroupAttributes   = GroupAttributes;
-    //this.GroupTranslations = GroupTranslations;
-
-    //this.init();
+  constructor($localStorage, $scope, Auth, $state , Search , SearchModel){
+    this.$localStorage = $localStorage;
+    this.$scope = $scope;
+    this.Auth = Auth;
+    this.$state = $state;
+    this.SearchModel = SearchModel;
+    this.Search = Search;
   }
 
   /**
    * Initialize all the parameters with their default values
    */
   init() {
-    //this.languagesDropdown = {
-    //  mainIconClass: this.GroupTranslations.getCurrentLanguage(),
-    //  listOfOptions: this.getLanguagesList()
-    //};
-    this.languagesDropdown = {
-      mainIconClass: 'en-US',
-      listOfOptions: this.getLanguagesList()
-    };
+
+  }
+
+  /**
+   *
+   * @returns {*}
+   */
+  getSearchResult() {
+    this.Search.getSearchResult(this.$scope.query).
+        then((searchResult)=>{
+          this.SearchModel.setModel(searchResult.content);
+        }, (reason)=> {
+          let failureMessage = "auto error : errorCode " + reason.code + "errorMessage: " + reason.message;
+          deferred.reject(failureMessage);
+
+        });
+
+
+    console.log(this.SearchModel.getModelValue());
   }
 
   login() {
-    this.SignInManager.login();
+    let credentials = {};
+    credentials.email = this.$scope.email;
+    credentials.password = this.$scope.password;
+    this.Auth.login(credentials)
+        .then((result)=> {
+          //success
+          // The signed-in user info.
+          this.Auth.setToken(result.refreshToken);
+          this.Auth.setUserId(result.uid);
+        }, (reason)=> {
+          console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+
+        });
+  };
+
+  signUp() {
+    let credentials = {};
+    credentials.email = this.$scope.email;
+    credentials.password = this.$scope.password;
+    this.Auth.signUp(credentials)
+        .then((result)=>{
+          //success
+          // The signed-in user info.
+          this.Auth.setToken(result.refreshToken);
+          this.Auth.setUserId(result.uid);
+        },(reason)=>{
+          console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+
+        });
+  };
+
+  fbLogin(){
+    this.Auth.fbLogin()
+        .then((value)=>{
+          //success
+          this.Auth.setToken(result.refreshToken);
+          this.Auth.setUserId(result.uid);
+        }, (reason)=> {
+          console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+        });
+
+  }
+
+  resetPassword(email) {
+    this.Auth.resetPassword(this.$scope.email)
+        .then((value)=> {
+          //success
+          //todo ran - raise modal
+        }, (reason)=> {
+          console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+        });
   }
 
   /**
