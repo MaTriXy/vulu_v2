@@ -1,0 +1,86 @@
+<div class="login-page header">
+<div class="head">
+    <div class="w-container clearfix">
+        <div class="w-row">
+            <nav class="top-bar">
+                <div class="w-col w-col-2 w-col-small-3 w-col-tiny-5 w-col-big-mobile-5 column">
+                    <div class="logo-wrapper">
+                        <a href="#" id="logo">
+                            <svg class="icon icon-logo-small logo-symbol">
+                                <use xlink:href="#icon-logo-small"></use>
+                            </svg>
+                            <p class="logo-text">talkme</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-col w-col-6 w-col-small-5 w-col-tiny-5 w-col-big-mobile-5 column">
+                    <div class="container-search">
+                        <input id="search-input" class="w-input" placeholder="חפש שאלה" autofocus type="text">
+                        <button id="search-button">
+                            <svg class="icon icon-search">
+                                <use xlink:href="#icon-search"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-col w-col-4 w-col-small-4 w-col-tiny-7 w-col-big-mobile-7 column">
+                    <nav role="navigation">
+                        <ul class="menu clearfix">
+
+                            <!--								when class active is presented the tooltip is presented
+                                                                TO-DO: add ng-click and ng-class to toggle active class
+                            -->
+
+                            <li>
+                                <div class="nav-link sign-up-button active" id="services-link"
+                                     ng-click="dropLogin = !dropLogin"><span>כניסה</span>
+
+                                    <div class="login-tooltip">
+                                        <div class="login-container">
+                                            <div class="form-container">
+                                                <button id="facebookBn" type="button" id="login"
+                                                        ng-click="Header.fbLogin()" href="#" target="_blank"
+                                                        alt="Login with Facebook"><img
+                                                        src="http://res.cloudinary.com/talkme-co/image/upload/v1445607368/facebook-icon_jfwcig.svg"
+                                                        class="iconsocial"><span
+                                                        class="primary-text">המשך עם פייסבוק</span></button>
+                                                <p class="or">או</p>
+
+                                                <form ng-submit="Header.login()" id="login-form">
+
+                                                    <input type="email" placeholder='דוא"ל' name="email" id="email"
+                                                           class="email login" ng-model="email" required="required"/>
+                                                    <br/>
+                                                    <input type="password" placeholder="ססמא" name="password" id="pass"
+                                                           class="pass login" ng-model="password"
+                                                           required="required"/> <br/>
+                                                    <input type="submit" id="submit" class="submit login"
+                                                           value="כניסה"/>
+
+                                                </form>
+                                                <a href="" class="reset-pass" ng-click="Header.resetPassword()">שכחת
+                                                    ססמא? לחץ כאן</a>
+
+                                            </div>
+
+                                            <div class="signup-container">
+                                                <p class="signup-text">חדש בTalkme?</p>
+                                                <a href="" class="submit">הרשמ/י</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!--after registration-->
+                            <!--								<li><a class="nav-link profile" href=""><img class="profile-image" src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200"><p class="profile-name">Elad</p></a></li>-->
+                        </ul>
+                    </nav>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+</div>
+</div>
