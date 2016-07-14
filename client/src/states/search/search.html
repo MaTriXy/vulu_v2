@@ -66,15 +66,13 @@
                                                 <svg class="icon icon-comments">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>
-												
-												 <!-- TO DO: add comments number expression here     -->
-                                                <p>{{ hit.question.commentsNumber }}</p>
+                                                <p>{{ hit.answers.length }}</p>
                                             </div>
                                             <div class="upvote-button">
                                                 <div class="triangle-button"><span class="triangle triangle-up"></span>
                                                 </div>
 											 <!-- TO DO: add upvotes number expression here     -->
-                                                <p>{{ hit.question.upvotesNumber }}</p>
+                                                <p>{{ hit.question.rating }}</p>
                                             </div>
                                         </div>
 

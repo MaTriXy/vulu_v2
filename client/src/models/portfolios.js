@@ -37,18 +37,4 @@ export class Portfolios {
       });
   }
 
-  //
-  // getWizardPackagesExtendedInfo(packageQuery) {
-  //     return this.Network.post(this.extendedPackagesPath, packageQuery);
-  // }
-  //
-  // getWizardPackagesPerformance(packageQuery) {
-  //     return this.Network.post(this.packagesPerformance, packageQuery)
-  //         .then(wizardPackages => {
-  //             // Reset `packages` and fill with the new data
-  //             angular.copy(wizardPackages, this.packages);
-  //
-  //             return wizardPackages;
-  //         });
-  // }
 }

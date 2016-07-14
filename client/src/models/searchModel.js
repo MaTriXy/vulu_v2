@@ -13,6 +13,16 @@ export class SearchModel {
         this.$q = $q;
         this.Auth = Auth;
         this.algolia = algolia;
+        this.algoliaQueryParam = {
+            "getRankingInfo": 1,
+            "facets": "*",
+            "attributesToRetrieve": "*",
+            "highlightPreTag": "<em>",
+            "highlightPostTag": "</em>",
+            "hitsPerPage": 10,
+            "facetFilters": [],
+            "maxValuesPerFacet": 100
+        };
 
 
         this.client = this.algolia.Client('2K1ULUZLUW', '16f42d05d731eaf17e018a0442ff1fb2');
@@ -48,12 +58,35 @@ export class SearchModel {
     }
 
     get(query) {
-        return this.index.search(query).
-            then((content,err ) => {
+        return this.index.search(query , this.algoliaQueryParam).
+            then((content, err) => {
+                //sort according to userScore
+                content = this.userScoreRort(content);
                 const searchresult_data = content;
                 angular.copy(content, this.searchResult);
                 return searchresult_data;
             });
     }
+
+
+    userScoreRort(content){
+        content.hits.sort(function (a, b) {
+            if (a._rankingInfo.userScore > b._rankingInfo.userScore) {
+                return -1;
+            }
+            if (a._rankingInfo.userScore < b._rankingInfo.userScore) {
+                return 1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+
+        return content;
+    }
+
+
+
+
+
 
 }
