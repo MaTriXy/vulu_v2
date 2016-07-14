@@ -1,10 +1,10 @@
-import { TalkFSController } from './search';
-import template       from './search.html';
+import { TalkFSController } from './talkFactSheet.js';
+import template       from './talkFactSheet.html';
 
 /* @ngInject */
-function searchRoutes($stateProvider) {
+function fsRoutes($stateProvider) {
   $stateProvider
-    .state('home.search', {
+    .state('home.talkFS', {
       url: '/talkFS',
       template: template,
       controller: 'TalkFSController',
@@ -14,3 +14,5 @@ function searchRoutes($stateProvider) {
 
 export default angular.module('states.talkFS', [])
   .controller('TalkFSController', TalkFSController)
+  .config(fsRoutes);
+

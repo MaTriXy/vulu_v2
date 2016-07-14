@@ -2,6 +2,7 @@ import { HomeController } from './home';
 import homeTemplate       from './home.html';
 import login              from './login/login.module';
 import search             from './search/search.module.js';
+import talkFactSheet      from './insidetalk/talkFactSheet.module.js';
 
 
 /* @ngInject */
@@ -31,8 +32,8 @@ function initFireBase (){
 
 export default angular.module('stratupDB.app', [
     login.name,
-    search.name
-
+    search.name,
+    talkFactSheet.name
   ])
   .controller({HomeController})
   .config(appRoutes)
