@@ -648,9 +648,9 @@ span {
 }
 
 .round-profile.feed.comment {
-  margin-top: 12px;
-  width: 30px;
-  height: 30px;
+  margin-top: 8px;
+  width: 44px;
+  height: 44px;
 }
 
 .arrow-left {
@@ -766,6 +766,8 @@ span {
     -webkit-transition: opacity 300ms ease;
     -o-transition: opacity 300ms ease;
     transition: opacity 300ms ease;
+	font-family: 'HelveticaNeue-Roman', arial, sans-serif;
+    letter-spacing: 0;	  
   }
   &:before {
     left: 50%;
@@ -1010,6 +1012,10 @@ span {
   position: absolute;
   margin-top: -10px;
 }
+	
+
+	
+	
 
 @media screen and (max-width: 769px) {
   .categories-container {

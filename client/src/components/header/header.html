@@ -37,8 +37,8 @@
                                 TO-DO: add to ng-click function: drop = !drop; 
 -->
                                 <div class="nav-link sign-up-button" id="services-link"
-                                     ng-click="Header.login()" ng-class="drop ? 'active' : ''"><span>כניסה</span>
-
+                                     ng-click="drop = !drop" ng-class="drop ? 'active' : ''"><span>כניסה</span>
+								</div>
                                     <div class="login-tooltip">
                                         <div class="login-container">
                                             <div class="form-container">
@@ -58,7 +58,7 @@
                                                     <input type="password" placeholder="ססמא" name="password" id="pass"
                                                            class="pass login" ng-model="password"
                                                            required="required"/> <br/>
-                                                    <input type="submit" id="submit" class="submit login"
+                                                    <input type="submit" id="submit" class="submit login" 
                                                            value="כניסה"/>
 
                                                 </form>
@@ -76,7 +76,7 @@
 
                                         </div>
                                     </div>
-                                </div>
+                                
                             </li>
 
                             <!--TO DO: ng-show when user is signedUp + add ng-src profile picture and username -->

@@ -3,7 +3,7 @@
 <main class="w-container main-section">
     <header
             on-search="Search.getSearchResult(query)">
-    ></header>
+    </header>
 
 <!--
     <section class="ask-question-container">
@@ -41,6 +41,8 @@
 
 
                 <h1 ng-repeat="hit in Search.searchresult.hits">
+					
+			   <!-- TO DO: add groupBy filter to ng-repeat      -->		
                     <div class="questions-group">
                         <div class="questions-header">
                             <svg class="icon icon-calendar">
@@ -54,25 +56,30 @@
                             <div class="question-box">
                                 <div class="w-row">
 
-                                    <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" ui-sref="home.talkFS">
+                                    <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" >
                                         <!-- TO DO: add owner image in ng-src      -->
                                         <img class="owner-img" ng-src="">
 										
                                         <div class="flex-box">
-                                            <h2 class="question-title"> {{hit.question.message}}</h2>
+                                            <h2 class="question-title" ui-sref="home.talkFS"> {{hit.question.message}}</h2>
                                         </div>
                                         <div class="flex-height">
-                                            <div class="comments-button">
+											
+                    
+                                            <div class="comments-button" ui-sref="home.talkFS">
                                                 <svg class="icon icon-comments">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>
-                                                <p>{{ hit.answers.length }}</p>
+                                                <p>{{hit.answers.length ? hit.answers.length : 'הגב' }}</p>
                                             </div>
+											
+											
+								 <!-- TO DO: add ng-click upvote function      -->			
                                             <div class="upvote-button">
                                                 <div class="triangle-button"><span class="triangle triangle-up"></span>
                                                 </div>
-											 <!-- TO DO: add upvotes number expression here     -->
-                                                <p>{{ hit.question.rating }}</p>
+											
+                                                <p>{{hit.question.rating ? hit.question.rating : '0' }}</p>
                                             </div>
                                         </div>
 
@@ -82,7 +89,7 @@
                                 </div>
                             </div>
 
-                            <!--			end of question ng-repeat-->
+                        
 
                         </div>
 

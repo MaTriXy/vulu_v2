@@ -1,19 +1,30 @@
 	<!--	  main    -->
+<div class="main-pages">
+	    <header
+            on-search="Search.getSearchResult(query)">
+    </header>
 	<main class="w-container main-section">
 
 		<section class="inside-question-container">
 			<div class="w-row">
 				<div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
-				<div class="inside-question-header" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, .6)), url(https://ph-files.imgix.net/1ff4523e-673e-47db-bb79-0480686e6b36?auto=format);">
+					
+					
+<!--					TO DO: create backgroundImgUrl variable to add a random image to every quesion-->
+				<div class="inside-question-header" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, .6)), url({{ backgroundImgUrl }});">
 									
 					<div class="question-header-box">
 					<div class="owner-container">	
-						<img class="owner-img standalone-question" src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200">
+						
+<!--					TO DO: add question owner image and username here-->	
+						<img class="owner-img standalone-question" ng-src="{{ UserImg }}">
 					<div class="flex-box">		
-						<p class="owner-name standalone-question">Elad Lev</p>
+						<p class="owner-name standalone-question">{{ UserName }}</p>
 						</div>	
 						</div>	
 										<div class="flex-box">
+											
+<!--					TO DO: add quoestion title here -->											
 											<h2 class="question-title standalone">היי חברים! <br>
 קרה לכם פעם שהכרתם מישהו/י נהדר/ת שמוכנ/ה לעזור עם קשרים אסטרטגיים ועזרה רלוונטית, ואתם ללא רווחים ולפני גיוס. מה הייתם מציעים לו/לה בתמורה?</h2>
 										</div>
@@ -22,10 +33,14 @@
 												<svg class="icon icon-comments big">
 													<use xlink:href="#icon-comments"></use>
 												</svg>
+
+<!--					TO DO: add comments number here -->														
 												<p>135</p>
 											</div>
 											<div class="upvote-button big">
 												<div class="triangle-button big"><span class="triangle triangle-up"></span></div>
+												
+<!--					TO DO: add upvotes number here -->													
 												<p>143</p>
 											</div>
 										</div>	
@@ -36,14 +51,20 @@
 				</div>
 			
 			<div class="w-col w-col-9 w-col-small-9 w-col-tiny-12 w-col-big-mobile-12 column">
-				<div class="comment-box">
+				
+<!--					TO DO: add currentUser object: if currentUser exists show the comment box -->				
+				<div class="comment-box" >
 						<div class="profile-comment-section">
 	 <div class="round-profile feed comment">
-              <img class="owner-img small" ng-src="{{ user.get('profilePicture') }}"  width="40" height="40" alt="530605e29a9a865173000383_images%20(1).jpg"></div>
+
+<!--					TO DO: add currentUser image -->			 
+              <img class="owner-img small" ng-src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200"  alt="profile-image"></div>
 		</div>
 		<div class="comment-section"><div class="arrow-left"></div>
 			
-<form class="record-form" >
+<form class="record-form">
+
+<!--	add textAngular: a rich wysiwyg text editor with an html output -->
 			<div text-angular autolinker name="postDescription" focus="enableFocus === true" id="postDescription" ng-model="postDescription" ng-change="enableShare()" ta-toolbar="[['bold', 'italics', 'ul', 'ol'],['insertLink']]" placeholder="What do you think about it?"></div>
 			
 
@@ -51,8 +72,10 @@
 
 	
 	<div class="comment-buttons-section">
-	<div class="tiny-button-box tooltip-bottom" data-tooltip="Formatting options" ng-click="toggleFormatBox();"><svg class="icon icon-font"><use xlink:href="#icon-font"></use></svg></div>
+	<div class="tiny-button-box tooltip-bottom" data-tooltip="אפשרויות עיצוב" ng-click="toggleFormatBox();"><svg class="icon icon-font"><use xlink:href="#icon-font"></use></svg></div>
 	
+		
+<!--					TO DO: submit button for the comment -->			
 	<input id="share-comment" class="w-button post-button comment" type="submit" data-ng-mousedown="definePost(talk)" value="פרסם" disabled>	
 	
 	</div>
@@ -68,38 +91,51 @@
 							<h1 class="answers-header-title">תגובות</h1>
 						</div>
 						<div class="answers">
-							<div class="answer-box">
+							
+							
+							
+<!--					NG-REPEAT: repeat all comments on this quesion -->					
+							<div class="answer-box" >
 								<div class="w-row">
 
 									<div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
-          	<div class="answer-owner-container">	
+          	<div class="answer-owner-container">
+				
+		<!--					TO DO: add comment owner image and username here (option to have also a smal bio) -->			
 						<img class="owner-img small" src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200">
 					<div class="owner-wrap">		
 						<p class="owner-name small">Elad Lev</p>
 						<div class="owner-stats">
 						<span class="dashline"> — </span>
-						<span class="owner-mantra">מייסד Talkme</span>
+						<span class="owner-mantra">ממייסדי Talkme</span>
 						</div>
 						
 						</div>	
 						</div>	
 										<div class="answer-text-box">
+							
+		<!--					TO DO: add comment title -->										
 											<p class="answer-title">כן, אבל יכול להיות שהמשקיע ישים כסף אם הוא יראה שמות גדולים... תחשוב אם יש לנו 3 סטארט אפים לבחור מבינהם, אבל לאחד יש advisory board מפוצץ אז הוא יודע שאותה חברה תקבל קשרים טובים ואם היא בנתה קשרים ממש טובים בתחילת הדרך אז בכלל היא תצליח בהמשך הדרך</p>
 											
 										</div>
 										<div class="flex-height answer">
 									<div class="upvote-button small">
 												<div class="triangle-button small"><span class="triangle triangle-up small"></span></div>
+										
+		<!--					TO DO: add upvote number -->									
 												<p>אהבתי</p>
 											</div>		
 											<div class="comments-button small">
 												<svg class="icon icon-comments small">
 													<use xlink:href="#icon-comments"></use>
 												</svg>
+												
+												
+	   <!--					TO DO: add comments number -->								
 												<p>הגב</p>
 											</div>
 											
-										
+	    <!--					TO DO: add comment upload date -->					
 											<p class="answer-date">פורסם לפני שעה</p>
 										</div>
 
@@ -109,23 +145,32 @@
 
 								</div>
 								
+								
+								
+				   <!--					NG-IF: if someone commented on this comment show this html -->					
 								<ul class="answer-comments">
-								<li>
+								
+	 <!--					NG-REPEAT: show all li comment answers -->									
+							    <li> 
 								<div class="answer-box">
 								<div class="w-row">
 
 									<div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
           	<div class="answer-owner-container">	
+			
+	<!--					TO DO: add comment owner image and username here (option to have also a smal bio) -->
 						<img class="owner-img small" src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200">
 					<div class="owner-wrap">		
 						<p class="owner-name small">Elad Lev</p>
 						<div class="owner-stats">
 						<span class="dashline"> — </span>
-						<span class="owner-mantra">מייסד Talkme</span>
+						<span class="owner-mantra">ממייסדי Talkme</span>
 						</div>
 						
 						</div>	
 						</div>	
+										
+				<!--					TO DO: add comment title -->							
 										<div class="answer-text-box">
 											<p class="answer-title">כן, אבל יכול להיות שהמשקיע ישים כסף אם הוא יראה שמות גדולים... תחשוב אם יש לנו 3 סטארט אפים לבחור מבינהם, אבל לאחד יש advisory board מפוצץ אז הוא יודע שאותה חברה תקבל קשרים טובים ואם היא בנתה קשרים ממש טובים בתחילת הדרך אז בכלל היא תצליח בהמשך הדרך</p>
 											
@@ -133,15 +178,20 @@
 										<div class="flex-height answer">
 									<div class="upvote-button small">
 												<div class="triangle-button small"><span class="triangle triangle-up small"></span></div>
+										
+					<!--					TO DO: add upvote number -->					
 												<p>3</p>
 											</div>		
 											<div class="comments-button small">
 												<svg class="icon icon-comments small">
 													<use xlink:href="#icon-comments"></use>
 												</svg>
+												
+				 <!--					TO DO: add comments number -->						
 												<p>הגב</p>
 											</div>
 											
+				  <!--					TO DO: add comment upload date -->								
 											<p class="answer-date">פורסם ב 5 למרץ</p>
 										</div>
 
@@ -186,7 +236,7 @@
 		</section>
 
 	</main>
-
+</div>
 
 
 
