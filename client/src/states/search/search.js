@@ -1,12 +1,22 @@
 export class SearchController {
 
   /* @ngInject */
-    constructor($localStorage, Search, $scope) {
+    constructor($localStorage, $scope ,SearchModel) {
 
     this.$localStorage  = $localStorage;
-        this.Search = Search;
         this.$scope = $scope;
+        this.SearchModel = SearchModel;
+        this.searchresult = {};
 
+
+        /*this.$scope.$watchCollection(
+            () => this.searchresult,
+            (newVal) => {
+                if (!_.isEmpty(newVal)) {
+
+                }
+            }
+        );*/
 
     }
 
@@ -14,15 +24,11 @@ export class SearchController {
    *
    * @returns {*}
    */
-  getSearchResult() {
-      alert("search");
-      this.Search.getSearchResult(this.$scope.query)
-      //const model = this.$localStorage.search;
-      /*    this.Search.get(model).then(Search_data => {
-      this.Search_data = Search_data;
-      return Search_data;
-    });
-       */
+  getSearchResult(query) {
+      const model = query;
+      this.SearchModel.get(model).then(searchresult_data => {
+          this.searchresult = searchresult_data;
+          return searchresult_data ;
+      });
   }
-
 }

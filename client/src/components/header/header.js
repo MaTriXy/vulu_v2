@@ -3,38 +3,16 @@ import template from './header.html';
 class HeaderController {
 
   /* @ngInject */
-  constructor($localStorage, $scope, Auth, $state , Search , SearchModel){
+  constructor($localStorage, $scope, Auth, $state , SearchModel){
     this.$localStorage = $localStorage;
     this.$scope = $scope;
     this.Auth = Auth;
     this.$state = $state;
     this.SearchModel = SearchModel;
-    this.Search = Search;
   }
 
-  /**
-   * Initialize all the parameters with their default values
-   */
-  init() {
-
-  }
-
-  /**
-   *
-   * @returns {*}
-   */
-  getSearchResult() {
-    this.Search.getSearchResult(this.$scope.query).
-        then((searchResult)=>{
-          this.SearchModel.setModel(searchResult.content);
-        }, (reason)=> {
-          let failureMessage = "auto error : errorCode " + reason.code + "errorMessage: " + reason.message;
-          deferred.reject(failureMessage);
-
-        });
-
-
-    console.log(this.SearchModel.getModelValue());
+  search(){
+    this.onSearch({query : this.$scope.query});
   }
 
   login() {
@@ -143,6 +121,9 @@ export function header() {
     template: template,
     replace: true,
     scope: {},
+    bindToController: {
+      onSearch: '&'
+    },
     controller: HeaderController,
     controllerAs: 'Header'
   };
