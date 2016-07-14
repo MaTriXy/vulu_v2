@@ -1,4 +1,4 @@
-<div class="login-page header">
+
 <div class="head">
     <div class="w-container clearfix">
         <div class="w-row">
@@ -27,13 +27,17 @@
                     <nav role="navigation">
                         <ul class="menu clearfix">
 
-                            <!--								when class active is presented the tooltip is presented
-                                                                TO-DO: add ng-click and ng-class to toggle active class
+                            <!--	
+                                    TO DO: add signedUp variable that shows true if user is signedUp
                             -->
 
-                            <li>
-                                <div class="nav-link sign-up-button active" id="services-link"
-                                     ng-click="Header.login()"><span>כניסה</span>
+                            <li ng-hide="Header.signedUp">
+								
+<!--							ADDED: ng-class - when drop is true active class is added
+                                TO-DO: add to ng-click function: drop = !drop; 
+-->
+                                <div class="nav-link sign-up-button" id="services-link"
+                                     ng-click="Header.login()" ng-class="drop ? 'active' : ''"><span>כניסה</span>
 
                                     <div class="login-tooltip">
                                         <div class="login-container">
@@ -65,6 +69,8 @@
 
                                             <div class="signup-container">
                                                 <p class="signup-text">חדש בTalkme?</p>
+												
+                                    <!--		TO DO:	redirect the user to login state-->
                                                 <a href="" class="submit" ng-click="Header.signUp()">הרשמ/י</a>
                                             </div>
 
@@ -73,8 +79,11 @@
                                 </div>
                             </li>
 
-                            <!--after registration-->
-                            <!--								<li><a class="nav-link profile" href=""><img class="profile-image" src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200"><p class="profile-name">Elad</p></a></li>-->
+                            <!--TO DO: ng-show when user is signedUp + add ng-src profile picture and username -->
+                            <li ng-show="Header.signedUp">
+								<a  class="nav-link profile" href=""><img class="profile-image" ng-src="">
+								<p class="profile-name">{{ username }}</p></a>
+							</li>
                         </ul>
                     </nav>
                 </div>
@@ -82,5 +91,4 @@
             </nav>
         </div>
     </div>
-</div>
 </div>

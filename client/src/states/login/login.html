@@ -26,7 +26,12 @@
                 class="iconsocial"><span class="primary-text">המשך עם פייסבוק</span></button>
         <p class="or">או</p>
 
-		<div ng-show="signup === false">
+		
+		
+<!--		TO DO: add signupForm = false to conroller -->
+		
+		
+		<div ng-show="signupForm === false">
         <form ng-submit="login.login()" id="login-form">
 		
             <input type="email" placeholder='דוא"ל' name="email" id="email" class="email login" ng-model="email" required="required"/>
@@ -37,10 +42,10 @@
 			
         </form>
 		<a href="" class="reset-pass" ng-click="login.resetPassword()">שכחת ססמא? לחץ כאן</a>
-		<a href="" class="reset-pass" ng-click="signup = !signup">בחזרה להרשמה</a>	
+		<a href="" class="reset-pass" ng-click="signupForm = !signupForm">בחזרה להרשמה</a>	
 		</div>
 		
-		<div ng-show="signup === true">
+		<div ng-show="signupForm === true">
 
         <form ng-submit="login.signUp()" id="signup-form">
             <input type="email" placeholder='הזן דוא"ל' name="email" id="SignUpEmail" class="email warning" ng-model="email"
@@ -50,7 +55,7 @@
                    required="required"/> <br/>
             <input type="submit" id="SignUpSubmit" class="submit" value="הרשמה"/>
         </form>
-		<a href="" class="reset-pass" ng-click="signup = !signup">יש לך משתמש? הכנס כאן</a>	
+		<a href="" class="reset-pass" ng-click="signupForm = !signupForm">יש לך משתמש? הכנס כאן</a>	
 		</div>
 
     

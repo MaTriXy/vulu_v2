@@ -55,10 +55,9 @@
                                 <div class="w-row">
 
                                     <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
-
-                                        <img class="owner-img"
-                                             src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200">
-
+                                        <!-- TO DO: add owner image in ng-src      -->
+                                        <img class="owner-img" ng-src="">
+										
                                         <div class="flex-box">
                                             <h2 class="question-title"> {{hit.question.message}}</h2>
                                         </div>
@@ -67,12 +66,15 @@
                                                 <svg class="icon icon-comments">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>
-                                                <p>35</p>
+												
+												 <!-- TO DO: add comments number expression here     -->
+                                                <p>{{ hit.question.commentsNumber }}</p>
                                             </div>
                                             <div class="upvote-button">
                                                 <div class="triangle-button"><span class="triangle triangle-up"></span>
                                                 </div>
-                                                <p>5</p>
+											 <!-- TO DO: add upvotes number expression here     -->
+                                                <p>{{ hit.question.upvotesNumber }}</p>
                                             </div>
                                         </div>
 
