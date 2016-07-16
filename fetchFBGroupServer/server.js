@@ -12,6 +12,9 @@ var fbGroup = require('./api/facebook/group');
 
 var accessToken;
 
+var __dirname = '../client/dist';
+app.use(express.static(__dirname + '/index.html'))
+
 // db.url is different depending on NODE_ENV
 //require('mongoose').connect(config.db.url);
 

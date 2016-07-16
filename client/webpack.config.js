@@ -1,5 +1,7 @@
 'use strict';
 
+console.log("ran");
+
 var webpack = require('webpack');
 var path    = require('path');
 var fse     = require('fs-extra');
