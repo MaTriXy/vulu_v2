@@ -1,36 +1,28 @@
-
 export class TalkFSController {
 
-  /* @ngInject */
-  constructor($localStorage, $scope ,SearchModel) {
+    /* @ngInject */
+    constructor($localStorage, $scope, SearchModel, $stateParams) {
 
-    this.$localStorage  = $localStorage;
-    this.$scope = $scope;
-    this.SearchModel = SearchModel;
-    this.searchresult = {};
+        this.$localStorage = $localStorage;
+        this.$scope = $scope;
+        this.SearchModel = SearchModel;
+        this.$stateParams = $stateParams;
+
+        this.objectID = this.$stateParams.objectID;
+        this.fsResult = {};
 
 
-    /*this.$scope.$watchCollection(
-     () => this.searchresult,
-     (newVal) => {
-     if (!_.isEmpty(newVal)) {
+        this.SearchModel.getById(this.objectID).
+        then((searchFsresult_data)=>{
+                this.fsResult = searchFsresult_data;
+                this.$localStorage.fsResult = searchFsresult_data;
+                console.log(searchFsresult_data);
+                return searchFsresult_data;
+            },(err)=>{
+                console.log(err);
+            });
+    }
 
-     }
-     }
-     );*/
 
-  }
-
-  /**
-   *
-   * @returns {*}
-   */
-  getSearchResult(query) {
-    const model = query;
-    this.SearchModel.get(model).then(searchresult_data => {
-      this.searchresult = searchresult_data;
-      return searchresult_data ;
-    });
-  }
 }
 

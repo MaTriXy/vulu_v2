@@ -42,6 +42,7 @@ let modules = [
 angular.module('startapp.db', modules);
 
 // Bootstrap in strictDI mode
+//todo ran fix strictDI isssue
 angular.bootstrap(document, ['startapp.db'], {
-  strictDi: true
+  strictDi: false
 });

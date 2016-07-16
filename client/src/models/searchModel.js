@@ -28,10 +28,10 @@ export class SearchModel {
         this.client = this.algolia.Client('2K1ULUZLUW', '16f42d05d731eaf17e018a0442ff1fb2');
         this.index = this.client.initIndex('group');
 
-        // Paths
 
 
         this.searchResult = {};
+        this.fsResult = {};
     }
 
 
@@ -68,6 +68,15 @@ export class SearchModel {
             });
     }
 
+    getById(objectId) {
+        return this.index.getObject(objectId).
+            then((content, err) => {
+                const searchFsresult_data = content;
+                angular.copy(content, this.fsResult);
+                return searchFsresult_data;
+            });
+    }
+
 
     userScoreRort(content){
         content.hits.sort(function (a, b) {
@@ -82,6 +91,10 @@ export class SearchModel {
         });
 
         return content;
+    }
+
+    getIndex(objectId){
+        debugger;
     }
 
 

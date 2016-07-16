@@ -5,7 +5,7 @@ import template       from './talkFactSheet.html';
 function fsRoutes($stateProvider) {
   $stateProvider
     .state('home.talkFS', {
-      url: '/talkFS',
+      url: '/talkFS/:objectID',
       template: template,
       controller: 'TalkFSController',
       controllerAs: 'talkFS'

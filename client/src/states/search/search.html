@@ -2,7 +2,8 @@
 <div class="main-pages">
 <main class="w-container main-section">
     <header
-            on-search="Search.getSearchResult(query)">
+            on-search="Search.getSearchResult(query)"
+            query="Search.query">
     </header>
 
 <!--
@@ -56,17 +57,17 @@
                             <div class="question-box">
                                 <div class="w-row">
 
-                                    <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" >
-                                        <!-- TO DO: add owner image in ng-src      -->
-                                        <img class="owner-img" ng-src="">
+                                    <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" ng-click="Search.go2FS(hit)">
+                                        <!-- TODO ran: add owner image in ng-src  / check if we have it at the API    -->
+                                        <img class="owner-img" ng-src="Search.searchresult.">
 										
                                         <div class="flex-box">
-                                            <h2 class="question-title" ui-sref="home.talkFS"> {{hit.question.message}}</h2>
+                                            <h2 class="question-title"> {{hit.question.message}}</h2>
                                         </div>
                                         <div class="flex-height">
 											
                     
-                                            <div class="comments-button" ui-sref="home.talkFS">
+                                            <div class="comments-button">
                                                 <svg class="icon icon-comments">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>
