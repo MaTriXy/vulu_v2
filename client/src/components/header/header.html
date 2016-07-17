@@ -32,10 +32,7 @@
                             -->
 
                             <li ng-hide="Header.signedUp">
-								
-<!--							ADDED: ng-class - when drop is true active class is added
-                                TO-DO: add to ng-click function: drop = !drop; 
--->
+
                                 <div class="nav-link sign-up-button" id="services-link"
                                      ng-click="drop = !drop" ng-class="drop ? 'active' : ''"><span>כניסה</span>
 								</div>
@@ -71,7 +68,7 @@
                                                 <p class="signup-text">חדש בTalkme?</p>
 												
                                     <!--		TO DO:	redirect the user to login state-->
-                                                <a href="" class="submit" ng-click="Header.signUp()">הרשמ/י</a>
+                                                <a href="#/login" class="submit" >הרשמ/י</a>
                                             </div>
 
                                         </div>

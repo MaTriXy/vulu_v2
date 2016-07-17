@@ -2,11 +2,14 @@
 <div class="main-pages">
     <!--
         TO Do: why we need the header also here - maybe form here we need only to go back to the search screen
+        Answer: This is part of the dashboard which contains two pages (1) seach.html (2) talkFactSheet.html 
+        similar to quora navigation you can search on the main page and also on anwers pages.
     -->
 
-    <!--	    <header
-                on-search="Search.getSearchResult(query)">
-        </header>-->
+       <header
+            on-search="Search.getSearchResult(query)"
+            query="Search.query">
+    </header>
     <main class="w-container main-section">
 
         <section class="inside-question-container">
@@ -41,13 +44,13 @@
                                     </svg>
 
                                     <!--					TO DO: add comments number here -->
-                                    <p>{{talkFS.fsResult.answers.length}}</p>
+                                    <p>{{talkFS.fsResult.answers.length ? talkFS.fsResult.answers.length : '0'}}</p>
                                 </div>
                                 <div class="upvote-button big">
                                     <div class="triangle-button big"><span class="triangle triangle-up"></span></div>
 
                                     <!--					TO DO: add upvotes number here -->
-                                    <p>{{talkFS.fsResult.question.rating}}</p>
+                                    <p>{{talkFS.fsResult.question.rating ? talkFS.fsResult.question.rating : '0'}}</p>
                                 </div>
                             </div>
 
@@ -127,10 +130,12 @@
 <!--
                                                 todo think if we can have a person title - ממיסדי /vp product...
 -->
+<!--
                                                 <div class="owner-stats">
                                                     <span class="dashline"></span>
                                                     <span class="owner-mantra"></span>
                                                 </div>
+-->
 
                                             </div>
                                         </div>
@@ -146,7 +151,7 @@
                                                         class="triangle triangle-up small"></span></div>
 
                                                 <!--					TO DO: add upvote number -->
-                                                <p>{{answer.like_count}}</p>
+                                                <p>{{answer.like_count ? answer.like_count : 'אהבתי'}}</p>
                                             </div>
                                             <div class="comments-button small">
                                                 <svg class="icon icon-comments small">
@@ -237,6 +242,12 @@
 
                             <!--			end of answers ng-repeat-->
 
+							<p class="unsigned-message">רק משתמשים רשומים יכולים להגיב על שאלות <br>
+								<a href="">הרשמו כדי להגיב</a>
+							
+							</p>	
+							
+							
                         </div>
 
 

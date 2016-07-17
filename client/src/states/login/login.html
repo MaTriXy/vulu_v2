@@ -1,5 +1,5 @@
 <div class="login-page">
-<div id="login-modal"><a href="" class="close login">
+<div id="login-modal"><a href="#/search" class="close login">
     <svg class="icon icon-close">
         <use xlink:href="#icon-close"></use>
     </svg>
@@ -28,34 +28,32 @@
 
 		
 		
-<!--		TO DO: add signupForm = false to conroller -->
-		
 		
 		<div ng-show="signupForm === false">
         <form ng-submit="login.login()" id="login-form">
 		
-            <input type="email" placeholder='דוא"ל' name="email" id="email" class="email login" ng-model="email" required="required"/>
+            <input type="email" placeholder='דוא"ל' name="email" id="email" class="email login" ng-class="warning ? 'warning' : ''" ng-model="email" required="required"/>
             <br/>
-            <input type="password" placeholder="ססמא" name="password" id="pass" class="pass login" ng-model="password"
+            <input type="password" placeholder="ססמא" name="password" id="pass" class="pass login" ng-class="warning ? 'warning' : ''" ng-model="password"
                    required="required"/> <br/>
             <input type="submit" id="submit" class="submit login" value="כניסה"/>
 			
         </form>
 		<a href="" class="reset-pass" ng-click="login.resetPassword()">שכחת ססמא? לחץ כאן</a>
-		<a href="" class="reset-pass" ng-click="signupForm = !signupForm">בחזרה להרשמה</a>	
+		<a href="" class="reset-pass" ng-click="signupForm = true">בחזרה להרשמה</a>	
 		</div>
 		
-		<div ng-show="signupForm === true">
+		<div ng-hide="signupForm === false">
 
         <form ng-submit="login.signUp()" id="signup-form">
-            <input type="email" placeholder='הזן דוא"ל' name="email" id="SignUpEmail" class="email warning" ng-model="email"
+            <input type="email" placeholder='הזן דוא"ל' name="email" id="SignUpEmail" class="email" ng-class="warning ? 'warning' : ''" ng-model="email"
                    required="required"/>
             <br/>
-            <input type="password" placeholder="ססמא" name="password" id="SignUpPass" class="pass" ng-model="password"
+            <input type="password" placeholder="ססמא" name="password" id="SignUpPass" class="pass" ng-class="warning ? 'warning' : ''" ng-model="password"
                    required="required"/> <br/>
             <input type="submit" id="SignUpSubmit" class="submit" value="הרשמה"/>
         </form>
-		<a href="" class="reset-pass" ng-click="signupForm = !signupForm">יש לך משתמש? הכנס כאן</a>	
+		<a href="" class="reset-pass" ng-click="signupForm = false">יש לך משתמש? הכנס כאן</a>	
 		</div>
 
     

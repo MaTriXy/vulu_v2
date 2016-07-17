@@ -57,17 +57,17 @@
                             <div class="question-box">
                                 <div class="w-row">
 
-                                    <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" ng-click="Search.go2FS(hit)">
+                                    <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" >
                                         <!-- TODO ran: add owner image in ng-src  / check if we have it at the API    -->
                                         <img class="owner-img" ng-src="Search.searchresult.">
 										
                                         <div class="flex-box">
-                                            <h2 class="question-title"> {{hit.question.message}}</h2>
+                                            <h2 class="question-title" ng-click="Search.go2FS(hit)"> {{hit.question.message}}</h2>
                                         </div>
                                         <div class="flex-height">
 											
                     
-                                            <div class="comments-button">
+                                            <div class="comments-button" ng-click="Search.go2FS(hit)">
                                                 <svg class="icon icon-comments">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>

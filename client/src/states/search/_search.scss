@@ -82,6 +82,9 @@
   height: auto;
   float: right;
 }
+	.answers{
+	    min-height: 400px;		
+	}
 
 .icon-calendar {
   width: 24px;
@@ -309,7 +312,7 @@
 .question-title {
   color: #333;
   line-height: 26px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   cursor: pointer;
   max-width: 800px;
   &.standalone {
@@ -338,12 +341,13 @@
 
 .comments-button {
   border: 1px solid #C4C4C4;
-  right: 140px;
+  right: 135px;
+    max-width: 58px;	
 }
 
 .upvote-button {
   border: 1px solid #48ACF1;
-  right: 75px;
+  right: 70px;
 }
 
 .comments-button.big {
@@ -531,7 +535,7 @@ upvote-button.small p {
   border-bottom: 1px solid #f1f1f1;
   width: 100%;
   margin-bottom: 8px;
-  max-width: 715px;
+  max-width: 720px;
 }
 
 .answer-owner-container {
@@ -589,6 +593,7 @@ span {
   line-height: 26px;
   cursor: pointer;
   max-width: 800px;
+  cursor:auto;	
 }
 
 .answer-date {
@@ -643,8 +648,9 @@ span {
   border: 1px solid;
   border-color: #E5E6E9 #DFE0E4 #D0D1D5;
   width: 100%;
-  max-width: calc(100% - 54px);
+  max-width: calc(100% - 60px);
   margin-left: 0;
+	border-radius: 5px;
 }
 
 .round-profile.feed.comment {
@@ -943,6 +949,8 @@ span {
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
   font-weight: 400;
+    border-radius: 3px;	
+	
 }
 
 #upload-section {

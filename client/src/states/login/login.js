@@ -7,9 +7,12 @@ export class LoginController {
         this.$scope = $scope;
         this.Auth = Auth;
         this.$state = $state;
+		this.signupForm = true;
+		this.warning = false;
     }
 
-
+   
+	
     login() {
         let credentials = {};
         credentials.email = this.$scope.email;
@@ -40,7 +43,7 @@ export class LoginController {
                 this.$state.go('home.search');
             },(reason)=>{
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
-
+                this.warning = true;
             });
     };
 
@@ -53,6 +56,7 @@ export class LoginController {
                 this.$state.go('home.search');
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+			     this.warning = true;
             });
 
     }
