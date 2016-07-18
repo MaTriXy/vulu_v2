@@ -10,7 +10,7 @@ class HeaderController {
         this.$state = $state;
         this.SearchModel = SearchModel;
         this.$location = $location;
-
+        this.fullscreenSearch = false;
     }
 
     search() {
@@ -35,6 +35,14 @@ class HeaderController {
     }
 
 ;
+	
+	gofullScreen() {
+		this.fullscreenSearch = true;
+	};
+	
+	closeFullScreen() {
+		this.fullscreenSearch = false;	
+	}
 
     signUp() {
         let credentials = {};

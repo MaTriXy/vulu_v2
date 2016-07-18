@@ -315,12 +315,13 @@
   margin-bottom: 8px;
   cursor: pointer;
   max-width: 800px;
+    word-wrap: break-word;	
   &.standalone {
     color: #fff;
     line-height: 28px;
     font-size: 22px;
     margin-top: 7px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
   }
 }
 
@@ -593,7 +594,8 @@ span {
   line-height: 26px;
   cursor: pointer;
   max-width: 800px;
-  cursor:auto;	
+  cursor:auto;
+  word-wrap: break-word;	
 }
 
 .answer-date {
