@@ -1,8 +1,12 @@
+import {auto }           from 'algoliasearch'
+
+
 export class SearchController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, SearchModel, $location, $stateParams , $state) {
+    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state) {
 
+        this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
         this.$scope = $scope;
         this.$location = $location;
@@ -43,6 +47,11 @@ export class SearchController {
     }
 
     go2FS(hit) {
-        this.$state.go('home.talkFS', {objectID :hit.objectID});
+        this.$state.go('home.talkFS', {objectID: hit.objectID});
     }
+
+    ngBindHtml(hit) {
+        return hit._highlightResult.question.message.value;
+    }
+
 }

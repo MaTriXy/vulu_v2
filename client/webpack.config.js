@@ -43,8 +43,9 @@ var config = {
       'moment/moment',
       'lodash',
       'algoliasearch',
-      'algoliasearch-helper'
-
+      'algoliasearch-helper',
+      'autocomplete.js',
+      'angular-sanitize'
     ]
   },
 

@@ -1,6 +1,8 @@
 // Vendor libraries:
 import 'expose?jQuery!expose?$!jquery/dist/jquery.min';
 import 'expose?algoliasearch!expose?$!algoliasearch/dist/algoliasearch.angular.min';
+import 'expose?autolinker!expose?$!autolinker/dist/autolinker.min';
+
 //import 'npm-font-open-sans';
 
 // Application assets:
@@ -15,6 +17,9 @@ import uiRouter                 from 'angular-ui-router';
 import ngCurrency               from 'ng-currency';
 import ngStorage                from 'ngStorage';
 import ngTranslate              from 'angular-translate';
+import ngSanitize               from 'angular-sanitize';
+
+
 
 
 
@@ -36,7 +41,8 @@ let modules = [
   siManagers.name,
   siComponents.name,
   siHome.name,
-  'algoliasearch'
+  'algoliasearch',
+  ngSanitize
 ];
 
 angular.module('startapp.db', modules);

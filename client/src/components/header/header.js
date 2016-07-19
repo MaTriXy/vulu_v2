@@ -3,7 +3,7 @@ import template from './header.html';
 class HeaderController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, Auth, $state, SearchModel, $location) {
+    constructor($localStorage, $scope, Auth, $state, SearchModel, $location ,algolia , $timeout) {
         this.$localStorage = $localStorage;
         this.$scope = $scope;
         this.Auth = Auth;
@@ -11,11 +11,33 @@ class HeaderController {
         this.SearchModel = SearchModel;
         this.$location = $location;
         this.fullscreenSearch = false;
+        this.algolia = algolia;
+        this.$timeout = $timeout;
+
+        /*this.client = this.algolia.Client('2K1ULUZLUW', '16f42d05d731eaf17e018a0442ff1fb2');
+        this.index = this.client.initIndex('group');
+
+        autocomplete('#search-input', { hint: false }, [
+            {
+                source: autocomplete.sources.hits(this.index, { hitsPerPage: 5 }),
+                displayKey: 'question',
+                templates: {
+                    suggestion: function(suggestion) {
+                        return suggestion._highlightResult.question.message.value;
+                    }
+                }
+            }
+        ]).on('autocomplete:selected', function(event, suggestion, dataset) {
+            console.log(suggestion, dataset);
+        })*/;
+
     }
 
     search() {
-        this.$location.search({query: this.query});
-        this.onSearch({query: this.query});
+        this.$timeout(()=> {
+            this.$location.search({query: this.query});
+            this.onSearch({query: this.query});
+        }, 0);
     }
 
     login() {
@@ -34,10 +56,10 @@ class HeaderController {
             });
     }
 
-;
-	
+
+
 	gofullScreen() {
-		this.fullscreenSearch = true;
+		this.fullscreenSearch = false;
 	};
 	
 	closeFullScreen() {
@@ -144,12 +166,8 @@ export function header() {
         controller: HeaderController,
         controllerAs: 'Header',
         link: (scope, elem, attr, ctrl) => {
-
             angular.element(document.querySelector('#search-input')).on('keypress', (e)=> {
-                var code = (e.keyCode ? e.keyCode : e.which);
-                if (code == 13) { //Enter keycode
-                    ctrl.search();
-                }
+                ctrl.search();
             });
         }
 

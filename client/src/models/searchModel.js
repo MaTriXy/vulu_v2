@@ -21,7 +21,8 @@ export class SearchModel {
             "highlightPostTag": "</em>",
             "hitsPerPage": 10,
             "facetFilters": [],
-            "maxValuesPerFacet": 100
+            "maxValuesPerFacet": 100,
+            "typoTolerance" : false
         };
 
 
