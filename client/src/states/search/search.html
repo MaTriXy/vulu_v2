@@ -62,7 +62,7 @@
                                         <img class="owner-img" ng-src="Search.searchresult.">
 										
                                         <div class="flex-box">
-                                            <h2 class="question-title" ng-click="Search.go2FS(hit)" ng-bind-html="hit._highlightResult.question.message.value"></h2>
+                                            <h2 class="question-title" ng-click="Search.go2FS(hit)" ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
                                         </div>
                                         <div class="flex-height">
 											

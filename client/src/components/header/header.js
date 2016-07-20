@@ -59,7 +59,7 @@ class HeaderController {
 
 
 	gofullScreen() {
-		this.fullscreenSearch = false;
+		this.fullscreenSearch = true;
 	};
 	
 	closeFullScreen() {

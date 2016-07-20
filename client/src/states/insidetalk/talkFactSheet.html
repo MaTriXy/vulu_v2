@@ -34,7 +34,7 @@
                             <div class="flex-box">
 
                                 <!--					TO DO: add quoestion title here -->
-                                <h2 class="question-title standalone"> {{talkFS.fsResult.question.message}}
+                                <h2 class="question-title standalone" ng-bind-html="talkFS.fsResult.question.message | linkyWithHtml">
                                 </h2>
                             </div>
                             <div class="flex-height big">
@@ -142,7 +142,7 @@
                                         <div class="answer-text-box">
 
                                             <!--					TO DO: add comment title -->
-                                            <p class="answer-title">{{answer.message}}</p>
+                                            <p class="answer-title" ng-bind-html="answer.message | linkyWithHtml"></p>
 
                                         </div>
                                         <div class="flex-height answer">
@@ -243,7 +243,7 @@
                             <!--			end of answers ng-repeat-->
 
 							<p class="unsigned-message">רק משתמשים רשומים יכולים להגיב על שאלות <br>
-								<a href="">הרשמו כדי להגיב</a>
+								<a href="#/login">הרשמו כדי להגיב</a>
 							
 							</p>	
 							
