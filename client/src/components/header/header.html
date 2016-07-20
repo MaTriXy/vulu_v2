@@ -21,7 +21,15 @@
 						</svg>
 						</div>
 						<div ng-class="Header.fullscreenSearch ? 'fullScreen-container' : ''">
-                        <input id="search-input" ng-click="Header.gofullScreen()" class="w-input" placeholder="חפש שאלה" type="text" ng-model="Header.query" ng-class="Header.fullscreenSearch ? 'bigSearch' : ''">
+<!--todo fix css , please notice tags-input has css file at _setting.scss
+                            <tags-input ng-model="tags" id="search-input" ng-click="Header.gofullScreen()"
+                                        class="w-input" placeholder="חפש שאלה" type="text" ng-model="Header.query"
+                                        ng-class="Header.fullscreenSearch ? 'bigSearch' : ''"></tags-input>-->
+
+
+                            <tags-input ng-model="tags"></tags-input>
+
+                            <input id="search-input" ng-click="Header.gofullScreen()" class="w-input" placeholder="חפש שאלה" type="text" ng-model="Header.query" ng-class="Header.fullscreenSearch ? 'bigSearch' : ''">
                         <button id="search-button" ng-click="Header.search()" ng-class="Header.fullscreenSearch ? 'bigSearchButton' : ''">
                             <svg class="icon icon-search" ng-class="Header.fullscreenSearch ? 'big' : ''">
                                 <use xlink:href="#icon-search"></use>
@@ -34,13 +42,13 @@
 								<li></li>
 								</ul>
 								<div class="w-col w-col-4 w-col-small-4 w-col-tiny-12 w-col-big-mobile-6 column">
-								
+
 								</div>
-							
-								
+
+
 							 </div>
 						  </div>
-							
+
 						</section>
 						</div>
                     </div>
@@ -77,7 +85,7 @@
                                                     <input type="password" placeholder="ססמא" name="password" id="pass"
                                                            class="pass login" ng-model="password"
                                                            required="required"/> <br/>
-                                                    <input type="submit" id="submit" class="submit login" 
+                                                    <input type="submit" id="submit" class="submit login"
                                                            value="כניסה"/>
 
                                                 </form>
@@ -88,14 +96,14 @@
 
                                             <div class="signup-container">
                                                 <p class="signup-text">חדש בTalkme?</p>
-												
+
                                     <!--		TO DO:	redirect the user to login state-->
                                                 <a href="#/login" class="submit" >הרשמ/י</a>
                                             </div>
 
                                         </div>
                                     </div>
-                                
+
                             </li>
 
                             <!--TO DO: ng-show when user is signedUp + add ng-src profile picture and username -->

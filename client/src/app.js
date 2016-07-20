@@ -2,6 +2,7 @@
 import 'expose?jQuery!expose?$!jquery/dist/jquery.min';
 import 'expose?algoliasearch!expose?$!algoliasearch/dist/algoliasearch.angular.min';
 import 'expose?autolinker!expose?$!autolinker/dist/autolinker.min';
+import 'expose?ng-tags-input!expose?$!ng-tags-input/build/ng-tags-input.min';
 
 //import 'npm-font-open-sans';
 
@@ -18,9 +19,6 @@ import ngCurrency               from 'ng-currency';
 import ngStorage                from 'ngStorage';
 import ngTranslate              from 'angular-translate';
 import ngSanitize               from 'angular-sanitize';
-
-
-
 
 
 // Application modules:
@@ -42,7 +40,8 @@ let modules = [
   siComponents.name,
   siHome.name,
   'algoliasearch',
-  ngSanitize
+  ngSanitize,
+  'ngTagsInput'
 ];
 
 angular.module('startapp.db', modules);
