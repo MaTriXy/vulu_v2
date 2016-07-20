@@ -1,19 +1,61 @@
+//3th party
 var express = require('express');
 var app = express();
-var api = require('./api/api');
+
+var prompt = require('prompt');
+var FB = require('fb');
+var search = require('./api/algosearch/algoliasearch');
+var fbGroup = require('./api/facebook/group')(app, {"getGroup" : true , "setDB" : true});
+var deferred = require('deferred');
+
+//local
+//var api = require('./api/api');
 var config = require('./config/config');
 var logger = require('./util/logger');
-var auth = require('./auth/routes');
-var FB = require('fb');
+//var auth = require('./auth/routes');
 
-var search = require('./api/algosearch/algoliasearch');
-var fbGroup = require('./api/facebook/group');
+
+
+/*
+//
+// Start the prompt
+//
+prompt.start();
+
+//
+// Get two properties from the user: username and email
+//
+prompt.get(['getGroup', 'SetSearch'], function (err, result) {
+    //
+    // Log the results.
+    //
+    console.log('Command-line input received:');
+    console.log('  username: ' + result.username);
+    console.log('  email: ' + result.email);
+
+});
+*/
+
+var getGroup = "yes";
+var setSearch = "No";
+
+
+//fbGroup.initFB(getGroup , setSearch);
+
+
+
+
+
+//var search = require('./api/algosearch/algoliasearch');
+//var fbGroup = require('./api/facebook/group');
 
 
 var accessToken;
 
-var __dirname = '../client/dist';
-app.use(express.static(__dirname + '/index.html'))
+
+
+
+
 
 // db.url is different depending on NODE_ENV
 //require('mongoose').connect(config.db.url);

@@ -1,3 +1,5 @@
+//every run we create new firebase DB.
+
 var firebase = require('firebase');
 var events = require("events");
 var EventEmitter = require("events").EventEmitter;
@@ -6,6 +8,7 @@ var Q = require('q');
 var token;
 var currentJSONDB;
 var firebaseSetPromise;
+var dbName = 'group' + new Date().getDay() + new Date().getMilliseconds();
 
 initFirebase();
 
@@ -25,19 +28,22 @@ function initFirebase() {
 }
 
 function save2db(data) {
-    firebaseSetPromise = firebase.database().ref('group' + new Date().getDay() + new Date().getMilliseconds()).set({
+    var deferred = Q.defer();
+
+    firebase.database().ref('group' + new Date().getDay() + new Date().getMilliseconds()).set({
         "db": data
     });
+    return deferred.promise;
 }
 
-function getDbJson(db) {
+function getDbJson() {
     /*    firebase.database().ref(db).on('value', function(snapshot) {
      currentJSONDB = snapshot.val();
      return currentJSONDB;
      });*/
     var deferred = Q.defer();
 
-    firebase.database().ref(db).once('value').then(function (snapshot) {
+    firebase.database().ref(dbName).once('value').then(function (snapshot) {
         var dbObject = snapshot.val();
         ee.emit("reteriveDBobject");
         deferred.resolve(dbObject);
