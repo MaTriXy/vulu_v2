@@ -123,6 +123,7 @@ module.exports = function(app, param) {
         QuestionObj.personName = obj.from.name;
         QuestionObj.message = obj.message || " ";
         QuestionObj.url = obj.actions[0].link;
+        QuestionObj.personId = obj.from.id;
         saveFBProfileImage("http://graph.facebook.com/" + obj.from.id + "/picture?type=small" , obj.from.id);
         return QuestionObj;
     }

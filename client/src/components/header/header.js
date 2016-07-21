@@ -3,7 +3,7 @@ import template from './header.html';
 class HeaderController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, Auth, $state, SearchModel, $location ,algolia , $timeout) {
+    constructor($localStorage, $scope, Auth, $state, SearchModel, $location, algolia, $timeout) {
         this.$localStorage = $localStorage;
         this.$scope = $scope;
         this.Auth = Auth;
@@ -15,21 +15,42 @@ class HeaderController {
         this.$timeout = $timeout;
 
         /*this.client = this.algolia.Client('2K1ULUZLUW', '16f42d05d731eaf17e018a0442ff1fb2');
-        this.index = this.client.initIndex('group');
+         this.index = this.client.initIndex('group');
 
-        autocomplete('#search-input', { hint: false }, [
-            {
-                source: autocomplete.sources.hits(this.index, { hitsPerPage: 5 }),
-                displayKey: 'question',
-                templates: {
-                    suggestion: function(suggestion) {
-                        return suggestion._highlightResult.question.message.value;
-                    }
+         autocomplete('#search-input', { hint: false }, [
+         {
+         source: autocomplete.sources.hits(this.index, { hitsPerPage: 5 }),
+         displayKey: 'question',
+         templates: {
+         suggestion: function(suggestion) {
+         return suggestion._highlightResult.question.message.value;
+         }
+         }
+         }
+         ]).on('autocomplete:selected', function(event, suggestion, dataset) {
+         console.log(suggestion, dataset);
+         })*/
+        ;
+
+        this.$scope.$watchCollection(
+            () => this.tags,
+            (newVal) => {
+                if (!_.isEmpty(newVal)) {
+                    var searchSTR = "";
+                    newVal.forEach((ele, index, array)=> {
+                        searchSTR += ele.text;
+                        if (array.length-1 != index){
+                            searchSTR += ' ';
+                        }
+                    })
                 }
+                if (searchSTR){
+                    this.query = searchSTR;
+                    this.search();
+                }
+
             }
-        ]).on('autocomplete:selected', function(event, suggestion, dataset) {
-            console.log(suggestion, dataset);
-        })*/;
+        );
 
     }
 
@@ -57,14 +78,15 @@ class HeaderController {
     }
 
 
+    gofullScreen() {
+        this.fullscreenSearch = true;
+    }
 
-	gofullScreen() {
-		this.fullscreenSearch = true;
-	};
-	
-	closeFullScreen() {
-		this.fullscreenSearch = false;	
-	}
+;
+
+    closeFullScreen() {
+        this.fullscreenSearch = false;
+    }
 
     signUp() {
         let credentials = {};
@@ -167,7 +189,7 @@ export function header() {
         controllerAs: 'Header',
         link: (scope, elem, attr, ctrl) => {
             angular.element(document.querySelector('#search-input')).on('keypress', (e)=> {
-                ctrl.search();
+                //ctrl.search();
             });
         }
 

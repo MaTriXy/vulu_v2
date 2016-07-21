@@ -19,7 +19,7 @@ export class SearchModel {
             "attributesToRetrieve": "*",
             "highlightPreTag": "<em>",
             "highlightPostTag": "</em>",
-            "hitsPerPage": 10,
+            "hitsPerPage": 20,
             "facetFilters": [],
             "maxValuesPerFacet": 100,
             "typoTolerance" : false
