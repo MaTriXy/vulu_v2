@@ -1,7 +1,17 @@
 
 .main-pages {
   /*---------- Sections and Containers -----------*/
+    display: block;
+	
+	.search-body{
+    margin: 0;
+    background-color: #fafafa;
 
+    position: relative;
+    display: block;
+	}	
+	
+	
   em{
   font-style: normal;
   font-weight: bold;
@@ -12,9 +22,9 @@
     width: 100%;
     margin: 0px auto;
     display: block;
-    position: absolute;
-    top: 50px;
-    background: #fefeff;
+    position: relative;
+    margin-top: 50px;
+    background: transparent;
     min-height: 100%;
     left: 0;
     right: 0;
@@ -39,6 +49,7 @@
     height: auto;
     position: relative;
     padding: 35px 0px;
+	    min-height: calc(100vh - 50px);
   }
 
   /*----- ask question --------*/
@@ -64,8 +75,15 @@
     display: block;
     height: auto;
     float: right;
+	background: #fefeff; 
+	 padding: 15px 0 0;  
   }
-
+	.questions-group{
+	      border: 1px solid #f2f2f2; 	
+	}
+	
+	
+	
   .questions-header, .categories-header, .answers-header {
     font-size: 17px;
     font-weight: 400;
@@ -75,8 +93,14 @@
     color: #a49f99;
     padding: 0px 0px 7px;
     position: relative;
+	 
   }
+	.questions-header{
+		margin: 0 20px;
+	}
 
+	
+	
   .questions, .answers {
     position: relative;
     padding: 0px 0px 15px;
@@ -117,7 +141,7 @@
     display: block;
     transition: all linear 0.15s;
     position: relative;
-    padding: 20px 0px 20px 10px;
+    padding: 20px 20px 20px 40px;
     &:hover {
       background: #fafafa;
     }
@@ -223,7 +247,7 @@
     border-radius: 50%;
     background: #ccc;
     float: right;
-    border: 1px solid rgba(107, 108, 108, 0.39);
+    border: 1px solid rgba(107, 108, 108, 0.25);
     background-color: #F2F2F2;
     margin-left: 15px;
   }

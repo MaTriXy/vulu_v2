@@ -217,21 +217,22 @@ tags-input .tags .input {
 		box-shadow: none;
 	}	
 	tags-input .tags .tag-item {
-    margin: 3.5px 0px 3px 5px;
+     margin: 1.5px 0px 1.5px 5px;
     padding: 0 5px;
     display: inline-block;
     float: right;
-    font: 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
-    height: 26px;
-    line-height: 25px;
+    font: 15px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 30px;
+    line-height: 28px;
     border: 1px solid #acacac;
     border-radius: 3px;
-	color: #fff;
-    background: -webkit-linear-gradient(top,#48ACF1 0,#44a3e4 47%,#44a3e4 100%);
-    background: linear-gradient(to bottom,#48ACF1 0,#44a3e4 47%,#44a3e4 100%);
+    color: #fff;
+    background: -webkit-linear-gradient(top, #48ACF1 0, #44a3e4 47%, #44a3e4 100%);
+    background: linear-gradient(to bottom, #48ACF1 0, #44a3e4 47%, #44a3e4 100%);
 }
 	tags-input .tags .tag-item .remove-button{
 	color: #fff;	
+	font: 700 18px Arial,sans-serif;	
 	}	
 	
 	

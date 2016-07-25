@@ -114,7 +114,7 @@
                             <!--					NG-REPEAT: repeat all comments on this quesion -->
 
 
-                            <div class="answer-box" ng-repeat="answer in talkFS.fsResult.answers">
+                     <div class="answer-box" ng-repeat="answer in talkFS.fsResult.answers | orderBy: '-like_count'">
                                 <div class="w-row">
 
                                     <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">

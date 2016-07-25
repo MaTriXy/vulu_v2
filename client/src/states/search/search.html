@@ -1,5 +1,6 @@
 <!--	  main    -->
-<div class="main-pages">
+<div class="main-pages ">
+<div class="search-body">
 <main class="w-container main-section">
     <header
             on-search="Search.getSearchResult(query)"
@@ -41,7 +42,7 @@
             <div class="w-col w-col-10 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
 
 
-                <h1 ng-repeat="hit in Search.searchresult.hits">
+               
 					
 			   <!-- TO DO: add groupBy filter to ng-repeat      -->		
                     <div class="questions-group">
@@ -51,10 +52,10 @@
                             </svg>
                             <p class="calendar-number"></p>
 
-                            <h1 class="questions-date">{{hit.question.date}}</h1>
+                            <h1 class="questions-date">הפופלאריים ביותר</h1>
                         </div>
                         <div class="questions">
-                            <div class="question-box">
+                            <div class="question-box"  ng-repeat="hit in Search.searchresult.hits | orderBy: '-date'">
                                 <div class="w-row">
 
                                     <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" >
@@ -98,7 +99,7 @@
 
                     </div>
 
-                </h1>
+            
 
 
 
@@ -107,6 +108,7 @@
     </section>
 
 </main>
+</div>		
 </div>
 
 <!--
