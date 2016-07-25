@@ -25,10 +25,10 @@
                             <div class="owner-container">
 
                                 <!--					TO DO: add question owner image and username here-->
-                                <img class="owner-img standalone-question" ng-src="{{ UserImg }}">
+                                <img class="owner-img standalone-question" ng-src="https://graph.facebook.com/{{talkFS.fsResult.question.personId}}/picture + ?width=200&height=200">
 
                                 <div class="flex-box">
-                                    <p class="owner-name standalone-question">{{ UserName }}</p>
+                                    <p class="owner-name standalone-question">{{ talkFS.fsResult.question.personName }}</p>
                                 </div>
                             </div>
                             <div class="flex-box">
@@ -68,7 +68,7 @@
 
                                 <!--					TO DO: add currentUser image -->
                                 <img class="owner-img small"
-                                     ng-src="https://graph.facebook.com/" + talkFS.fsResult.question.personId  + "/picture + ?width=200&height=200"
+                                     ng-src="https://graph.facebook.com/{{talkFS.fsResult.question.personId}}/picture + ?width=200&height=200"
                                      alt="profile-image"></div>
                         </div>
                         <div class="comment-section">
@@ -122,7 +122,7 @@
 
                                             <!--					TO DO: add comment owner image and username here (option to have also a smal bio) -->
                                             <img class="owner-img small"
-                                                 src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200">
+                                                 src="https://graph.facebook.com/{{answer.from.id}}/picture?width=200&height=200">
 
                                             <div class="owner-wrap">
                                                 <p class="owner-name small">{{answer.from.name}}</p>
