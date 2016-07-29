@@ -8,7 +8,7 @@ var Q = require('q');
 var token;
 var currentJSONDB;
 var firebaseSetPromise;
-var dbName = 'group' + new Date().getDay() + new Date().getMilliseconds();
+var dbName = 'groupFinal' + new Date().getDay() + new Date().getMilliseconds();
 
 initFirebase();
 
@@ -30,7 +30,7 @@ function initFirebase() {
 function save2db(data) {
     var deferred = Q.defer();
 
-    firebase.database().ref('group' + new Date().getDay() + new Date().getMilliseconds()).set({
+    firebase.database().ref('group111' + new Date().getDay() + new Date().getMilliseconds()).set({
         "db": data
     });
     return deferred.promise;

@@ -23,8 +23,8 @@
                                                                     ng-class="Header.fullscreenSearch ? 'bigSearch' : ''"></tags-input>-->
 
 
-                            <tags-input id="search-input" placeholder="חפש" type="text" ng-model="Header.tags"
-                                        min-length="2" max-length="10" pasteSplitPattern=";"></tags-input>
+                            <tags-input id="search-input" placeholder="חפש באנגלית או בעברית לפי Tags" type="text" ng-model="Header.tags"
+                                        min-length="2" max-length="15"add-on-space="true" add-on-comma="false"></tags-input>
 
                             <!--                            <input  ng-click="Header.gofullScreen()" class="w-input" placeholder="חפש שאלה" type="text" ng-model="Header.query" ng-class="Header.fullscreenSearch ? 'bigSearch' : ''" >-->
                             <button id="search-button" ng-click="Header.search()">

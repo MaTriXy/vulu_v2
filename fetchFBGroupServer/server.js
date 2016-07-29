@@ -2,10 +2,9 @@
 var express = require('express');
 var app = express();
 
-var prompt = require('prompt');
 var FB = require('fb');
 var search = require('./api/algosearch/algoliasearch');
-var fbGroup = require('./api/facebook/group')(app, {"getGroup" : true , "setDB" : true});
+var fbGroup = require('./api/facebook/group')(app, {"getGroup" : true , "setDB" : false});
 var deferred = require('deferred');
 
 //local

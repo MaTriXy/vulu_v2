@@ -21,12 +21,14 @@ export class LoginController {
             .then((result)=> {
                 //success
                 // The signed-in user info.
-                this.Auth.setToken(result.refreshToken);
-                this.Auth.setUserId(result.uid);
-                this.$state.go('home.search');
+                //this.Auth.setToken(result.refreshToken);
+                //this.Auth.setUserId(result.uid);
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
-
+                this.loginErrorMessage = {
+                    "errorCode" : reason.code,
+                    "errorMessage" : reason.message
+                }
             });
     };
 
@@ -38,12 +40,16 @@ export class LoginController {
             .then((result)=>{
                 //success
                 // The signed-in user info.
-                this.Auth.setToken(result.refreshToken);
-                this.Auth.setUserId(result.uid);
-                this.$state.go('home.search');
+                //this.Auth.setToken(result.refreshToken);
+                //this.Auth.setUserId(result.uid);
+                this.currentUser = this.Auth.getAuthData();
             },(reason)=>{
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
                 this.warning = true;
+                this.signUpErrorMessage = {
+                    "errorCode" : reason.code,
+                    "errorMessage" : reason.message
+                }
             });
     };
 
@@ -51,12 +57,16 @@ export class LoginController {
         this.Auth.fbLogin()
             .then((value)=>{
                 //success
-                this.Auth.setToken(result.refreshToken);
-                this.Auth.setUserId(result.uid);
-                this.$state.go('home.search');
+                //this.Auth.setToken(result.refreshToken);
+                //this.Auth.setUserId(result.uid);
+                this.currentUser = this.Auth.getAuthData();
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
 			     this.warning = true;
+                this.signUpErrorMessage = {
+                    "errorCode" : reason.code,
+                    "errorMessage" : reason.message
+                }
             });
 
     }
@@ -65,11 +75,15 @@ export class LoginController {
         this.Auth.resetPassword(this.$scope.email)
             .then((value)=> {
                 //success
-                debugger;
+                this.currentUser = this.Auth.getAuthData();
                 this.$state.go('home.login');
                 //todo ran - raise modal
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+                this.resetPasswordErrorMessage = {
+                    "errorCode" : reason.code,
+                    "errorMessage" : reason.message
+                }
             });
     }
 

@@ -16,11 +16,7 @@ export class TalkFSController {
         this.SearchModel.getById(this.objectID).
         then((searchFsresult_data)=>{
                 this.fsResult = searchFsresult_data;
-                //todo ran - change onece i modify the data with personID
-/*                this.picUrl = "https://graph.facebook.com/" + this.fsResult.question.personId  + "/picture?width=200&height=200"
-                alt="profile-image";*/
 
-                this.picUrl =
                 this.$localStorage.fsResult = searchFsresult_data;
                 console.log(searchFsresult_data);
                 return searchFsresult_data;
@@ -28,6 +24,14 @@ export class TalkFSController {
                 console.log(err);
             });
     }
+
+    getPicId(){
+        //return picture id randomly
+        return Math.random() * (30 - 1) + 1;
+    }
+
+
+
 
 
 }

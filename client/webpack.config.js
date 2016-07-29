@@ -45,7 +45,8 @@ var config = {
       'algoliasearch',
       'algoliasearch-helper',
       'autocomplete.js',
-      'angular-sanitize'
+      'angular-sanitize',
+      'angular-filter'
     ]
   },
 

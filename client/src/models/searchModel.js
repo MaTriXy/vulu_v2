@@ -22,7 +22,8 @@ export class SearchModel {
             "hitsPerPage": 20,
             "facetFilters": [],
             "maxValuesPerFacet": 100,
-            "typoTolerance" : false
+            "typoTolerance" : false,
+            "queryType" : "prefixAll"
         };
 
 

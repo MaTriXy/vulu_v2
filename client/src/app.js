@@ -3,6 +3,9 @@ import 'expose?jQuery!expose?$!jquery/dist/jquery.min';
 import 'expose?algoliasearch!expose?$!algoliasearch/dist/algoliasearch.angular.min';
 import 'expose?autolinker!expose?$!autolinker/dist/autolinker.min';
 import 'expose?ng-tags-input!expose?$!ng-tags-input/build/ng-tags-input.min';
+import 'expose?angular-filter!expose?$!angular-filter/dist/angular-filter.min';
+import 'expose?ng-text-truncate!expose?$!ng-text-truncate/ng-text-truncate';
+
 
 //import 'npm-font-open-sans';
 
@@ -19,6 +22,7 @@ import ngCurrency               from 'ng-currency';
 import ngStorage                from 'ngStorage';
 import ngTranslate              from 'angular-translate';
 import ngSanitize               from 'angular-sanitize';
+import ngFilter                 from 'angular-filter'
 
 
 // Application modules:
@@ -29,19 +33,21 @@ import siHome          from 'states/home.module';
 import siManagers      from 'managers/managers.module';
 
 let modules = [
-  ngAnimate,
-  uiRouter,
-  ngCurrency,
-  ngTranslate,
-  ngStorage.name,
-  siCommon.name,
-  siModels.name,
-  siManagers.name,
-  siComponents.name,
-  siHome.name,
-  'algoliasearch',
-  ngSanitize,
-  'ngTagsInput'
+    ngAnimate,
+    uiRouter,
+    ngCurrency,
+    ngTranslate,
+    ngStorage.name,
+    siCommon.name,
+    siModels.name,
+    siManagers.name,
+    siComponents.name,
+    siHome.name,
+    'algoliasearch',
+    ngSanitize,
+    'ngTagsInput',
+    'angular.filter',
+    'ngTextTruncate'
 ];
 
 angular.module('startapp.db', modules);
@@ -49,5 +55,5 @@ angular.module('startapp.db', modules);
 // Bootstrap in strictDI mode
 //todo ran fix strictDI isssue
 angular.bootstrap(document, ['startapp.db'], {
-  strictDi: false
+    strictDi: false
 });

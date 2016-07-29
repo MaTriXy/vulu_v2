@@ -16,6 +16,8 @@ export class SearchController {
         this.SearchModel = SearchModel;
         this.searchresult = {};
         this.query = $location.search().query;
+        this.$location.search({query: ""});
+
 
         if (this.query) {
             this.getSearchResult(this.query);
@@ -39,7 +41,10 @@ export class SearchController {
      */
     getSearchResult(query) {
         const model = query;
+        this.$location.search({query: query});
+
         this.SearchModel.get(model).then(searchresult_data => {
+            //searchresult_data = this.modifyResult(searchresult_data);
             this.searchresult = searchresult_data;
             this.$localStorage.searchresult = searchresult_data;
             return searchresult_data;
@@ -52,6 +57,17 @@ export class SearchController {
 
     ngBindHtml(hit) {
         return hit._highlightResult.question.message.value;
+    }
+
+    modifyResult(searchresult_data) {
+        searchresult_data.hits.forEach((element, index, array)=>{
+            //if _highlighted result length is greater than X we will modify it and and leave only part of the
+            if (element._highlightResult.question.message.value.length > 100){
+                element._highlightResult.question.message.modifyValue = element._highlightResult.question.message.value;
+                element._highlightResult.question.message.originalValue = element._highlightResult.question.message.value;
+
+            }
+        })
     }
 
 }

@@ -1,114 +1,128 @@
 <!--	  main    -->
 <div class="main-pages ">
-<div class="search-body">
-<main class="w-container main-section">
-    <header
-            on-search="Search.getSearchResult(query)"
-            query="Search.query">
-    </header>
+    <div class="search-body">
+        <main class="w-container main-section">
+            <header
+                    on-search="Search.getSearchResult(query)"
+                    query="Search.query">
+            </header>
+
+            <!--
+                <section class="ask-question-container">
+                    <form ng-submit="Search.getSearchResult(query)">
+                        <div class="w-row">
+                            <div class="w-col w-col-7 w-col-small-7 w-col-tiny-12 w-col-big-mobile-12 column">
+                                <input id="question-input" class="w-input" placeholder="מה השאלה שלך?" type="text" ng-model="query">
+                            </div>
+                            <div class="w-col w-col-3 w-col-small-3 w-col-tiny-12 w-col-big-mobile-12 column">
+                                <input id="tags-input" class="w-input" placeholder="הוסף מילות מפתח" type="text">
+                            </div>
+                            <div class="w-col w-col-2 w-col-small-2 w-col-tiny-12 w-col-big-mobile-12 column">
+                                <input id="submit-button" class="button" type="submit" value="שלח">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            -->
+
+            <section class="w-container questions-container">
+                <div class="w-row">
+                    <div class="w-col w-col-2 w-col-small-0 w-col-tiny-0 w-col-big-mobile-0 column categories-container">
+                        <div class="categories-header">
+                            <h1 class="categories-title">הנושאים החמים</h1>
+                        </div>
+                        <ul class="categories-list">
+                            <li ng-click="Search.getSearchResult('משקיעים')" class="flex-box"><a href="">משקיעים</a></li>
+                        </ul>
+
+
+                    </div>
+                    <div class="w-col w-col-10 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
+
+
+                        <!-- TO DO: add groupBy filter to ng-repeat      -->
+                        <div class="questions-group">
+                            <div class="questions-header">
+                                <svg class="icon icon-calendar">
+                                    <use xlink:href="#icon-calendar"></use>
+                                </svg>
+                                <p class="calendar-number"></p>
+
+                                <h1 class="questions-date">הפופלאריים ביותר</h1>
+                            </div>
+                            <div class="questions">
+                                <div class="question-box"
+                                     ng-repeat="hit in Search.searchresult.hits |orderBy: '-date'">
+                                    <div class="w-row">
+
+                                        <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
+                                            <!-- TODO ran: add owner image in ng-src  / check if we have it at the API    -->
+
+                                            <img class="owner-img" ng-src="Search.searchresult.">
+
+                                            <div class="flex-box">
+                                                <h2 class="question-title" ng-click="Search.go2FS(hit)"
+                                                    ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
+                                            </div>
 
 <!--
-    <section class="ask-question-container">
-        <form ng-submit="Search.getSearchResult(query)">
-            <div class="w-row">
-                <div class="w-col w-col-7 w-col-small-7 w-col-tiny-12 w-col-big-mobile-12 column">
-                    <input id="question-input" class="w-input" placeholder="מה השאלה שלך?" type="text" ng-model="query">
-                </div>
-                <div class="w-col w-col-3 w-col-small-3 w-col-tiny-12 w-col-big-mobile-12 column">
-                    <input id="tags-input" class="w-input" placeholder="הוסף מילות מפתח" type="text">
-                </div>
-                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-12 w-col-big-mobile-12 column">
-                    <input id="submit-button" class="button" type="submit" value="שלח">
-                </div>
-            </div>
-        </form>
-    </section>
+                                            <div class="flex-box">
+                                                <h2 ng-text-truncate="hit._highlightResult.question.message.value"
+                                                    ng-tt-chars-threshold="40" class="question-title" ng-click="Search.go2FS(hit)"
+                                                    ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
+                                            </div>
 -->
 
-    <section class="w-container questions-container">
-        <div class="w-row">
-            <div class="w-col w-col-2 w-col-small-0 w-col-tiny-0 w-col-big-mobile-0 column categories-container">
-                <div class="categories-header">
-                    <h1 class="categories-title">הנושאים החמים</h1>
-                </div>
-                <ul class="categories-list">
-                    <li class="flex-box"><a href="">משקיעים</a></li>
+                                            <div class="flex-height">
 
 
-                </ul>
-
-
-            </div>
-            <div class="w-col w-col-10 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
-
-
-               
-					
-			   <!-- TO DO: add groupBy filter to ng-repeat      -->		
-                    <div class="questions-group">
-                        <div class="questions-header">
-                            <svg class="icon icon-calendar">
-                                <use xlink:href="#icon-calendar"></use>
-                            </svg>
-                            <p class="calendar-number"></p>
-
-                            <h1 class="questions-date">הפופלאריים ביותר</h1>
-                        </div>
-                        <div class="questions">
-                            <div class="question-box"  ng-repeat="hit in Search.searchresult.hits | orderBy: '-date'">
-                                <div class="w-row">
-
-                                    <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column" >
-                                        <!-- TODO ran: add owner image in ng-src  / check if we have it at the API    -->
-										
-                                        <img class="owner-img" ng-src="Search.searchresult.">
-										
-                                        <div class="flex-box">
-                                            <h2 class="question-title" ng-click="Search.go2FS(hit)" ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
-                                        </div>
-                                        <div class="flex-height">
-											
-                    
-                                            <div class="comments-button" ng-click="Search.go2FS(hit)">
-                                                <svg class="icon icon-comments">
-                                                    <use xlink:href="#icon-comments"></use>
-                                                </svg>
-                                                <p>{{hit.answers.length ? hit.answers.length : 'הגב' }}</p>
-                                            </div>
-											
-											
-								 <!-- TO DO: add ng-click upvote function      -->			
-                                            <div class="upvote-button">
-                                                <div class="triangle-button"><span class="triangle triangle-up"></span>
+                                                <div class="comments-button" ng-click="Search.go2FS(hit)">
+                                                    <svg class="icon icon-comments">
+                                                        <use xlink:href="#icon-comments"></use>
+                                                    </svg>
+                                                    <p>{{hit.answers.length ? hit.answers.length : 'הגב' }}</p>
                                                 </div>
-											
-                                                <p>{{hit.question.rating ? hit.question.rating : '0' }}</p>
-                                            </div>
-                                        </div>
 
+
+                                                <!-- TO DO: add ng-click upvote function      -->
+                                                <div class="upvote-button">
+                                                    <div class="triangle-button"><span
+                                                            class="triangle triangle-up"></span>
+                                                    </div>
+
+                                                    <p>{{hit.question.rating ? hit.question.rating : '0' }}</p>
+                                                </div>
+                                            </div>
+
+
+                                            <!--
+                                                todo: Elad if we have hit.link add capture, picture , name of the link
+                                                                             hit.link.link
+
+                                                                             hit.link.name
+
+                                                                             hit.link.picture
+
+                                                                             hit.link.caption -->
+
+                                        </div>
 
                                     </div>
-
                                 </div>
+
+
                             </div>
 
-                        
 
                         </div>
 
 
                     </div>
+                </div>
+            </section>
 
-            
-
-
-
-            </div>
-        </div>
-    </section>
-
-</main>
-</div>		
+        </main>
+    </div>
 </div>
 
 <!--

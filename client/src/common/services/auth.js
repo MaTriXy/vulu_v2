@@ -19,6 +19,16 @@ export class Auth {
         this.auth.signInWithEmailAndPassword(credentials.email, credentials.password)
             .then((value)=> {
                 //success
+                var currentUser = {
+                    "imageUrl" : value.photoURL,
+                    "email" : value.email,
+                    "displayName" :value.displayName,
+                    "providerData" : value.providerData[0],
+                    "token" : value.uid,
+                    "refreshToken" : value.refreshToken
+                };
+
+                this.setUser(currentUser);
                 deferred.resolve(value);
             }, (reason)=> {
                 let failureMessage = "auto error : errorCode " + reason.code + "errorMessage: " + reason.message;
@@ -45,14 +55,23 @@ export class Auth {
         // The user is redirected to the provider's sign in flow...
         ////////////////////////////////////////////////////////////
         // Then redirected back to the app, where we check the redirect result:
-        this.auth.getRedirectResult().then(function (result) {
+        this.auth.getRedirectResult().then((result) => {
             // The firebase.User instance:
             var user = result.user;
             // The Facebook firebase.auth.AuthCredential containing the Facebook
             // access token:
             var credential = result.credential;
-            deferred.resolve(value);
-        }, function (error) {
+            var currentUser = {
+                "imageUrl" : result.user.photoURL,
+                "email" : result.user.email,
+                "displayName" :result.user.displayName,
+                "credential" : credential,
+                "token" : credential.accessToken
+            };
+
+            this.setUser(currentUser);
+            deferred.resolve(result);
+        },  (error)=> {
             // The provider's account email, can be used in case of
             // auth/account-exists-with-different-credential to fetch the providers
             // linked to the email:
@@ -74,20 +93,6 @@ export class Auth {
         });
 
         return deferred.promise;
-
-        //option 2
-        /* var provider = new firebase.auth.FacebookAuthProvider();
-         provider.addScope('email');
-
-         firebase.auth().signInWithPopup(provider)
-         .then((value)=> {
-         //success
-         deferred.resolve(value);
-         }, (reason)=> {
-         let failureMessage = "auto error : errorCode " + reason.code + "errorMessage: " + reason.message;
-         deferred.reject(failureMessage);
-
-         });*/
     }
 
     signUp(credentials) {
@@ -100,6 +105,16 @@ export class Auth {
         this.auth.createUserWithEmailAndPassword(credentials.email, credentials.password)
             .then((value)=> {
                 //success
+                var currentUser = {
+                    "imageUrl" : value.photoURL,
+                    "email" : value.email,
+                    "displayName" :value.displayName,
+                    "providerData" : value.providerData[0],
+                    "token" : value.uid,
+                    "refreshToken" : value.refreshToken
+                };
+
+                this.setUser(currentUser);
                 deferred.resolve(value);
             }, (reason)=> {
                 let failureMessage = "auto error : errorCode " + reason.code + "errorMessage: " + reason.message;
@@ -150,13 +165,11 @@ export class Auth {
     setToken(token) {
         this.$sessionStorage.authData = this.$sessionStorage.authData || {};
         this.$sessionStorage.authData.Token = token;
-        this._authData = this.$sessionStorage.authData;
     }
 
-    setUserId(id) {
-        this.$sessionStorage.authData = this.$sessionStorage.authData || {};
-        this.$sessionStorage.authData.UserID = id;
-        this._authData = this.$sessionStorage.authData;
+    setUser(currentUser) {
+        this.$sessionStorage.currentUser = currentUser|| {};
+        this._authData = currentUser;
     }
 
     getAuthData() {

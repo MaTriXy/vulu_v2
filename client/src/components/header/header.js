@@ -13,45 +13,42 @@ class HeaderController {
         this.fullscreenSearch = false;
         this.algolia = algolia;
         this.$timeout = $timeout;
+        this.currentUser = $localStorage.currentUser;
+        this.tags = this.updateTags($location.search().query);
 
-        /*this.client = this.algolia.Client('2K1ULUZLUW', '16f42d05d731eaf17e018a0442ff1fb2');
-         this.index = this.client.initIndex('group');
-
-         autocomplete('#search-input', { hint: false }, [
-         {
-         source: autocomplete.sources.hits(this.index, { hitsPerPage: 5 }),
-         displayKey: 'question',
-         templates: {
-         suggestion: function(suggestion) {
-         return suggestion._highlightResult.question.message.value;
-         }
-         }
-         }
-         ]).on('autocomplete:selected', function(event, suggestion, dataset) {
-         console.log(suggestion, dataset);
-         })*/
-        ;
 
         this.$scope.$watchCollection(
             () => this.tags,
             (newVal) => {
-                if (!_.isEmpty(newVal)) {
-                    var searchSTR = "";
-                    newVal.forEach((ele, index, array)=> {
-                        searchSTR += ele.text;
-                        if (array.length-1 != index){
-                            searchSTR += ' ';
-                        }
-                    })
-                }
-                if (searchSTR){
-                    this.query = searchSTR;
-                    this.search();
-                }
-
+                this.updateTags(newVal);
             }
         );
 
+    }
+
+    updateTags(newVal) {
+        if (!_.isEmpty(newVal)) {
+            if (typeof newVal !== 'object') {
+                var arr = newVal.match(/[^\s-]+-?/g);
+                arr.forEach((ele, index, array)=> {
+                    arr[index] = {
+                        "text" : ele
+                    }
+                })
+                newVal = arr;
+            }
+            var searchSTR = "";
+            newVal.forEach((ele, index, array)=> {
+                searchSTR += ele.text;
+                if (array.length - 1 != index) {
+                    searchSTR += ' ';
+                }
+            })
+        }
+        if (searchSTR) {
+            this.query = searchSTR;
+            this.search();
+        }
     }
 
     search() {
@@ -69,8 +66,10 @@ class HeaderController {
             .then((result)=> {
                 //success
                 // The signed-in user info.
-                this.Auth.setToken(result.refreshToken);
-                this.Auth.setUserId(result.uid);
+                //this.Auth.setToken(result.refreshToken);
+                //this.Auth.setUserId(result.uid);
+                this.currentUser = this.Auth.getAuthData();
+
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
 
@@ -96,8 +95,10 @@ class HeaderController {
             .then((result)=> {
                 //success
                 // The signed-in user info.
-                this.Auth.setToken(result.refreshToken);
-                this.Auth.setUserId(result.uid);
+                //this.Auth.setToken(result.refreshToken);
+                //this.Auth.setUserId(result.uid);
+                this.currentUser = Auth.getAuthData();
+
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
 
@@ -110,8 +111,11 @@ class HeaderController {
         this.Auth.fbLogin()
             .then((value)=> {
                 //success
-                this.Auth.setToken(result.refreshToken);
-                this.Auth.setUserId(result.uid);
+                //this.Auth.setToken(result.refreshToken);
+                //this.Auth.setUserId(result.uid);
+                this.currentUser = this.Auth.getAuthData();
+                alert(this.currentUser + "this.currentUser ");
+                debugger;
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
             });

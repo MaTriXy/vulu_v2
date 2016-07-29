@@ -1,7 +1,7 @@
-module.exports = function(app, param) {
+module.exports = function (app, param) {
     //setting
     var groupId = '434228236734415';
-    var getNumberOfInstances = 2400;
+    var getNumberOfInstances = 4000;
 
     var fs = require('fs'),
         request = require('request');
@@ -12,10 +12,11 @@ module.exports = function(app, param) {
     var question = {};
     var http = require("http");
     var https = require("https");
+    var _ = require('lodash');
     var likesList = [];
     var AnswerList = [];
     var PostListArray = [];
-    var PostList= [];
+    var PostList = [];
     var db = [];
     var dbArray = [];
     var fbCommnetsPaginationAmount = 25;
@@ -28,7 +29,7 @@ module.exports = function(app, param) {
 
     initFB();
 
-    function initFB(getGroup , setSearch) {
+    function initFB(getGroup, setSearch) {
         FB.api('oauth/access_token', {
             client_id: '501986036514690',
             client_secret: 'c0bd162a2462b06b0f144806a69eb19c',
@@ -43,7 +44,7 @@ module.exports = function(app, param) {
 
 
             //only get
-            if (param.getGroup){
+            if (param.getGroup) {
                 getGroupPost(groupId);
             }
         });
@@ -60,7 +61,7 @@ module.exports = function(app, param) {
             getAllGroupPost(response);
             db = parseGroup(PostList);
             firebase_api.save2db(db);
-            if(param.setDB){
+            if (param.setDB) {
                 algoliaSearch.updateIndex(db);
             }
 
@@ -82,7 +83,7 @@ module.exports = function(app, param) {
         if (groupObj.paging && !groupObj.paging.next) {
             return PostList;
         }
-        else if(groupObj.paging) {
+        else if (groupObj.paging) {
             //more than getNumberOfInstances
             //+ groupObj.paging.next = not !groupObj.paging.next
             var next = groupObj.paging.next;
@@ -90,7 +91,7 @@ module.exports = function(app, param) {
                 url: next,
                 async: false
             }).done(function (response) {
-                 getAllGroupPost(response);
+                getAllGroupPost(response);
             }).fail(function (xhr) {
                 console.log(!xhr ? 'error occurred' : xhr.error);
             });
@@ -106,13 +107,50 @@ module.exports = function(app, param) {
             console.log(key);
             dbObj = {};
             obj = response[key];
-            dbObj["question"] = parseQuestions(obj);
-            dbObj["answers"] = obj.comments ? parseAnswers(obj.comments) : null;
 
-            dbArray.push(dbObj);
+            //remove unwanted questions - like to big questions
+            if (checkValidQuestion(obj)) {
+                dbObj["question"] = parseQuestions(obj);
+                dbObj["answers"] = obj.comments ? parseAnswers(obj.comments) : null;
+
+                dbArray.push(dbObj);
+            }
+
         }
         return dbArray;
     }
+
+
+    function checkValidQuestion(obj) {
+        //remove unwanted questions - like to big questions + questions from specifc pepole
+
+        var fromNameSTR = obj.from.name;
+        var objMessageLength = 0;
+
+        if (obj.message){
+            objMessageLength = obj.message.length || 0 ;
+            if (obj.message.includes("שאלו אותי הכל")){
+                return  false;
+            }
+
+
+        }
+        fromNameSTR = fromNameSTR.toLowerCase();
+        fromNameSTR = fromNameSTR.replace(/\s+/g, '');
+
+
+        if ((fromNameSTR === 'eytanlevit') || (fromNameSTR === 'davidKatz')) {
+            console.log("obj.from.name" + fromNameSTR);
+            return false;
+        }
+
+        if(objMessageLength > 1500){
+            return false;
+        }
+
+        return true;
+    }
+
 
     function parseQuestions(obj) {
         var QuestionObj = {};
@@ -124,20 +162,38 @@ module.exports = function(app, param) {
         QuestionObj.message = obj.message || " ";
         QuestionObj.url = obj.actions[0].link;
         QuestionObj.personId = obj.from.id;
-        saveFBProfileImage("http://graph.facebook.com/" + obj.from.id + "/picture?type=small" , obj.from.id);
+        QuestionObj.obj = obj;
+        if (obj.type === "link") {
+            QuestionObj.link = {};
+            if (obj.link) {
+                QuestionObj.link.link = obj.link;
+            }
+            if (obj.name) {
+                QuestionObj.link.name = obj.name;
+            }
+            if (obj.picture) {
+                QuestionObj.link.picture = obj.picture;
+            }
+            if (obj.caption) {
+                QuestionObj.link.caption = obj.caption;
+            }
+        }
+
+
+        saveFBProfileImage("http://graph.facebook.com/" + obj.from.id + "/picture?type=small", obj.from.id);
         return QuestionObj;
     }
 
-    function saveFBProfileImage(uri, filename, callback){
-        var download = function(uri, filename, callback){
-            request.head(uri, function(err, res, body){
+    function saveFBProfileImage(uri, filename, callback) {
+        var download = function (uri, filename, callback) {
+            request.head(uri, function (err, res, body) {
                 console.log('content-type:', res.headers['content-type']);
                 console.log('content-length:', res.headers['content-length']);
                 request(uri).pipe(fs.createWriteStream('pic/' + filename + '.jpg')).on('close', callback);
             });
         };
 
-        download(uri, filename, function(){
+        download(uri, filename, function () {
             console.log('done');
         });
     }
@@ -211,8 +267,6 @@ module.exports = function(app, param) {
 
 
     }
-
-
 
 
 }
