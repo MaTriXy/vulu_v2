@@ -55,6 +55,8 @@ export class SearchController {
         this.$state.go('home.talkFS', {objectID: hit.objectID});
     }
 
+    
+	
     ngBindHtml(hit) {
         return hit._highlightResult.question.message.value;
     }

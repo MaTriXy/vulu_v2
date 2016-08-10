@@ -14,8 +14,9 @@
 	
   em{
   font-style: normal;
-  font-weight: bold;
-//  background-color: yellow;
+  font-weight: normal;
+  background-color: #44a3e4;
+  color: white;
   }
 
   .main-section {
@@ -113,7 +114,7 @@
     min-height: 400px;
   }
 
-  .icon-calendar {
+  .icon-calendar, .icon-popular {
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -343,6 +344,8 @@
     cursor: pointer;
     max-width: 800px;
     word-wrap: break-word;
+//    text-align: justify;
+//    text-justify: inter-word;	 	  
     &.standalone {
       color: #fff;
       line-height: 28px;
@@ -546,7 +549,7 @@
   }
 
   .question-header-box {
-    max-width: 690px;
+    max-width: 680px;
     margin: 0px auto;
     padding: 40px 10px 10px;
     position: relative;
@@ -629,6 +632,8 @@
     max-width: 800px;
     cursor: auto;
     word-wrap: break-word;
+//    text-align: justify;
+//    text-justify: inter-word;	  
   }
 
   .answer-date {
@@ -649,6 +654,10 @@
     opacity: 1;
   }
 
+  .answer-box:hover .answer-date {
+    opacity: 1;
+  }	
+	
   .answer-comments {
     margin-right: 54px;
   }

@@ -5,12 +5,15 @@
         Answer: This is part of the dashboard which contains two pages (1) seach.html (2) talkFactSheet.html 
         similar to quora navigation you can search on the main page and also on anwers pages.
     -->
-
-       <header
+	
+<!--	TODO: When on-search call a function that takes back to the search page and shows the results of the query. -->
+ <header
             on-search="Search.getSearchResult(query)"
             query="Search.query">
     </header>
+ 
     <main class="w-container main-section">
+     
 
         <section class="inside-question-container">
             <div class="w-row">
@@ -18,23 +21,34 @@
 
 
                     <!--					TO DO: create backgroundImgUrl variable to add a random image to every quesion-->
+					
                     <div class="inside-question-header"
-                         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .8)), url({{ backgroundImgUrl }});">
+                         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .8)), url(''); ">
+						
+<!--
+TODO: get the background urls from a specific directory on the server
+url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 
+-->
+						
                         <div class="question-header-box">
                             <div class="owner-container">
 
                                 <!--					TO DO: add question owner image and username here-->
-                                <img class="owner-img standalone-question" ng-src="https://graph.facebook.com/{{talkFS.fsResult.question.personId}}/picture + ?width=200&height=200">
-
+								
+								<a href="https://www.facebook.com/app_scoped_user_id/{{ talkFS.fsResult.question.obj.from.id}}" target="_blank">
+                                <img class="owner-img standalone-question" ng-src="https://graph.facebook.com/{{ talkFS.fsResult.question.obj.from.id}}/picture?width=200&height=200">
+								</a>
                                 <div class="flex-box">
+									<a href="https://www.facebook.com/app_scoped_user_id/{{ talkFS.fsResult.question.obj.from.id}}" target="_blank">
                                     <p class="owner-name standalone-question">{{ talkFS.fsResult.question.personName }}</p>
+									</a>
                                 </div>
                             </div>
                             <div class="flex-box">
 
                                 <!--					TO DO: add quoestion title here -->
-                                <h2 class="question-title standalone" ng-bind-html="talkFS.fsResult.question.message | linkyWithHtml">
+                                <h2 class="question-title standalone" dir="auto" ng-bind-html="talkFS.fsResult.question.message | linkyWithHtml">
                                 </h2>
                             </div>
                             <div class="flex-height big">
@@ -67,9 +81,7 @@
                             <div class="round-profile feed comment">
 
                                 <!--					TO DO: add currentUser image -->
-                                <img class="owner-img small"
-                                     ng-src="https://graph.facebook.com/{{talkFS.fsResult.question.personId}}/picture + ?width=200&height=200"
-                                     alt="profile-image"></div>
+                                <img class="owner-img small" src="" alt="user-image"></div>
                         </div>
                         <div class="comment-section">
                             <div class="arrow-left"></div>
@@ -121,15 +133,15 @@
                                         <div class="answer-owner-container">
 
                                             <!--					TO DO: add comment owner image and username here (option to have also a smal bio) -->
+											<a href="https://www.facebook.com/app_scoped_user_id/{{answer.from.id}}" target="_blank">
                                             <img class="owner-img small"
                                                  src="https://graph.facebook.com/{{answer.from.id}}/picture?width=200&height=200">
-
+											</a>
                                             <div class="owner-wrap">
+												<a href="https://www.facebook.com/app_scoped_user_id/{{answer.from.id}}" target="_blank">
                                                 <p class="owner-name small">{{answer.from.name}}</p>
+                                                </a>
 
-<!--
-                                                todo think if we can have a person title - ממיסדי /vp product...
--->
 <!--
                                                 <div class="owner-stats">
                                                     <span class="dashline"></span>
@@ -140,9 +152,9 @@
                                             </div>
                                         </div>
                                         <div class="answer-text-box">
-
+											
                                             <!--					TO DO: add comment title -->
-                                            <p class="answer-title" ng-bind-html="answer.message | linkyWithHtml"></p>
+                                            <p dir="auto" class="answer-title" ng-bind-html="answer.message | linkyWithHtml"></p>
 
                                         </div>
                                         <div class="flex-height answer">
@@ -164,7 +176,7 @@
                                             </div>
 
                                             <!--					TO DO: add comment upload date -->
-                                            <p class="answer-date">{{answer.like_count}} </p>
+                                            <p class="answer-date">{{answer.created_time | timeago}} </p>
                                         </div>
 
 

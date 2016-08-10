@@ -1,7 +1,7 @@
 export class TalkFSController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, SearchModel, $stateParams) {
+    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state) {
 
         this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
@@ -12,6 +12,7 @@ export class TalkFSController {
         this.objectID = this.$stateParams.objectID;
         this.fsResult = {};
 
+		
 
         this.SearchModel.getById(this.objectID).
         then((searchFsresult_data)=>{
@@ -25,9 +26,11 @@ export class TalkFSController {
             });
     }
 
+	
+	
     getPicId(){
         //return picture id randomly
-        return Math.random() * (30 - 1) + 1;
+        return Math.floor(Math.random() * 29) + 1;
     }
 
 

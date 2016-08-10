@@ -255,7 +255,7 @@
         position: relative;
         z-index: 1000;
         background-color: #fff;
-        box-shadow: rgba(0, 0, 0, 0.29) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.09) 0px 2px 9px -1px inset;
+            box-shadow: rgba(0, 0, 0, 0.29) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.09) 0px 2px 9px -1px inset;
         -webkit-transition: background-color 300ms ease;
         -webkit-transition: background-color 300ms ease, box-shadow 300ms ease;
         transition: background-color 300ms ease, box-shadow 300ms ease;
@@ -267,6 +267,7 @@
         display: block;
         margin-bottom: 5px;
         border-radius: 3px;
+	
     }
     .submit {
         display: block;
