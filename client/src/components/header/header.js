@@ -136,7 +136,7 @@ class HeaderController {
      * Check if user is already logged in based on the authData
      */
     isLoggedIn() {
-        return this.Auth.getAuthData();
+		 return this.Auth.getAuthData();
     }
 
     /**

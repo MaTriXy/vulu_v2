@@ -76,13 +76,14 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                 <div class="w-col w-col-9 w-col-small-9 w-col-tiny-12 w-col-big-mobile-12 column">
 
                     <!--					TO DO: add currentUser object: if currentUser exists show the comment box -->
-                    <div class="comment-box">
+                    <div class="comment-box" ng-if="talkFS.currentUser">
                         <div class="profile-comment-section">
                             <div class="round-profile feed comment">
 
                                 <!--					TO DO: add currentUser image -->
-                                <img class="owner-img small" src="" alt="user-image"></div>
+                                <img class="owner-img small" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'images/profile-monstr.png' }}" alt="user-image"></div>
                         </div>
+						<p class="comming-soon-comment">בקרוב תוכל/י להגיב על שאלות</p>
                         <div class="comment-section">
                             <div class="arrow-left"></div>
 
@@ -115,17 +116,16 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 
                         </div>
                     </div>
-
+	
                     <div class="answers-group">
                         <div class="answers-header">
                             <h1 class="answers-header-title">תגובות</h1>
                         </div>
                         <div class="answers">
 
-
+	
+							
                             <!--					NG-REPEAT: repeat all comments on this quesion -->
-
-
                      <div class="answer-box" ng-repeat="answer in talkFS.fsResult.answers | orderBy: '-like_count'">
                                 <div class="w-row">
 
@@ -254,11 +254,11 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 
                             <!--			end of answers ng-repeat-->
 
+					
 							<p class="unsigned-message">רק משתמשים רשומים יכולים להגיב על שאלות <br>
 								<a href="#/login">הרשמו כדי להגיב</a>
 							
 							</p>	
-							
 							
                         </div>
 
@@ -271,16 +271,38 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                         <h1 class="answers-header-title">קשורים</h1>
                     </div>
                     <ul class="categories-list">
-                        <li class="flex-box"><a href="">איך כדאי לחלק את האחוזים בין שותפים?</a></li>
-                        <li class="flex-box"><a href="">כמה אחוזים כדאי לתת לשותף טכנולוגי?</a></li>
-                        <li class="flex-box"><a href="">היי חברים!
-                            קרה לכם פעם שהכרתם מישהו/י נהדר/ת שמוכנ/ה לעזור עם קשרים אסטרטגיים ועזרה רלוונטית, ואתם ללא
-                            רווחים ולפני גיוס. מה הייתם מציעים לו/לה בתמורה?</a></li>
-                        <li class="flex-box"><a href="">איך כדאי לחלק את האחוזים בין שותפים</a></li>
-
-
+                        <li class="flex-box">
+							<a href="http://any-app.com/he/knowledge/improve-mobile-application-rating/" target="_blank">
+							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/08/16243065_ml.jpg" alt="כך תשפרו את דירוג האפליקציה שלכם">
+								<p class="links-title">כך תשפרו את דירוג האפליקציה שלכם</p>
+							
+							</a></li>
+                       <li class="flex-box">
+							<a href="http://any-app.com/he/knowledge/investors-money-cash-flow-management/" target="_blank">
+							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/06/investors.jpg" alt="ניהול תזרים מזומנים בסטארט-אפ או איך לא ליפול למלכודת דבש שנקראת כסף של משקיע">
+								<p class="links-title">ניהול תזרים מזומנים בסטארט-אפ או איך לא ליפול למלכודת דבש שנקראת "כסף של משקיע"</p>
+							
+							</a></li>
+						<li class="flex-box">
+							<a href="http://any-app.com/he/knowledge/mobile-applications-push-notifications-guide/">
+							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/07/push.jpg" alt="המדריך לשיווק אפליקציה באמצעות הודעות Push">
+								<p class="links-title">המדריך לשיווק אפליקציה באמצעות הודעות Push</p>
+							
+							</a></li>
+						<li class="flex-box">
+							<a href="http://any-app.com/he/knowledge/application-entrepreneur-glossary/">
+							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/03/1-1.jpg" alt="מילון המונחים ליזם האפליקציות">
+								<p class="links-title">מילון המונחים ליזם האפליקציות</p>
+							
+							</a></li>
+						<li class="flex-box">
+							<a href="http://any-app.com/he/knowledge/mobile-application-development-outsource-vs-team/">
+							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/04/office-620823_1280.jpg" alt="האם לפתח אפליקציה במיקור חוץ או להקים צוות פיתוח?">
+								<p class="links-title">האם לפתח אפליקציה במיקור חוץ או להקים צוות פיתוח?</p>
+							
+							</a></li>
                     </ul>
-
+<a href="http://any-app.com/he/knowledge/" target="_blank" class="links-title">באדיבות: יזם האפליקציות - מאגר הידע עבור יזמים ישראליים</a>
                 </div>
 
             </div>

@@ -8,7 +8,7 @@ export class TalkFSController {
         this.$scope = $scope;
         this.SearchModel = SearchModel;
         this.$stateParams = $stateParams;
-
+        this.currentUser = $localStorage.currentUser;
         this.objectID = this.$stateParams.objectID;
         this.fsResult = {};
 

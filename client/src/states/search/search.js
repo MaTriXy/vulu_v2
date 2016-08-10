@@ -12,7 +12,7 @@ export class SearchController {
         this.$location = $location;
         this.$stateParams = $stateParams;
         this.$state = $state;
-
+        this.closed = false;
         this.SearchModel = SearchModel;
         this.searchresult = {};
         this.query = $location.search().query;
@@ -55,7 +55,9 @@ export class SearchController {
         this.$state.go('home.talkFS', {objectID: hit.objectID});
     }
 
-    
+    closing(){
+		this.closed = true;
+	}
 	
     ngBindHtml(hit) {
         return hit._highlightResult.question.message.value;

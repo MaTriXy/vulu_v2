@@ -42,9 +42,27 @@
                 </section>
 
             -->
-           
+            
 					
     <section class="w-container questions-container">
+		<section class="welcome-box" ng-if="!currentUser" ng-class="Search.closed ? 'closed' : ''">
+		<span ng-click="Search.closing()" class="close welcome">
+			<svg class="icon icon-close">
+				<use xlink:href="#icon-close"></use>
+			</svg>
+	    </span>	
+		
+		<h1 class="welcome-title">ברוכים הבאים לTalkme</h1>	
+		<h1 class="welcome-subtitle">מנוע חיפוש על כל נושא בעולם הסטארטאפים</h1>
+			
+		<div class="icons">
+		<svg class="icon icon-icons"><use xlink:href="#icon-icons"></use></svg>
+		</div>	
+			
+		</section>
+		
+		
+		
         <div class="w-row">
             <div class="w-col w-col-2 w-col-small-0 w-col-tiny-0 w-col-big-mobile-0 column categories-container">
                 <div class="categories-header">
@@ -65,8 +83,12 @@
 
 
 
-                        <!-- TO DO: add groupBy filter to ng-repeat      -->
-                        <div class="questions-group">
+                        <!-- TO DO: add groupName: 'השבוע: שאלות ותשובות על סטארטאפים' to all of our current algolia records     -->
+						
+<!--						ng-repeat="(key, value) in Search.searchresult.hits | groupBy: 'groupName'"-->
+						
+						
+                        <div class="questions-group" > 
                             <div class="questions-header">
                                <svg class="icon icon-popular"><use xlink:href="#icon-popular"></use></svg>
                                 <p class="calendar-number"></p>
@@ -75,11 +97,14 @@
                             </div>
                             <div class="questions">
                                 <div class="question-box"
-                                     ng-repeat="hit in Search.searchresult.hits |orderBy: '-date'">
+                            ng-repeat="hit in Search.searchresult.hits |orderBy: '-date'">
                                     <div class="w-row">
 
                                         <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
                                            
+										
+											
+											
 									<!-- TODO ran: add owner image in ng-src  / check if we have it at the API    -->
 											<a href="https://www.facebook.com/app_scoped_user_id/{{hit.question.personId}}" target="_blank" title="{{hit.question.personName}}">
 <img class="owner-img" src="https://graph.facebook.com/{{hit.question.personId}}/picture?width=200&height=200">
