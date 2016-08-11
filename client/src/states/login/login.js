@@ -25,6 +25,7 @@ export class LoginController {
                 //this.Auth.setUserId(result.uid);
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+				this.warning = false;		
                 this.loginErrorMessage = {
                     "errorCode" : reason.code,
                     "errorMessage" : reason.message
@@ -87,4 +88,9 @@ export class LoginController {
             });
     }
 
+	disableWarning(){
+	this.warning = false;	
+	}
+	
+	
 }

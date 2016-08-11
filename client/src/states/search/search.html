@@ -98,6 +98,7 @@
                             <div class="questions">
                                 <div class="question-box"
                             ng-repeat="hit in Search.searchresult.hits |orderBy: '-date'">
+							<a class="question-link" ui-sref="home.talkFS({objectID: hit.objectID})">		
                                     <div class="w-row">
 
                                         <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
@@ -111,7 +112,7 @@
                    </a>
 						
                                             <div class="flex-box">
-                                                <h2  class="question-title" ng-click="Search.go2FS(hit)"
+                                                <h2  class="question-title" 
                                                     ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
                                             </div>
 
@@ -126,17 +127,17 @@
 
                                             <div class="flex-height">
 
-
-                                                <div class="comments-button" ng-click="Search.go2FS(hit)">
+<!--ng-click="Search.go2FS(hit)"-->
+                                                <a ui-sref="home.talkFS({objectID: hit.objectID})" class="comments-button" >
                                                     <svg class="icon icon-comments">
                                                         <use xlink:href="#icon-comments"></use>
                                                     </svg>
                                                     <p>{{hit.answers.length ? hit.answers.length : 'הגב' }}</p>
-                                                </div>
+                                                </a>
 
 
                                                 <!-- TO DO: add ng-click upvote function      -->
-                                                <div class="upvote-button">
+                                                <div class="upvote-button" ng-click="hit.question.rating = hit.question.rating + 1">
                                                     <div class="triangle-button"><span
                                                             class="triangle triangle-up"></span>
                                                     </div>
@@ -163,7 +164,7 @@
 
 
                             </div>
-
+									</a>
 
                         </div>
 

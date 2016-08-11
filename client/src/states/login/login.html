@@ -23,7 +23,7 @@ login.resetPasswordErrorMessage-->
 	<div ng-hide="signupForm === false">
     <h1 class="main-header login">הרשם כדי לשאול או להצביע לשאלות</h1>
 
-    <p class="main-body login"> Talkme היא קהילה של יזמים שבה ניתן להיפגש ולשתף ידע בכל מה שקשור לעולם הסטארטאפים.
+    <p class="main-body login"> Talkme הוא מנוע חיפוש ליזמים שבוא ניתן למצוא ולשתף ידע בכל מה שקשור לעולם הסטארטאפים.
         השירות אינו כרוך בתשלום.</p>
 
     <div class="form-container">
@@ -36,14 +36,15 @@ login.resetPasswordErrorMessage-->
 			
 
         <form ng-submit="login.signUp()" id="signup-form">
-            <input type="email" placeholder='הזן דוא"ל' name="email" id="SignUpEmail" class="email" ng-class="warning ? 'warning' : ''" ng-model="email"
+            <input type="email" placeholder='הזן דוא"ל' name="email" id="SignUpEmail" class="email" ng-class="login.warning ? 'warning' : ''" ng-model="email" ng-click="login.disableWarning()"
                    required="required"/>
             <br/>
-            <input type="password" placeholder="ססמא" name="password" id="SignUpPass" class="pass" ng-class="warning ? 'warning' : ''" ng-model="password"
+            <input type="password" placeholder="ססמא" name="password" id="SignUpPass" class="pass" ng-class="login.warning ? 'warning' : ''" ng-model="password" ng-click="login.disableWarning()"
                    required="required"/> <br/>
             <input type="submit" id="SignUpSubmit" class="submit" value="הרשמה"/>
         </form>
-		<a href="" class="reset-pass" ng-click="signupForm = false">יש לך משתמש? הכנס כאן</a>	
+		<a href="" class="reset-pass" ng-click="signupForm = false">יש לך משתמש? הכנס כאן</a>
+		<p ng-show="login.warning" class="reset-pass error">הייתה בעיה בהרשמה. אנא נסה שוב.</p>
 		</div>
     </div>
 	
@@ -62,15 +63,16 @@ login.resetPasswordErrorMessage-->
 	
         <form ng-submit="login.login()" id="login-form">
 		
-            <input type="email" placeholder='דוא"ל' name="email" id="email" class="email login" ng-class="warning ? 'warning' : ''" ng-model="email" required="required"/>
+            <input type="email" placeholder='דוא"ל' name="email" id="email" class="email login" ng-class="login.warning ? 'warning' : ''" ng-model="email" ng-click="login.disableWarning()" required="required"/>
             <br/>
-            <input type="password" placeholder="ססמא" name="password" id="pass" class="pass login" ng-class="warning ? 'warning' : ''" ng-model="password"
-                   required="required"/> <br/>
+            <input type="password" placeholder="ססמא" name="password" id="pass" class="pass login" ng-class="login.warning ? 'warning' : ''" ng-model="password"
+                   ng-click="login.disableWarning()" required="required"/> <br/>
             <input type="submit" id="submit" class="submit login" value="כניסה"/>
 			
         </form>
 		<a href="" class="reset-pass" ng-click="login.resetPassword()">שכחת ססמא? לחץ כאן</a>
 		<a href="" class="reset-pass" ng-click="signupForm = true">בחזרה להרשמה</a>	
+		<p ng-show="login.warning" class="reset-pass error">הייתה בעיה בהרשמה. אנא נסה שוב.</p>
 		</div>
 	</div>
 	

@@ -320,6 +320,13 @@
             text-decoration: underline;
             color: #44a3e4;
         }
+		&.error{
+			color: red;
+		}
+		&.error:hover{
+			color: red;
+			text-decoration: none;
+		}
     }
     .warning {
         outline: none;

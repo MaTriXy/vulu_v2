@@ -20,8 +20,7 @@
                 <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
 
 
-                    <!--					TO DO: create backgroundImgUrl variable to add a random image to every quesion-->
-					
+                   
                     <div class="inside-question-header"
                          style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .8)), url(''); ">
 						
@@ -47,7 +46,7 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                             </div>
                             <div class="flex-box">
 
-                                <!--					TO DO: add quoestion title here -->
+                               
                                 <h2 class="question-title standalone" dir="auto" ng-bind-html="talkFS.fsResult.question.message | linkyWithHtml">
                                 </h2>
                             </div>
@@ -57,13 +56,13 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                         <use xlink:href="#icon-comments"></use>
                                     </svg>
 
-                                    <!--					TO DO: add comments number here -->
+                                   
                                     <p>{{talkFS.fsResult.answers.length ? talkFS.fsResult.answers.length : '0'}}</p>
                                 </div>
                                 <div class="upvote-button big">
                                     <div class="triangle-button big"><span class="triangle triangle-up"></span></div>
 
-                                    <!--					TO DO: add upvotes number here -->
+                                  
                                     <p>{{talkFS.fsResult.question.rating ? talkFS.fsResult.question.rating : '0'}}</p>
                                 </div>
                             </div>
@@ -75,12 +74,12 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 
                 <div class="w-col w-col-9 w-col-small-9 w-col-tiny-12 w-col-big-mobile-12 column">
 
-                    <!--					TO DO: add currentUser object: if currentUser exists show the comment box -->
+                   
                     <div class="comment-box" ng-if="talkFS.currentUser">
                         <div class="profile-comment-section">
                             <div class="round-profile feed comment">
 
-                                <!--					TO DO: add currentUser image -->
+                             
                                 <img class="owner-img small" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'images/profile-monstr.png' }}" alt="user-image"></div>
                         </div>
 						<p class="comming-soon-comment">בקרוב תוכל/י להגיב על שאלות</p>
@@ -105,7 +104,7 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                     </div>
 
 
-                                    <!--					TO DO: submit button for the comment -->
+                                  
                                     <input id="share-comment" class="w-button post-button comment" type="submit"
                                            data-ng-mousedown="definePost(talk)" value="פרסם" disabled>
 
@@ -126,13 +125,14 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 	
 							
                             <!--					NG-REPEAT: repeat all comments on this quesion -->
-                     <div class="answer-box" ng-repeat="answer in talkFS.fsResult.answers | orderBy: '-like_count'">
+<!--							| orderBy: '-like_count'-->
+                     <div class="answer-box" ng-repeat="answer in talkFS.fsResult.answers ">
                                 <div class="w-row">
 
                                     <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
                                         <div class="answer-owner-container">
 
-                                            <!--					TO DO: add comment owner image and username here (option to have also a smal bio) -->
+                                      
 											<a href="https://www.facebook.com/app_scoped_user_id/{{answer.from.id}}" target="_blank">
                                             <img class="owner-img small"
                                                  src="https://graph.facebook.com/{{answer.from.id}}/picture?width=200&height=200">
@@ -153,8 +153,8 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                         </div>
                                         <div class="answer-text-box">
 											
-                                            <!--					TO DO: add comment title -->
-                                            <p dir="auto" class="answer-title" ng-bind-html="answer.message | linkyWithHtml"></p>
+                                    
+                                            <p  class="answer-title" ng-bind-html="answer.message | linkyWithHtml"></p>
 
                                         </div>
                                         <div class="flex-height answer">
@@ -171,11 +171,11 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                                 </svg>
 
 
-                                                <!--					TO DO: add comments number -->
+                                            
                                                 <p>הגב</p>
                                             </div>
 
-                                            <!--					TO DO: add comment upload date -->
+                                           
                                             <p class="answer-date">{{answer.created_time | timeago}} </p>
                                         </div>
 

@@ -107,7 +107,7 @@
                                 <!--TO DO: ng-show when user is signedUp + add ng-src profile picture and username -->
                                 <li ng-show="Header.currentUser">
 								
-                                    <a class="nav-link profile" href=""><img class="profile-image" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'images/profile-monstr.png' }}">
+                                    <a class="nav-link profile" href=""><img class="profile-image" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'http://res.cloudinary.com/talkme-co/image/upload/v1470909661/profile-monstr_ldqvqq.png' }}">
 
                                         <p class="profile-name">{{ Header.currentUser.displayName ? Header.currentUser.displayName : Header.currentUser.email.split("@")[0] }}</p>
 									</a>
