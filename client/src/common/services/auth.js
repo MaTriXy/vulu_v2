@@ -1,10 +1,11 @@
 export class Auth {
 
     /* @ngInject */
-    constructor($q, $translate, $sessionStorage, Network) {
+    constructor($q, $translate, $sessionStorage, Network , $localStorage) {
         this.$q = $q;
         this.$translate = $translate;
         this.$sessionStorage = $sessionStorage;
+        this.$localStorage = $localStorage;
         this.Network = Network;
         this.auth = firebase.auth();
     }
@@ -40,6 +41,43 @@ export class Auth {
 
     }
 
+    fbLogin(){
+
+        var provider = new firebase.auth.FacebookAuthProvider();
+        let deferred = this.$q.defer();
+
+
+        firebase.auth().signInWithPopup(provider).then((result)=> {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            // ...
+            var credential = result.credential;
+            var currentUser = {
+                "imageUrl" : result.user.photoURL,
+                "email" : result.user.email,
+                "displayName" :result.user.displayName,
+                "credential" : credential,
+                "token" : credential.accessToken
+            };
+            this.setUser(currentUser);
+            deferred.resolve(result);
+
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+        return deferred.promise;
+
+    }
+/*
     fbLogin() {
         let deferred = this.$q.defer();
 
@@ -50,7 +88,7 @@ export class Auth {
         provider.addScope('email');
         provider.addScope('user_friends');
         // Sign in with redirect:
-        this.auth.signInWithRedirect(provider)
+        this.auth.signInWithRedirect(provider);
         ////////////////////////////////////////////////////////////
         // The user is redirected to the provider's sign in flow...
         ////////////////////////////////////////////////////////////
@@ -94,6 +132,7 @@ export class Auth {
 
         return deferred.promise;
     }
+*/
 
     signUp(credentials) {
         let deferred = this.$q.defer();
@@ -159,16 +198,16 @@ export class Auth {
     }
 
     getToken() {
-        return this.$sessionStorage.authData && this.$sessionStorage.authData.Token;
+        return this.$localStorage.authData && this.$localStorage.authData.Token;
     }
 
     setToken(token) {
-        this.$sessionStorage.authData = this.$sessionStorage.authData || {};
-        this.$sessionStorage.authData.Token = token;
+        this.$localStorage.authData = this.$localStorage.authData || {};
+        this.$localStorage.authData.Token = token;
     }
 
     setUser(currentUser) {
-        this.$sessionStorage.currentUser = currentUser|| {};
+        this.$localStorage.currentUser = currentUser|| {};
         this._authData = currentUser;
     }
 
@@ -177,7 +216,7 @@ export class Auth {
     }
 
     deleteLocalStorage() {
-        delete this.$sessionStorage.authData;
+        delete this.$localStorage.authData;
     }
 
 }

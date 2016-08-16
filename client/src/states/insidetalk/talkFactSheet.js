@@ -1,16 +1,19 @@
 export class TalkFSController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state) {
+    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state ,GLOBALS) {
 
         this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
         this.$scope = $scope;
+        this.$state = $state;
         this.SearchModel = SearchModel;
         this.$stateParams = $stateParams;
         this.currentUser = $localStorage.currentUser;
         this.objectID = this.$stateParams.objectID;
         this.fsResult = {};
+        this.GLOBALS = GLOBALS;
+        this.groupName = GLOBALS.groupNameTheWeek;
 
 		
 

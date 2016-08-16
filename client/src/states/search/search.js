@@ -4,7 +4,7 @@ import {auto }           from 'algoliasearch'
 export class SearchController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state) {
+    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state , GLOBALS) {
 
         this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
@@ -16,7 +16,15 @@ export class SearchController {
         this.SearchModel = SearchModel;
         this.searchresult = {};
         this.query = $location.search().query;
+        this.queryId = this.$localStorage.queryId;
+
+        if (this.queryId){
+            this.query = this.queryId;
+            this.$localStorage.queryId = null;
+        }
         this.$location.search({query: ""});
+        this.GLOBALS = GLOBALS;
+        this.groupName = GLOBALS.groupNameTheWeek;
 
 
         if (this.query) {

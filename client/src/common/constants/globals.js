@@ -1,3 +1,4 @@
 export const GLOBALS = {
-    SeaechResultAmount : 5
+    SeaechResultAmount : 5,
+    groupNameTheWeek : "השבוע שאלות ותשובות"
 };

@@ -1,6 +1,7 @@
 module.exports = function (app, param) {
     //setting
     var groupId = '434228236734415';
+    var groupName =  'השבוע שאלות ותשובות';
     var getNumberOfInstances = 4000;
 
     var fs = require('fs'),

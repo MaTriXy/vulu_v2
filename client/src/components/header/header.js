@@ -32,7 +32,7 @@ class HeaderController {
                 var arr = newVal.match(/[^\s-]+-?/g);
                 arr.forEach((ele, index, array)=> {
                     arr[index] = {
-                        "text" : ele
+                        "text": ele
                     }
                 })
                 newVal = arr;
@@ -52,10 +52,17 @@ class HeaderController {
     }
 
     search() {
-        this.$timeout(()=> {
-            this.$location.search({query: this.query});
-            this.onSearch({query: this.query});
-        }, 0);
+        if (this.$location.url().contains("talkFS")) {
+            this.$localStorage.queryId = this.query;
+            this.$state.go('home.search');
+        } else {
+            this.$timeout(()=> {
+                this.$location.search({query: this.query});
+                this.onSearch({query: this.query});
+
+            }, 0);
+        }
+
     }
 
     login() {
@@ -114,8 +121,6 @@ class HeaderController {
                 //this.Auth.setToken(result.refreshToken);
                 //this.Auth.setUserId(result.uid);
                 this.currentUser = this.Auth.getAuthData();
-                alert(this.currentUser + "this.currentUser ");
-                debugger;
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
             });
@@ -136,7 +141,7 @@ class HeaderController {
      * Check if user is already logged in based on the authData
      */
     isLoggedIn() {
-		 return this.Auth.getAuthData();
+        return this.Auth.getAuthData();
     }
 
     /**

@@ -14,7 +14,9 @@
     "watch": "mocha --compilers js:babel-register -w ./src/**/*.test.js",
     "test": "karma start --reporters teamcity --single-run --colors true",
     "test-local-report": "karma start --single-run --colors true",
-    "test-debug": "karma start --single-run false"
+    "test-debug": "karma start --single-run false",
+    "deploy": "cd dist ; rm -r *.* ; cd../ ; rmdir dist ;et NODE_ENV=production&webpack --progress ; firebase deploy"
+
   },
   "repository": {
     "type": "git",
