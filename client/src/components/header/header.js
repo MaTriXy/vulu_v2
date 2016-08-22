@@ -88,6 +88,24 @@ class HeaderController {
         this.fullscreenSearch = true;
     }
 
+    logout() {
+        let credentials = {};
+        credentials.email = this.$scope.email;
+        credentials.password = this.$scope.password;
+        this.Auth.logout(this.currentUser)
+            .then((result)=> {
+                //success
+                // The signed-in user info.
+                //this.Auth.setToken(result.refreshToken);
+                this.currentUser = this.Auth.getAuthData();
+
+            }, (reason)=> {
+                console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+
+            });
+    }
+
+
 ;
 
     closeFullScreen() {
@@ -133,7 +151,7 @@ class HeaderController {
                 //success
                 //todo ran - raise modal
             }, (reason)=> {
-                console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+                console.log("resetPassword : errorCode " + reason.code + "errorMessage: " + reason.message);
             });
     }
 

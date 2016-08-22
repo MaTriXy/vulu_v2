@@ -23,6 +23,8 @@ export class LoginController {
                 // The signed-in user info.
                 //this.Auth.setToken(result.refreshToken);
                 //this.Auth.setUserId(result.uid);
+                this.currentUser = this.Auth.getAuthData();
+                this.$state.go('home.search');
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
 				this.warning = false;		
@@ -44,6 +46,7 @@ export class LoginController {
                 //this.Auth.setToken(result.refreshToken);
                 //this.Auth.setUserId(result.uid);
                 this.currentUser = this.Auth.getAuthData();
+                this.$state.go('home.search');
             },(reason)=>{
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
                 this.warning = true;
@@ -61,9 +64,10 @@ export class LoginController {
                 //this.Auth.setToken(result.refreshToken);
                 //this.Auth.setUserId(result.uid);
                 this.currentUser = this.Auth.getAuthData();
+                this.$state.go('home.search');
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
-			     this.warning = true;
+                this.warning = true;
                 this.signUpErrorMessage = {
                     "errorCode" : reason.code,
                     "errorMessage" : reason.message
