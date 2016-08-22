@@ -4,7 +4,7 @@ import {auto }           from 'algoliasearch'
 export class SearchController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state , GLOBALS) {
+    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state , GLOBALS, $http) {
 
         this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
@@ -14,23 +14,27 @@ export class SearchController {
         this.$state = $state;
         this.closed = false;
         this.SearchModel = SearchModel;
+		this.http = $http;
         this.searchresult = {};
         this.query = $location.search().query;
         this.queryId = this.$localStorage.queryId;
-
+		this.currentUser = $localStorage.currentUser;
+		
         if (this.queryId){
             this.query = this.queryId;
             this.$localStorage.queryId = null;
         }
-        this.$location.search({query: ""});
+//        ;
         this.GLOBALS = GLOBALS;
         this.groupName = GLOBALS.groupNameTheWeek;
-
-
+        
+		
+         
         if (this.query) {
             this.getSearchResult(this.query);
-        }
-
+        }else{
+		this.getFeaturedResult();
+		}
 
         /*this.$scope.$watchCollection(
          () => this.searchresult,
@@ -57,6 +61,15 @@ export class SearchController {
             this.$localStorage.searchresult = searchresult_data;
             return searchresult_data;
         });
+    }
+	
+	getFeaturedResult() {
+		this.http.get("db.json")
+		.then(searchresult_data => {
+			this.searchresult = searchresult_data;
+			 this.$localStorage.searchresult = 	searchresult_data;
+			return searchresult_data;
+			});
     }
 
     go2FS(hit) {

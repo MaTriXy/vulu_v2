@@ -184,14 +184,19 @@
     min-height: 400px;
   }
 
-  .icon-calendar, .icon-popular {
+  .icon-calendar, .icon-popular, .icon-facebook {
     width: 24px;
     height: 24px;
     display: inline-block;
     fill: #a49f99;
     float: right;
   }
-
+.icon-facebook {	
+	fill: #3a589a;
+    width: 21px;
+    height: 21px;
+    margin-top: 2px;
+	}
   .calendar-number {
     position: absolute;
     font-size: 10.5px;
@@ -443,6 +448,63 @@
 	  
   }
 
+	
+	.post-link{
+	background: transparent;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 15px;	
+	    position: relative;	
+	height: 81px;	
+	    -webkit-transition: all 0.12s ease;
+    transition: all 0.12s ease;
+    
+		& img{
+			    display: inline-block;
+				border-right: 1px solid #e5e5e5;
+				width: 100%;
+    			max-width: 80px;
+				position: relative;
+				z-index: 1;
+		}	
+		&.white{
+			background: #fefeff;	
+		}
+	}	
+	
+	.post-link:hover .post-link-name{
+		text-decoration: underline;
+		
+	}
+	.post-link:hover{
+	background: #fefeff;	
+		webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.05);
+     -webkit-transition: all 0.12s ease;
+    transition: all 0.12s ease;	
+	}
+	
+	
+	.post-link-name{
+    margin-top: 15px;
+    margin: 15px 10px 5px;
+    display: inline-block;
+    vertical-align: top;
+    color: #333;
+    word-wrap: break-word;
+    max-width: calc(100% - 160px);	
+	font-size: 17px;
+	}
+	.post-link-website{
+	position: absolute;
+    bottom: 8px;
+    right: 10px;
+    color: #999;
+    font-size: 14px;	
+	}
+	
+	
+	
+	
   .comments-button, .upvote-button {
     height: 24px;
     border-radius: 3px;
@@ -464,6 +526,20 @@
     max-width: 58px;
   }
 
+	.groupName-link{
+	transition: all linear 0.15s;
+	position: absolute;	
+    right: 200px;
+	font-size: 13px;
+	line-height: 24px;
+	color: #a49f99;
+    z-index: 2;
+	}	
+	.groupName-link:hover{
+		text-decoration: underline;
+	}
+	
+	
   .upvote-button {
     border: 1px solid #48ACF1;
     right: 70px;
@@ -1311,6 +1387,20 @@
     .question-keywords {
       right: 160px;
     }
+	.post-link {
+    height: 101px; 
+	  }
+	.post-link img {
+    max-width: 100px;
+	  }
+	  .post-link-name {
+		  font-size: 16px;
+		     white-space: nowrap;
+		  	overflow: hidden;
+		  	text-overflow: ellipsis;
+		      max-width: calc(100% - 110px);
+	  }  
+	  
   }
 
   @media screen and (max-width: 469px) {

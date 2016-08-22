@@ -49,6 +49,19 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                
                                 <h2 class="question-title standalone" dir="auto" ng-bind-html="talkFS.fsResult.question.message | linkyWithHtml">
                                 </h2>
+								
+								
+						<a ng-if="talkFS.fsResult.question.link" dir="auto" class="post-link white" href="{{talkFS.fsResult.question.link.link}}">
+													<img ng-if="talkFS.fsResult.question.link.picture" src="{{talkFS.fsResult.question.link.picture}}">
+													
+													<h2 class="post-link-name">{{talkFS.fsResult.question.link.name}}</h2>
+													<span class="post-link-website">{{talkFS.fsResult.question.link.caption}}</span>	
+												</a>
+								
+								
+								
+								
+								
                             </div>
                             <div class="flex-height big">
                                 <div class="comments-button big">
@@ -80,7 +93,7 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                             <div class="round-profile feed comment">
 
                              
-                                <img class="owner-img small" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'images/profile-monstr.png' }}" alt="user-image"></div>
+                                <img class="owner-img small" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'http://res.cloudinary.com/talkme-co/image/upload/v1470909661/profile-monstr_ldqvqq.png' }}" alt="user-image"></div>
                         </div>
 						<p class="comming-soon-comment">בקרוב תוכל/י להגיב על שאלות</p>
                         <div class="comment-section">

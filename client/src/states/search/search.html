@@ -45,7 +45,7 @@
             
 					
     <section class="w-container questions-container">
-		<section class="welcome-box" ng-if="!currentUser" ng-class="Search.closed ? 'closed' : ''">
+		<section class="welcome-box" ng-if="Search.currentUser === undefined" ng-class="Search.closed ? 'closed' : ''">
 		<span ng-click="Search.closing()" class="close welcome">
 			<svg class="icon icon-close">
 				<use xlink:href="#icon-close"></use>
@@ -90,10 +90,12 @@
 						
                         <div class="questions-group" > 
                             <div class="questions-header">
-                               <svg class="icon icon-popular"><use xlink:href="#icon-popular"></use></svg>
-                                <p class="calendar-number"></p>
+                               <svg ng-hide="Search.query" class="icon icon-popular"><use xlink:href="#icon-popular"></use></svg>
+                               <svg ng-show="Search.query" class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
 
-                                <h1 class="questions-date">הפופלאריים ביותר</h1>
+                                <h1 ng-hide="Search.query" class="questions-date">הפופלאריים ביותר</h1>
+								<h1 ng-show="Search.query" class="questions-date">השבוע: שאלות ותשובות על סטארטאפים</h1>
+								
                             </div>
                             <div class="questions">
                                 <div class="question-box"
@@ -114,9 +116,17 @@
                                             <div class="flex-box">
                                                 <h2  class="question-title" 
                                                     ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
+												<a ng-if="hit.question.link" dir="auto" class="post-link" href="{{hit.question.link.link}}">
+													<img ng-if="hit.question.link.picture" src="{{hit.question.link.picture}}">
+													
+													<h2 class="post-link-name">{{hit.question.link.name}}</h2>
+													<span class="post-link-website">{{hit.question.link.caption}}</span>	
+												</a>
+												
+												
                                             </div>
 
-
+ 
 <!--
                                             <div class="flex-box">
                                                 <h2 ng-text-truncate="hit._highlightResult.question.message.value"
@@ -127,7 +137,8 @@
 
                                             <div class="flex-height">
 
-<!--ng-click="Search.go2FS(hit)"-->
+											
+												
                                                 <a ui-sref="home.talkFS({objectID: hit.objectID})" class="comments-button" >
                                                     <svg class="icon icon-comments">
                                                         <use xlink:href="#icon-comments"></use>
@@ -144,6 +155,9 @@
 
                                                     <p>{{hit.question.rating ? hit.question.rating : '0' }}</p>
                                                 </div>
+												
+												
+												
                                             </div>
 
 
