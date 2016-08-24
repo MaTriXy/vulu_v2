@@ -184,7 +184,7 @@
     min-height: 400px;
   }
 
-  .icon-calendar, .icon-popular, .icon-facebook {
+	.icon-popular, .icon-facebook {
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -486,7 +486,7 @@
 	
 	.post-link-name{
     margin-top: 15px;
-    margin: 15px 10px 5px;
+    margin: 8px 10px 5px;
     display: inline-block;
     vertical-align: top;
     color: #333;
@@ -1311,7 +1311,7 @@
       padding: 0px;
     }
     .main-section {
-      top: 104px;
+    top: 55px;
     }
     .question-box {
       padding: 20px 10px;
@@ -1398,9 +1398,24 @@
 		     white-space: nowrap;
 		  	overflow: hidden;
 		  	text-overflow: ellipsis;
-		      max-width: calc(100% - 110px);
-	  }  
+    max-width: calc(100% - 140px);
+	  }
 	  
+.questions-date {
+    line-height: 29px;
+    padding-right: 5px;
+    font-size: 14px;
+}	  
+.icon-facebook, .icon-popular {
+   
+    width: 15px;
+    height: 15px;
+    margin-top: 7px;
+}	  
+	
+	 .icon-facebook  {
+	 fill: #3a589a;	  
+	  }	  
   }
 
   @media screen and (max-width: 469px) {

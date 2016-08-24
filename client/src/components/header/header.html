@@ -63,7 +63,7 @@
 
 									<div class="nav-link sign-up-button" id="services-link" ng-click="drop = !drop" ng-class="drop ? 'active' : ''"><span>כניסה</span>
 									</div>
-									<div class="login-tooltip">
+									<div class="login-tooltip" ng-class="Header.warning ? 'error' : '' ">
 										<div class="login-container">
 											<div class="form-container">
 												<button id="facebookBn" type="button" id="login" ng-click="Header.fbLogin()" href="#" target="_blank" alt="Login with Facebook"><img src="http://res.cloudinary.com/talkme-co/image/upload/v1445607368/facebook-icon_jfwcig.svg" class="iconsocial"><span class="primary-text">המשך עם פייסבוק</span></button>
@@ -71,16 +71,16 @@
 
 												<form ng-submit="Header.login()" id="login-form">
 
-													<input type="email" placeholder='דוא"ל' name="email" id="email" class="email login" ng-model="email" required="required" />
+													<input type="email" placeholder='דוא"ל' name="email" id="email" class="email login" ng-model="email" required="required" ng-click="Header.disableWarning()" ng-class="Header.warning ? 'warning' : ''" />
 													<br/>
-													<input type="password" placeholder="ססמא" name="password" id="pass" class="pass login" ng-model="password" required="required" />
+													<input type="password" placeholder="ססמא" name="password" id="pass" class="pass login" ng-model="password" required="required" ng-click="Header.disableWarning()" ng-class="Header.warning ? 'warning' : ''" />
 													<br/>
 													<input type="submit" id="submit" class="submit login" value="כניסה" />
 
 												</form>
 												<a href="" class="reset-pass" ng-click="Header.resetPassword()">שכחת
                                                     ססמא? לחץ כאן</a>
-
+												<p ng-show="Header.warning" class="reset-pass error">{{Header.errorMessage}}</p>
 											</div>
 
 											<div class="signup-container">

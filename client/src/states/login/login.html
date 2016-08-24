@@ -44,7 +44,7 @@ login.resetPasswordErrorMessage-->
             <input type="submit" id="SignUpSubmit" class="submit" value="הרשמה"/>
         </form>
 		<a href="" class="reset-pass" ng-click="signupForm = false">יש לך משתמש? הכנס כאן</a>
-		<p ng-show="login.warning" class="reset-pass error">הייתה בעיה בהרשמה. אנא נסה שוב.</p>
+		<p ng-show="login.warning" class="reset-pass error">{{login.errorMessage}}.</p>
 		</div>
     </div>
 	
@@ -72,7 +72,7 @@ login.resetPasswordErrorMessage-->
         </form>
 		<a href="" class="reset-pass" ng-click="login.resetPassword()">שכחת ססמא? לחץ כאן</a>
 		<a href="" class="reset-pass" ng-click="signupForm = true">בחזרה להרשמה</a>	
-		<p ng-show="login.warning" class="reset-pass error">הייתה בעיה בהרשמה. אנא נסה שוב.</p>
+		<p ng-show="login.warning" class="reset-pass error">{{login.errorMessage}}.</p>
 		</div>
 	</div>
 	

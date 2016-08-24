@@ -9,6 +9,7 @@ export class LoginController {
         this.$state = $state;
 		this.signupForm = true;
 		this.warning = false;
+		this.errorMessage = "";
     }
 
 
@@ -27,6 +28,7 @@ export class LoginController {
                 this.$state.go('home.search');
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+			this.errorMessage = reason.message;
 				this.warning = false;		
                 this.loginErrorMessage = {
                     "errorCode" : reason.code,
@@ -49,6 +51,7 @@ export class LoginController {
                 this.$state.go('home.search');
             },(reason)=>{
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+			this.errorMessage = reason.message;
                 this.warning = true;
                 this.signUpErrorMessage = {
                     "errorCode" : reason.code,
@@ -67,6 +70,7 @@ export class LoginController {
                 this.$state.go('home.search');
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+			this.errorMessage = reason.message;
                 this.warning = true;
                 this.signUpErrorMessage = {
                     "errorCode" : reason.code,
@@ -85,6 +89,8 @@ export class LoginController {
                 //todo ran - raise modal
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+			this.errorMessage = reason.message;
+			 this.warning = true;
                 this.resetPasswordErrorMessage = {
                     "errorCode" : reason.code,
                     "errorMessage" : reason.message

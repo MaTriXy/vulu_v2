@@ -329,6 +329,15 @@ tags-input .tags .input {
   display: inline-block;
   float: left;
 }
+	
+.warning {
+        outline: none;
+        border: 1px solid #FF5454;
+        box-shadow: rgba(255, 84, 84, 0.29) 0px 0px 0px 1px inset, rgba(255, 84, 84, 0.09) 0px 2px 9px -1px inset;
+    }	
+	
+	
+	
 
 /*----- ask question --------*/
 
@@ -402,7 +411,10 @@ tags-input .tags .input {
   display: block;
   height: 357px;
 }
-
+	
+.sign-up-button.active + .login-tooltip.error {	
+	    height: 420px;
+	}
 /*-------------- login tooltip ----------------------*/
 
 .login-container {
@@ -546,7 +558,7 @@ tags-input .tags .input {
     }
   }
 }
-
+	
 .reset-pass {
   font-size: 14px;
   text-decoration: none;
@@ -557,11 +569,18 @@ tags-input .tags .input {
   font-weight: normal;
   float: right;
   margin-bottom: 8px;
-  &:hover {
-    text-decoration: underline;
-    color: #44a3e4;
-  }
-}
+        &:hover {
+            text-decoration: underline;
+            color: #44a3e4;
+        }
+		&.error{
+			color: red;
+		}
+		&.error:hover{
+			color: red;
+			text-decoration: none;
+		}
+    }	
 
 .warning {
   outline: none;
@@ -610,6 +629,10 @@ tags-input .tags .input {
   display: inline-block;
   padding: 0px 28px 18px;
   background: #f1f1f1;
+    bottom: 0px;
+    position: absolute;
+    left: 0;
+    right: 0;	
 }
 
 .signup-text {

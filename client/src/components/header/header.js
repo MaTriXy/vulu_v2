@@ -15,7 +15,8 @@ class HeaderController {
         this.$timeout = $timeout;
         this.currentUser = $localStorage.currentUser;
         this.tags = this.updateTags($location.search().query);
-
+		this.warning = false;
+		this.errorMessage = "";
 
         this.$scope.$watchCollection(
             () => this.tags,
@@ -79,14 +80,14 @@ class HeaderController {
 
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
-
+			this.errorMessage = reason.message;
+				this.warning = true;		
             });
     }
 
-
-    gofullScreen() {
-        this.fullscreenSearch = true;
-    }
+	disableWarning(){
+	this.warning = false;	
+	}
 
     logout() {
         let credentials = {};
@@ -101,7 +102,7 @@ class HeaderController {
 
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
-
+				
             });
     }
 
@@ -126,7 +127,8 @@ class HeaderController {
 
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
-
+				this.errorMessage = reason.message;
+				this.warning = false;		
             });
     }
 
@@ -141,6 +143,8 @@ class HeaderController {
                 this.currentUser = this.Auth.getAuthData();
             }, (reason)=> {
                 console.log("auto error : errorCode " + reason.code + "errorMessage: " + reason.message);
+				this.errorMessage = reason.message;
+				this.warning = false;		
             });
 
     }
@@ -152,6 +156,8 @@ class HeaderController {
                 //todo ran - raise modal
             }, (reason)=> {
                 console.log("resetPassword : errorCode " + reason.code + "errorMessage: " + reason.message);
+			this.errorMessage = reason.message;
+				this.warning = false;		
             });
     }
 
