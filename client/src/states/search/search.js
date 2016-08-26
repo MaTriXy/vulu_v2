@@ -19,7 +19,7 @@ export class SearchController {
         this.query = $location.search().query;
         this.queryId = this.$localStorage.queryId;
 		this.currentUser = $localStorage.currentUser;
-		
+		this.isQuery = false;
         if (this.queryId){
             this.query = this.queryId;
             this.$localStorage.queryId = null;
@@ -32,6 +32,7 @@ export class SearchController {
          
         if (this.query) {
             this.getSearchResult(this.query);
+			
         }else{
 		this.getFeaturedResult();
 		}
@@ -52,6 +53,7 @@ export class SearchController {
      * @returns {*}
      */
     getSearchResult(query) {
+		this.isQuery = true;
         const model = query;
         this.$location.search({query: query});
 
