@@ -1,10 +1,13 @@
-import {auto }           from 'algoliasearch'
+import {auto }              from 'algoliasearch';
+import db from './featureResult.json';
+
+
 
 
 export class SearchController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state , GLOBALS, $http) {
+    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state , GLOBALS, $http , $timeout) {
 
         this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
@@ -19,7 +22,8 @@ export class SearchController {
         this.query = $location.search().query;
         this.queryId = this.$localStorage.queryId;
 		this.currentUser = $localStorage.currentUser;
-		
+        this.$timeout = $timeout;
+
         if (this.queryId){
             this.query = this.queryId;
             this.$localStorage.queryId = null;
@@ -64,12 +68,22 @@ export class SearchController {
     }
 	
 	getFeaturedResult() {
-		this.http.get("db.json")
-		.then(searchresult_data => {
-			this.searchresult = searchresult_data;
-			 this.$localStorage.searchresult = 	searchresult_data;
-			return searchresult_data;
-			});
+/*		this.http.get("../")
+         .then(searchresult_data => {
+         this.searchreslt = searchresult_data;
+         this.$localStorage.searchresult = 	searchresult_data;
+         return searchresult_data;
+         });*/
+
+/*    this.$timeout(() => {
+        this.searchresult = db ;
+        this.$localStorage.searchresult = 	this.searchresult;
+
+    },0)*/
+
+        this.searchresult = db ;
+        this.$localStorage.searchresult = 	this.searchresult;
+
     }
 
     go2FS(hit) {

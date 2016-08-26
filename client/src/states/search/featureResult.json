@@ -1,0 +1,495 @@
+{
+  "hits": [
+    {
+      "question": {
+        "date": "27/02/2016",
+        "rating": 3,
+        "id": "434228236734415_600974023393168",
+        "personName": "Doron Passov",
+        "message": "שבוע טוב לכולם :) איך אתם מנהלים את כל האתרים המועדפים (favorites) ? התחלתי לעבוד עם evernote (יש אפשרות מצוינת להוסיף tag שונים לכל אתר) , אך הוא לא מציג אינדקציה על אתרים שנשמרו כבר. תודה !",
+        "url": "https://www.facebook.com/434228236734415/posts/600974023393168",
+        "personId": "10157187010400374",
+        "obj": {
+          "id": "434228236734415_600974023393168",
+          "from": {
+            "name": "Doron Passov",
+            "id": "10157187010400374"
+          },
+          "message": "שבוע טוב לכולם :) איך אתם מנהלים את כל האתרים המועדפים (favorites) ? התחלתי לעבוד עם evernote (יש אפשרות מצוינת להוסיף tag שונים לכל אתר) , אך הוא לא מציג אינדקציה על אתרים שנשמרו כבר. תודה !",
+          "actions": [
+            {
+              "name": "Like",
+              "link": "https://www.facebook.com/434228236734415/posts/600974023393168"
+            }
+          ],
+          "privacy": {
+            "value": "",
+            "description": "",
+            "friends": "",
+            "allow": "",
+            "deny": ""
+          },
+          "type": "status",
+          "created_time": "2016-02-27T20:34:24+0000",
+          "updated_time": "2016-03-02T07:40:28+0000",
+          "is_hidden": false,
+          "is_expired": false,
+          "likes": {
+            "data": [
+              {
+                "id": "483080171897560",
+                "name": "Itsko"
+              },
+              {
+                "id": "10154289781929140",
+                "name": "Yuval Passov"
+              },
+              {
+                "id": "10153990260902284",
+                "name": "Elchanan Shor"
+              }
+            ],
+            "paging": {
+              "cursors": {
+                "before": "NDgzMDgwMTcxODk3NTYw",
+                "after": "MTAxNTM5OTAyNjA5MDIyODQZD"
+              }
+            }
+          },
+          "comments": {
+            "data": [
+              {
+                "created_time": "2016-02-29T08:55:42+0000",
+                "from": {
+                  "name": "Tomer Saar",
+                  "id": "10210162946614425"
+                },
+                "message": "chrome bookmarks",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601655039991733"
+              },
+              {
+                "created_time": "2016-02-29T15:56:58+0000",
+                "from": {
+                  "name": "Maya Zack Holtzer",
+                  "id": "10154287202615489"
+                },
+                "message": "אתה יכול לנסות להשתמש במוצר שפיתחנו \nhttps://peekapost.com/\nלמרות שהוא בעיקר נועד לשמור פוסטים מרשתות חברתיות אבל אפשר גם לשמור כל עמוד url באמצעות התוסף שלנו \nhttps://chrome.google.com/webstore/detail/peekapost/ffagiehilonhoacehbfmnbpkpifhikjm\nאתה יכול ליצור לך אלבומים לפי נושאים, להוסיף תיוגים, ולהוסיף טקסט חופשי שלך.\nנשמח לשמוע אם זה עזר לך.",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601817009975536"
+              },
+              {
+                "created_time": "2016-02-29T15:57:55+0000",
+                "from": {
+                  "name": "Eli Klaiman",
+                  "id": "10208023600842478"
+                },
+                "message": "https://www.xmarks.com/",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601817273308843"
+              },
+              {
+                "created_time": "2016-02-29T19:24:36+0000",
+                "from": {
+                  "name": "Tal Peretz",
+                  "id": "10209907157584041"
+                },
+                "message": "Pocket!",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601883673302203"
+              },
+              {
+                "created_time": "2016-03-01T19:24:36+0000",
+                "from": {
+                  "name": "Shimi Kiviti",
+                  "id": "583200071849845"
+                },
+                "message": "https://www.kifi.com/",
+                "can_remove": false,
+                "like_count": 2,
+                "user_likes": false,
+                "id": "602276373262933"
+              },
+              {
+                "created_time": "2016-03-01T23:37:08+0000",
+                "from": {
+                  "name": "Eishay Smith",
+                  "id": "10154444669191019"
+                },
+                "message": "Kifi will show you on the page an indication that it was kept by you, your friends or your team. It will also show the bookmarks on Google search page using the full text of the kept link",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "602390779918159"
+              }
+            ],
+            "paging": {
+              "cursors": {
+                "before": "WTI5dGJXVnVkRjlqZAFhKemIzSTZAOakF4TmpVMU1ETTVPVGt4TnpNek9qRTBOVFkzTXpZAeE5EST0ZD",
+                "after": "WTI5dGJXVnVkRjlqZAFhKemIzSTZAOakF5TXprd056YzVPVEU0TVRVNU9qRTBOVFk0TnpVME1qaz0ZD"
+              }
+            }
+          }
+        }
+      },
+      "answers": [
+        {
+          "created_time": "2016-02-29T08:55:42+0000",
+          "from": {
+            "name": "Tomer Saar",
+            "id": "10210162946614425"
+          },
+          "message": "chrome bookmarks",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601655039991733"
+        },
+        {
+          "created_time": "2016-02-29T15:56:58+0000",
+          "from": {
+            "name": "Maya Zack Holtzer",
+            "id": "10154287202615489"
+          },
+          "message": "אתה יכול לנסות להשתמש במוצר שפיתחנו \nhttps://peekapost.com/\nלמרות שהוא בעיקר נועד לשמור פוסטים מרשתות חברתיות אבל אפשר גם לשמור כל עמוד url באמצעות התוסף שלנו \nhttps://chrome.google.com/webstore/detail/peekapost/ffagiehilonhoacehbfmnbpkpifhikjm\nאתה יכול ליצור לך אלבומים לפי נושאים, להוסיף תיוגים, ולהוסיף טקסט חופשי שלך.\nנשמח לשמוע אם זה עזר לך.",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601817009975536"
+        },
+        {
+          "created_time": "2016-02-29T15:57:55+0000",
+          "from": {
+            "name": "Eli Klaiman",
+            "id": "10208023600842478"
+          },
+          "message": "https://www.xmarks.com/",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601817273308843"
+        },
+        {
+          "created_time": "2016-02-29T19:24:36+0000",
+          "from": {
+            "name": "Tal Peretz",
+            "id": "10209907157584041"
+          },
+          "message": "Pocket!",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601883673302203"
+        },
+        {
+          "created_time": "2016-03-01T19:24:36+0000",
+          "from": {
+            "name": "Shimi Kiviti",
+            "id": "583200071849845"
+          },
+          "message": "https://www.kifi.com/",
+          "can_remove": false,
+          "like_count": 2,
+          "user_likes": false,
+          "id": "602276373262933"
+        },
+        {
+          "created_time": "2016-03-01T23:37:08+0000",
+          "from": {
+            "name": "Eishay Smith",
+            "id": "10154444669191019"
+          },
+          "message": "Kifi will show you on the page an indication that it was kept by you, your friends or your team. It will also show the bookmarks on Google search page using the full text of the kept link",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "602390779918159"
+        }
+      ],
+      "objectID": "318231760",
+      "_highlightResult": {
+        "question": {
+          "message": {
+            "value": "שבוע טוב לכולם :) איך אתם מנהלים את כל האתרים המועדפים (favorites) ? התחלתי לעבוד עם evernote (יש אפשרות מצוינת להוסיף <em>tag</em> שונים לכל אתר) , אך הוא לא מציג אינדקציה על אתרים שנשמרו כבר. תודה !",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "tag"
+            ]
+          }
+        }
+      },
+      "_rankingInfo": {
+        "nbTypos": 0,
+        "firstMatchedWord": 19,
+        "proximityDistance": 0,
+        "userScore": 1144,
+        "geoDistance": 0,
+        "geoPrecision": 1,
+        "nbExactWords": 0,
+        "words": 1,
+        "filters": 0
+      }
+    },
+    {
+      "question": {
+        "date": "27/02/2016",
+        "rating": 3,
+        "id": "434228236734415_600974023393168",
+        "personName": "Doron Passov",
+        "message": "שבוע טוב לכולם :) איך אתם מנהלים את כל האתרים המועדפים (favorites) ? התחלתי לעבוד עם evernote (יש אפשרות מצוינת להוסיף tag שונים לכל אתר) , אך הוא לא מציג אינדקציה על אתרים שנשמרו כבר. תודה !",
+        "url": "https://www.facebook.com/434228236734415/posts/600974023393168",
+        "personId": "10157187010400374",
+        "obj": {
+          "id": "434228236734415_600974023393168",
+          "from": {
+            "name": "Doron Passov",
+            "id": "10157187010400374"
+          },
+          "message": "שבוע טוב לכולם :) איך אתם מנהלים את כל האתרים המועדפים (favorites) ? התחלתי לעבוד עם evernote (יש אפשרות מצוינת להוסיף tag שונים לכל אתר) , אך הוא לא מציג אינדקציה על אתרים שנשמרו כבר. תודה !",
+          "actions": [
+            {
+              "name": "Like",
+              "link": "https://www.facebook.com/434228236734415/posts/600974023393168"
+            }
+          ],
+          "privacy": {
+            "value": "",
+            "description": "",
+            "friends": "",
+            "allow": "",
+            "deny": ""
+          },
+          "type": "status",
+          "created_time": "2016-02-27T20:34:24+0000",
+          "updated_time": "2016-03-02T07:40:28+0000",
+          "is_hidden": false,
+          "is_expired": false,
+          "likes": {
+            "data": [
+              {
+                "id": "483080171897560",
+                "name": "Itsko"
+              },
+              {
+                "id": "10154289781929140",
+                "name": "Yuval Passov"
+              },
+              {
+                "id": "10153990260902284",
+                "name": "Elchanan Shor"
+              }
+            ],
+            "paging": {
+              "cursors": {
+                "before": "NDgzMDgwMTcxODk3NTYw",
+                "after": "MTAxNTM5OTAyNjA5MDIyODQZD"
+              }
+            }
+          },
+          "comments": {
+            "data": [
+              {
+                "created_time": "2016-02-29T08:55:42+0000",
+                "from": {
+                  "name": "Tomer Saar",
+                  "id": "10210162946614425"
+                },
+                "message": "chrome bookmarks",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601655039991733"
+              },
+              {
+                "created_time": "2016-02-29T15:56:58+0000",
+                "from": {
+                  "name": "Maya Zack Holtzer",
+                  "id": "10154287202615489"
+                },
+                "message": "אתה יכול לנסות להשתמש במוצר שפיתחנו \nhttps://peekapost.com/\nלמרות שהוא בעיקר נועד לשמור פוסטים מרשתות חברתיות אבל אפשר גם לשמור כל עמוד url באמצעות התוסף שלנו \nhttps://chrome.google.com/webstore/detail/peekapost/ffagiehilonhoacehbfmnbpkpifhikjm\nאתה יכול ליצור לך אלבומים לפי נושאים, להוסיף תיוגים, ולהוסיף טקסט חופשי שלך.\nנשמח לשמוע אם זה עזר לך.",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601817009975536"
+              },
+              {
+                "created_time": "2016-02-29T15:57:55+0000",
+                "from": {
+                  "name": "Eli Klaiman",
+                  "id": "10208023600842478"
+                },
+                "message": "https://www.xmarks.com/",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601817273308843"
+              },
+              {
+                "created_time": "2016-02-29T19:24:36+0000",
+                "from": {
+                  "name": "Tal Peretz",
+                  "id": "10209907157584041"
+                },
+                "message": "Pocket!",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "601883673302203"
+              },
+              {
+                "created_time": "2016-03-01T19:24:36+0000",
+                "from": {
+                  "name": "Shimi Kiviti",
+                  "id": "583200071849845"
+                },
+                "message": "https://www.kifi.com/",
+                "can_remove": false,
+                "like_count": 2,
+                "user_likes": false,
+                "id": "602276373262933"
+              },
+              {
+                "created_time": "2016-03-01T23:37:08+0000",
+                "from": {
+                  "name": "Eishay Smith",
+                  "id": "10154444669191019"
+                },
+                "message": "Kifi will show you on the page an indication that it was kept by you, your friends or your team. It will also show the bookmarks on Google search page using the full text of the kept link",
+                "can_remove": false,
+                "like_count": 0,
+                "user_likes": false,
+                "id": "602390779918159"
+              }
+            ],
+            "paging": {
+              "cursors": {
+                "before": "WTI5dGJXVnVkRjlqZAFhKemIzSTZAOakF4TmpVMU1ETTVPVGt4TnpNek9qRTBOVFkzTXpZAeE5EST0ZD",
+                "after": "WTI5dGJXVnVkRjlqZAFhKemIzSTZAOakF5TXprd056YzVPVEU0TVRVNU9qRTBOVFk0TnpVME1qaz0ZD"
+              }
+            }
+          }
+        }
+      },
+      "answers": [
+        {
+          "created_time": "2016-02-29T08:55:42+0000",
+          "from": {
+            "name": "Tomer Saar",
+            "id": "10210162946614425"
+          },
+          "message": "chrome bookmarks",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601655039991733"
+        },
+        {
+          "created_time": "2016-02-29T15:56:58+0000",
+          "from": {
+            "name": "Maya Zack Holtzer",
+            "id": "10154287202615489"
+          },
+          "message": "אתה יכול לנסות להשתמש במוצר שפיתחנו \nhttps://peekapost.com/\nלמרות שהוא בעיקר נועד לשמור פוסטים מרשתות חברתיות אבל אפשר גם לשמור כל עמוד url באמצעות התוסף שלנו \nhttps://chrome.google.com/webstore/detail/peekapost/ffagiehilonhoacehbfmnbpkpifhikjm\nאתה יכול ליצור לך אלבומים לפי נושאים, להוסיף תיוגים, ולהוסיף טקסט חופשי שלך.\nנשמח לשמוע אם זה עזר לך.",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601817009975536"
+        },
+        {
+          "created_time": "2016-02-29T15:57:55+0000",
+          "from": {
+            "name": "Eli Klaiman",
+            "id": "10208023600842478"
+          },
+          "message": "https://www.xmarks.com/",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601817273308843"
+        },
+        {
+          "created_time": "2016-02-29T19:24:36+0000",
+          "from": {
+            "name": "Tal Peretz",
+            "id": "10209907157584041"
+          },
+          "message": "Pocket!",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "601883673302203"
+        },
+        {
+          "created_time": "2016-03-01T19:24:36+0000",
+          "from": {
+            "name": "Shimi Kiviti",
+            "id": "583200071849845"
+          },
+          "message": "https://www.kifi.com/",
+          "can_remove": false,
+          "like_count": 2,
+          "user_likes": false,
+          "id": "602276373262933"
+        },
+        {
+          "created_time": "2016-03-01T23:37:08+0000",
+          "from": {
+            "name": "Eishay Smith",
+            "id": "10154444669191019"
+          },
+          "message": "Kifi will show you on the page an indication that it was kept by you, your friends or your team. It will also show the bookmarks on Google search page using the full text of the kept link",
+          "can_remove": false,
+          "like_count": 0,
+          "user_likes": false,
+          "id": "602390779918159"
+        }
+      ],
+      "objectID": "318231760",
+      "_highlightResult": {
+        "question": {
+          "message": {
+            "value": "שבוע טוב לכולם :) איך אתם מנהלים את כל האתרים המועדפים (favorites) ? התחלתי לעבוד עם evernote (יש אפשרות מצוינת להוסיף <em>tag</em> שונים לכל אתר) , אך הוא לא מציג אינדקציה על אתרים שנשמרו כבר. תודה !",
+            "matchLevel": "full",
+            "fullyHighlighted": false,
+            "matchedWords": [
+              "tag"
+            ]
+          }
+        }
+      },
+      "_rankingInfo": {
+        "nbTypos": 0,
+        "firstMatchedWord": 19,
+        "proximityDistance": 0,
+        "userScore": 1144,
+        "geoDistance": 0,
+        "geoPrecision": 1,
+        "nbExactWords": 0,
+        "words": 1,
+        "filters": 0
+      }
+    }
+  ],
+  "nbHits": 1,
+  "page": 0,
+  "nbPages": 1,
+  "hitsPerPage": 20,
+  "processingTimeMS": 1,
+  "facets": {},
+  "exhaustiveFacetsCount": true,
+  "query": "tag",
+  "params": "query=tag&getRankingInfo=1&facets=*&attributesToRetrieve=*&highlightPreTag=%3Cem%3E&highlightPostTag=%3C%2Fem%3E&hitsPerPage=20&facetFilters=%5B%5D&maxValuesPerFacet=100&typoTolerance=false&queryType=prefixAll",
+  "serverUsed": "c1-de-1.algolia.net",
+  "parsedQuery": "tag",
+  "timeoutCounts": false,
+  "timeoutHits": false
+}

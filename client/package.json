@@ -16,7 +16,6 @@
     "test-local-report": "karma start --single-run --colors true",
     "test-debug": "karma start --single-run false",
     "deploy": "cd dist ; rm -r *.* ; cd../ ; rmdir dist ;et NODE_ENV=production&webpack --progress ; firebase deploy"
-
   },
   "repository": {
     "type": "git",
@@ -43,7 +42,8 @@
     "lodash": "4.11.1",
     "moment": "2.13.0",
     "ng-tags-input": "^3.1.1",
-    "ng-text-truncate": "^1.0.0"
+    "ng-text-truncate": "^1.0.0",
+    "url-loader": "^0.5.7"
   },
   "devDependencies": {
     "angular-mocks": "1.5.5",
