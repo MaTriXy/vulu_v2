@@ -14,8 +14,8 @@ export class TalkFSController {
         this.fsResult = {};
         this.GLOBALS = GLOBALS;
         this.groupName = GLOBALS.groupNameTheWeek;
-
-		
+        this.randNum = '';
+		this.getPicId();
 
         this.SearchModel.getById(this.objectID).
         then((searchFsresult_data)=>{
@@ -33,7 +33,9 @@ export class TalkFSController {
 	
     getPicId(){
         //return picture id randomly
-        return Math.floor(Math.random() * 29) + 1;
+		var id = Math.floor(Math.random() * 29) + 1;
+		this.randNum = id;
+        return id;
     }
 
 

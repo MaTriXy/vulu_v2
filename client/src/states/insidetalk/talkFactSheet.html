@@ -1,12 +1,6 @@
 <!--	  main    -->
 <div class="main-pages">
-    <!--
-        TO Do: why we need the header also here - maybe form here we need only to go back to the search screen
-        Answer: This is part of the dashboard which contains two pages (1) seach.html (2) talkFactSheet.html 
-        similar to quora navigation you can search on the main page and also on anwers pages.
-    -->
-	
-<!--	TODO: When on-search call a function that takes back to the search page and shows the results of the query. -->
+
  <header
             on-search="Search.getSearchResult(query)"
             query="Search.query">
@@ -22,7 +16,7 @@
 
                    
                     <div class="inside-question-header"
-                         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .8)), url(''); ">
+                         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .9)), url('../../assets/images/rand-images/{{ talkFS.randNum }}.jpg'); ">
 						
 <!--
 TODO: get the background urls from a specific directory on the server
@@ -171,14 +165,21 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 
                                         </div>
                                         <div class="flex-height answer">
-                                            <div class="upvote-button small">
+                                            <div  ng-if="talkFS.currentUser" class="upvote-button small">
                                                 <div class="triangle-button small"><span
                                                         class="triangle triangle-up small"></span></div>
 
                                                 <!--					TO DO: add upvote number -->
                                                 <p>{{answer.like_count ? answer.like_count : 'אהבתי'}}</p>
                                             </div>
-                                            <div class="comments-button small">
+											<a  ng-if="!talkFS.currentUser" class="upvote-button small" href="#/login">
+                                                <div class="triangle-button small"><span
+                                                        class="triangle triangle-up small"></span></div>
+
+                                                <!--					TO DO: add upvote number -->
+                                                <p>{{answer.like_count ? answer.like_count : 'אהבתי'}}</p>
+                                            </a>
+                                            <div  ng-if="talkFS.currentUser" class="comments-button small">
                                                 <svg class="icon icon-comments small">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>
@@ -187,7 +188,16 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                             
                                                 <p>הגב</p>
                                             </div>
+											<a ng-if="!talkFS.currentUser" class="comments-button small" href="#/login">
+                                                <svg class="icon icon-comments small">
+                                                    <use xlink:href="#icon-comments"></use>
+                                                </svg>
 
+
+                                            
+                                                <p>הגב</p>
+                                            </a>
+										
                                            
                                             <p class="answer-date">{{answer.created_time | timeago}} </p>
                                         </div>
@@ -268,7 +278,7 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                             <!--			end of answers ng-repeat-->
 
 					
-							<p class="unsigned-message">רק משתמשים רשומים יכולים להגיב על שאלות <br>
+							<p class="unsigned-message"  ng-if="!talkFS.currentUser">רק משתמשים רשומים יכולים להגיב על שאלות <br>
 								<a href="#/login">הרשמו כדי להגיב</a>
 							
 							</p>	

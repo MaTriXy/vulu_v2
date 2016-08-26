@@ -6,9 +6,7 @@
 
             <header on-search="Search.getSearchResult(query)" query="Search.query">
             </header>
-
-
-
+   
             <!--
 
                 <section class="ask-question-container">
@@ -69,6 +67,7 @@
                     <h1 class="categories-title">הנושאים החמים</h1>
                 </div>
                 <ul class="categories-list">
+					 <li ng-click="Search.getFeaturedResult()" class="flex-box"><a href="">הפופולאריים ביותר</a></li>
                     <li ng-click="Search.getSearchResult('משקיעים')" class="flex-box"><a href="">משקיעים</a></li>
                     <li ng-click="Search.getSearchResult('מחפש-שותף')" class="flex-box"><a href="">מחפש שותף</a></li>
                     <li ng-click="Search.getSearchResult('מעצבים')" class="flex-box"><a href="">מעצבים</a></li>
@@ -99,7 +98,7 @@
                             </div>
                             <div class="questions">
                                 <div class="question-box"
-                            ng-repeat="hit in Search.searchresult.hits |orderBy: '-date'">
+                            ng-repeat="hit in Search.searchresult.hits |orderBy: '-question.rating'">
 							<a class="question-link" ui-sref="home.talkFS({objectID: hit.objectID})">		
                                     <div class="w-row">
 
@@ -108,20 +107,23 @@
 										
 											
 											
-									<!-- TODO ran: add owner image in ng-src  / check if we have it at the API    -->
+								
 											<a href="https://www.facebook.com/app_scoped_user_id/{{hit.question.personId}}" target="_blank" title="{{hit.question.personName}}">
-<img class="owner-img" src="https://graph.facebook.com/{{hit.question.personId}}/picture?width=200&height=200">
+<img class="owner-img" ng-src="https://graph.facebook.com/{{hit.question.personId}}/picture?width=200&height=200">
                    </a>
 						
                                             <div class="flex-box">
-                                                <h2  class="question-title" 
+                                                <h2 ng-show="hit._highlightResult.question.message.value" class="question-title" 
                                                     ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
-												<a ng-if="hit.question.link" dir="auto" class="post-link" href="{{hit.question.link.link}}">
-													<img ng-if="hit.question.link.picture" src="{{hit.question.link.picture}}">
+												 <h2 ng-hide="hit._highlightResult.question.message.value" class="question-title" ng-bind-html="hit.question.message | linkyWithHtml"></h2>
+												<a ng-if="hit.question.link" dir="auto" class="post-link" href="{{hit.question.link.link}}" target="_blank">
+													<img ng-if="hit.question.link.picture" ng-src="{{hit.question.link.picture}}">
 													
 													<h2 class="post-link-name">{{hit.question.link.name}}</h2>
 													<span class="post-link-website">{{hit.question.link.caption}}</span>	
 												</a>
+												
+											
 												
 												
                                             </div>
