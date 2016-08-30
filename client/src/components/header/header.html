@@ -6,10 +6,7 @@
 					<div class="w-col w-col-2 w-col-small-3 w-col-tiny-5 w-col-big-mobile-5 column">
 						<div class="logo-wrapper">
 							<a href="#" id="logo">
-								<svg class="icon icon-logo-small logo-symbol">
-									<use xlink:href="#icon-logo-small"></use>
-								</svg>
-								<p class="logo-text">talkme</p>
+								<div class="logo-text"><img src="../../assets/images/vulu-logo.svg" class="vulu-logo"></div>
 							</a>
 						</div>
 					</div>
@@ -66,7 +63,7 @@
 									<div class="login-tooltip" ng-class="Header.warning ? 'error' : '' ">
 										<div class="login-container">
 											<div class="form-container">
-												<button id="facebookBn" type="button" id="login" ng-click="Header.fbLogin()" href="#" target="_blank" alt="Login with Facebook"><img src="http://res.cloudinary.com/talkme-co/image/upload/v1445607368/facebook-icon_jfwcig.svg" class="iconsocial"><span class="primary-text">המשך עם פייסבוק</span></button>
+												<button id="facebookBn" type="button" id="login" ng-click="Header.fbLogin()" href="#" target="_blank" alt="Login with Facebook"><img src="http://res.cloudinary.com/talkme-co/image/upload/v1445607368/facebook-icon_jfwcig.svg" class="iconsocial"><span class="primary-text">המשיכו עם פייסבוק</span></button>
 												<p class="or">או</p>
 
 												<form ng-submit="Header.login()" id="login-form">
@@ -79,15 +76,15 @@
 
 												</form>
 												<a href="" class="reset-pass" ng-click="Header.resetPassword()">שכחת
-                                                    ססמא? לחץ כאן</a>
+                                                    ססמא? לחצ/י כאן</a>
 												<p ng-show="Header.warning" class="reset-pass error">{{Header.errorMessage}}</p>
 											</div>
 
 											<div class="signup-container">
-												<p class="signup-text">חדש בTalkme?</p>
+												<p class="signup-text">חדש/ה בVulu?</p>
 
 												<!--		TO DO:	redirect the user to login state-->
-												<a href="#/login" class="submit">הרשמ/י</a>
+												<a href="#/login" class="submit">להרשמה</a>
 											</div>
 
 										</div>
@@ -102,7 +99,7 @@
 										<img class="profile-image" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'http://res.cloudinary.com/talkme-co/image/upload/v1470909661/profile-monstr_ldqvqq.png' }}">
 										<p class="profile-name">{{ Header.currentUser.displayName ? Header.currentUser.displayName : Header.currentUser.email.split("@")[0] }}</p>
 										<div class="menu-tooltip">
-											<div class="log-out" ng-click="Header.logout()">התנתק</div>
+											<div class="log-out" ng-click="Header.logout()">התנתק/י</div>
 										</div>
 									</div>
 

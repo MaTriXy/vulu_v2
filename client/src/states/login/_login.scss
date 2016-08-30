@@ -190,33 +190,22 @@
         float: left;
     }
     .main-logo {
-        display: block;
-        position: relative;
-        max-width: 270px;
-        float: none;
-        margin: 0px auto;
-        height: 77px;
-        margin-Bottom: 6px;
+    display: block;
+    position: relative;
+    max-width: 160px;
+    float: none;
+    margin: 0px auto;
+    height: 60px;
+    margin-Bottom: 0px;
     }
-    .logo-icon {
-        display: block;
-        padding-top: 5px;
-        padding-right: 5px;
-        float: left;
-        width: 28%;
-        max-height: 75px;
-        fill: #52ba98;
-    }
-    .logo-svg-text {
-        display: block;
-        padding-top: 5px;
-        padding-right: 5px;
-        float: left;
-        width: 70%;
-        margin-top: 3%;
-        max-height: 50px;
-        fill: #44a3e4;
-    }
+	.vulu-logo{
+width: 100%;
+    max-width: 160px;
+    height: 100%;
+    float: right;
+    display: block;
+    fill: #44a3e4;	
+	}	
     .icon-close {
         width: 100%;
         height: 100%;

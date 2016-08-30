@@ -58,7 +58,7 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 								
                             </div>
                             <div class="flex-height big">
-                                <div class="comments-button big">
+                                <div ng-if="talkFS.currentUser" class="comments-button big">
                                     <svg class="icon icon-comments big">
                                         <use xlink:href="#icon-comments"></use>
                                     </svg>
@@ -66,12 +66,26 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                    
                                     <p>{{talkFS.fsResult.answers.length ? talkFS.fsResult.answers.length : '0'}}</p>
                                 </div>
-                                <div class="upvote-button big">
+								 <a ng-if="!talkFS.currentUser" class="comments-button big" href="#/login">
+                                    <svg class="icon icon-comments big">
+                                        <use xlink:href="#icon-comments"></use>
+                                    </svg>
+
+                                   
+                                    <p>{{talkFS.fsResult.answers.length ? talkFS.fsResult.answers.length : '0'}}</p>
+                                </a>
+                                <div ng-if="talkFS.currentUser" class="upvote-button big">
                                     <div class="triangle-button big"><span class="triangle triangle-up"></span></div>
 
                                   
                                     <p>{{talkFS.fsResult.question.rating ? talkFS.fsResult.question.rating : '0'}}</p>
                                 </div>
+								  <a ng-if="!talkFS.currentUser" class="upvote-button big" href="#/login">
+                                    <div class="triangle-button big"><span class="triangle triangle-up"></span></div>
+
+                                  
+                                    <p>{{talkFS.fsResult.question.rating ? talkFS.fsResult.question.rating : '0'}}</p>
+                                </a>
                             </div>
 
 
@@ -79,6 +93,12 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                     </div>
                 </div>
 
+					<p class="unsigned-message"  ng-if="!talkFS.currentUser">רק משתמשים רשומים יכולים להגיב על שאלות <br>
+								<a href="#/login">הרשמו כדי להגיב</a>
+							
+							</p>	
+					
+				
                 <div class="w-col w-col-9 w-col-small-9 w-col-tiny-12 w-col-big-mobile-12 column">
 
                    
@@ -123,6 +143,7 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                         </div>
                     </div>
 	
+					
                     <div class="answers-group">
                         <div class="answers-header">
                             <h1 class="answers-header-title">תגובות</h1>
@@ -278,10 +299,7 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                             <!--			end of answers ng-repeat-->
 
 					
-							<p class="unsigned-message"  ng-if="!talkFS.currentUser">רק משתמשים רשומים יכולים להגיב על שאלות <br>
-								<a href="#/login">הרשמו כדי להגיב</a>
-							
-							</p>	
+						
 							
                         </div>
 
