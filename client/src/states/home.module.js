@@ -3,6 +3,7 @@ import homeTemplate       from './home.html';
 import login              from './login/login.module';
 import search             from './search/search.module.js';
 import talkFactSheet      from './insidetalk/talkFactSheet.module.js';
+import firebase           from 'firebase';
 
 
 /* @ngInject */

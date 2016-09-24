@@ -54,6 +54,8 @@ var config = {
     // The bundling output directory (must be absolute path)
     path: distPath,
     // Set proper base URL for serving resources
+    //tell webpack from where to serve the output file at the webserver
+    //in this case all request will go to distPath
     publicPath: '',
     // The output filename of the entry chunk, relative to `path`
     // [name] - Will be set per each key name in `entry`
