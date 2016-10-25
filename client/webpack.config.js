@@ -38,7 +38,6 @@ var config = {
       'angular-ui-router',
       'angular-animate',
       'angular-translate',
-      'firebase/firebase-browser',
       'ngStorage',
       'moment/moment',
       'lodash',
@@ -135,7 +134,10 @@ var config = {
         loaders: [
           'url?limit=5120&name=' + assetsPathPattern
         ]
-      }
+      },
+
+      {test: /\.(jpe?g|png|gif|svg)$/i, loader: "file-loader?name=/public/icons/[name].[ext]"}
+
     ]
   },
 

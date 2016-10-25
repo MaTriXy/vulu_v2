@@ -1,7 +1,9 @@
+
 export class TalkFSController {
 
     /* @ngInject */
     constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state ,GLOBALS) {
+
 
         this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
@@ -16,6 +18,9 @@ export class TalkFSController {
         this.groupName = GLOBALS.groupNameTheWeek;
         this.randNum = '';
 		this.getPicId();
+
+        this.bgImage = require('../../assets/images/rand-images/' + this.randNum + '.jpg');
+        this.myStyle = {'background-image': {'linear-gradient' : '(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .9))' , 'src' : this.bgImage }};
 
         this.SearchModel.getById(this.objectID).
         then((searchFsresult_data)=>{
