@@ -449,7 +449,7 @@
     border: 1px solid #e5e5e5;
     margin-bottom: 15px;
     position: relative;
-    height: 81px;
+    height: 55px;
     -webkit-transition: all 0.12s ease;
     transition: all 0.12s ease;
 
@@ -460,6 +460,7 @@
       max-width: 80px;
       position: relative;
       z-index: 1;
+      height: 100%;
     }
     &.white {
       background: #fefeff;
