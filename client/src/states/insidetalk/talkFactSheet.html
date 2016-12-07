@@ -1,62 +1,64 @@
 <!--	  main    -->
 <div class="main-pages">
 
- <header
+    <header
             on-search="Search.getSearchResult(query)"
             query="Search.query">
     </header>
- 
+
     <main class="w-container main-section">
-     
+
 
         <section class="inside-question-container">
             <div class="w-row">
                 <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
 
 
-                   
                     <div class="inside-question-header"
-                         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .9)), url('../../assets/images/rand-images/{{ talkFS.randNum }}.jpg'); ">
-						
-<!--
-TODO: get the background urls from a specific directory on the server
-url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
+                         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .4),rgba(0, 0, 0, .34)), url('../../assets/images/rand-images/{{ talkFS.randNum }}.jpg'); ">
 
--->
-						
-                        <div class="question-header-box">
+                        <!--
+                        TODO: get the background urls from a specific directory on the server
+                        url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
+
+                        -->
+
+                        <div  class="question-header-box">
                             <div class="owner-container">
 
                                 <!--					TO DO: add question owner image and username here-->
-								
-								<a href="https://www.facebook.com/app_scoped_user_id/{{ talkFS.fsResult.question.obj.from.id}}" target="_blank">
-                                <img class="owner-img standalone-question" ng-src="https://graph.facebook.com/{{ talkFS.fsResult.question.obj.from.id}}/picture?width=200&height=200">
-								</a>
+
+                                <a href="https://www.facebook.com/app_scoped_user_id/{{ talkFS.fsResult.question.obj.from.id}}"
+                                   target="_blank">
+                                    <img class="owner-img standalone-question"
+                                         ng-src="https://graph.facebook.com/{{ talkFS.fsResult.question.obj.from.id}}/picture?width=200&height=200">
+                                </a>
                                 <div class="flex-box">
-									<a href="https://www.facebook.com/app_scoped_user_id/{{ talkFS.fsResult.question.obj.from.id}}" target="_blank">
-                                    <p class="owner-name standalone-question">{{ talkFS.fsResult.question.personName }}</p>
-									</a>
+                                    <a href="https://www.facebook.com/app_scoped_user_id/{{ talkFS.fsResult.question.obj.from.id}}"
+                                       target="_blank">
+                                        <p class="owner-name standalone-question">{{ talkFS.fsResult.question.personName
+                                            }}</p>
+                                    </a>
                                 </div>
                             </div>
                             <div class="flex-box">
 
 
-                               
-                                <h2 class="question-title standalone" dir="auto" ng-bind-html="talkFS.fsResult.question.message | linkyWithHtml">
+                                <h2 class="question-title standalone" dir="auto"
+                                    ng-bind-html="talkFS.fsResult.question.message | linkyWithHtml">
                                 </h2>
-								
-								
-						<a ng-if="talkFS.fsResult.question.link" dir="auto" class="post-link white" href="{{talkFS.fsResult.question.link.link}}">
-													<img ng-if="talkFS.fsResult.question.link.picture" src="{{talkFS.fsResult.question.link.picture}}">
-													
-													<h2 class="post-link-name">{{talkFS.fsResult.question.link.name}}</h2>
-													<span class="post-link-website">{{talkFS.fsResult.question.link.caption}}</span>	
-												</a>
-								
-								
-								
-								
-								
+
+
+                                <a ng-if="talkFS.fsResult.question.link" dir="auto" class="post-link white"
+                                   href="{{talkFS.fsResult.question.link.link}}">
+                                    <img ng-if="talkFS.fsResult.question.link.picture"
+                                         src="{{talkFS.fsResult.question.link.picture}}">
+
+                                    <h2 class="post-link-name">{{talkFS.fsResult.question.link.name}}</h2>
+                                    <span class="post-link-website">{{talkFS.fsResult.question.link.caption}}</span>
+                                </a>
+
+
                             </div>
                             <div class="flex-height big">
                                 <div ng-if="talkFS.currentUser" class="comments-button big">
@@ -64,29 +66,34 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                         <use xlink:href="#icon-comments"></use>
                                     </svg>
 
-                                   
+
                                     <p>{{talkFS.fsResult.answers.length ? talkFS.fsResult.answers.length : '0'}}</p>
                                 </div>
-								 <a ng-if="!talkFS.currentUser" class="comments-button big" href="#/login">
+                                <a ng-if="!talkFS.currentUser" class="comments-button big" href="#/login">
                                     <svg class="icon icon-comments big">
                                         <use xlink:href="#icon-comments"></use>
                                     </svg>
 
-                                   
+
                                     <p>{{talkFS.fsResult.answers.length ? talkFS.fsResult.answers.length : '0'}}</p>
                                 </a>
                                 <div ng-if="talkFS.currentUser" class="upvote-button big">
                                     <div class="triangle-button big"><span class="triangle triangle-up"></span></div>
 
-                                  
+
                                     <p>{{talkFS.fsResult.question.rating ? talkFS.fsResult.question.rating : '0'}}</p>
                                 </div>
-								  <a ng-if="!talkFS.currentUser" class="upvote-button big" href="#/login">
+                                <a ng-if="!talkFS.currentUser" class="upvote-button big" href="#/login">
                                     <div class="triangle-button big"><span class="triangle triangle-up"></span></div>
 
-                                  
+
                                     <p>{{talkFS.fsResult.question.rating ? talkFS.fsResult.question.rating : '0'}}</p>
                                 </a>
+
+                                <a  class="group-button big" href={{talkFS.fsResult.question.url}}>
+                                    <img class="faceImg" ng-src="../../assets/images/facebook_link.png">
+                                </a>
+
                             </div>
 
 
@@ -94,23 +101,25 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                     </div>
                 </div>
 
-					<p class="unsigned-message"  ng-if="!talkFS.currentUser">רק משתמשים רשומים יכולים להגיב על שאלות <br>
-								<a href="#/login">הרשמו כדי להגיב</a>
-							
-							</p>	
-					
-				
+                <p class="unsigned-message" ng-if="!talkFS.currentUser">רק משתמשים רשומים יכולים להגיב על שאלות <br>
+                    <a href="#/login">הרשמו כדי להגיב</a>
+
+                </p>
+
+
                 <div class="w-col w-col-9 w-col-small-9 w-col-tiny-12 w-col-big-mobile-12 column">
 
-                   
+
                     <div class="comment-box" ng-if="talkFS.currentUser">
                         <div class="profile-comment-section">
                             <div class="round-profile feed comment">
 
-                             
-                                <img class="owner-img small" ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'http://res.cloudinary.com/talkme-co/image/upload/v1470909661/profile-monstr_ldqvqq.png' }}" alt="user-image"></div>
+
+                                <img class="owner-img small"
+                                     ng-src="{{ Header.currentUser.imageUrl ? Header.currentUser.imageUrl : 'http://res.cloudinary.com/talkme-co/image/upload/v1470909661/profile-monstr_ldqvqq.png' }}"
+                                     alt="user-image"></div>
                         </div>
-						<p class="comming-soon-comment">בקרוב תוכל/י להגיב על שאלות</p>
+                        <p class="comming-soon-comment">בקרוב תוכל/י להגיב על שאלות</p>
                         <div class="comment-section">
                             <div class="arrow-left"></div>
 
@@ -132,7 +141,6 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                     </div>
 
 
-                                  
                                     <input id="share-comment" class="w-button post-button comment" type="submit"
                                            data-ng-mousedown="definePost(talk)" value="פרסם" disabled>
 
@@ -143,84 +151,83 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
 
                         </div>
                     </div>
-	
-					
+
+
                     <div class="answers-group">
                         <div class="answers-header">
                             <h1 class="answers-header-title">תגובות</h1>
                         </div>
                         <div class="answers">
 
-	
-							
+
                             <!--					NG-REPEAT: repeat all comments on this quesion -->
-<!--							| orderBy: '-like_count'-->
-                     <div class="answer-box" ng-repeat="answer in talkFS.fsResult.answers ">
+                            <!--							| orderBy: '-like_count'-->
+                            <div class="answer-box" ng-repeat="answer in talkFS.fsResult.answers ">
                                 <div class="w-row">
 
                                     <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
                                         <div class="answer-owner-container">
 
-                                      
-											<a href="https://www.facebook.com/app_scoped_user_id/{{answer.from.id}}" target="_blank">
-                                            <img class="owner-img small"
-                                                 src="https://graph.facebook.com/{{answer.from.id}}/picture?width=200&height=200">
-											</a>
+
+                                            <a href="https://www.facebook.com/app_scoped_user_id/{{answer.from.id}}"
+                                               target="_blank">
+                                                <img class="owner-img small"
+                                                     src="https://graph.facebook.com/{{answer.from.id}}/picture?width=200&height=200">
+                                            </a>
                                             <div class="owner-wrap">
-												<a href="https://www.facebook.com/app_scoped_user_id/{{answer.from.id}}" target="_blank">
-                                                <p class="owner-name small">{{answer.from.name}}</p>
+                                                <a href="https://www.facebook.com/app_scoped_user_id/{{answer.from.id}}"
+                                                   target="_blank">
+                                                    <p class="owner-name small">{{answer.from.name}}</p>
                                                 </a>
 
-<!--
-                                                <div class="owner-stats">
-                                                    <span class="dashline"></span>
-                                                    <span class="owner-mantra"></span>
-                                                </div>
--->
+                                                <!--
+                                                                                                <div class="owner-stats">
+                                                                                                    <span class="dashline"></span>
+                                                                                                    <span class="owner-mantra"></span>
+                                                                                                </div>
+                                                -->
 
                                             </div>
                                         </div>
                                         <div class="answer-text-box">
-											
-                                    
-                                            <p  class="answer-title" ng-bind-html="answer.message | linkyWithHtml"></p>
+
+
+                                            <p class="answer-title" ng-bind-html="answer.message | linkyWithHtml"></p>
 
                                         </div>
                                         <div class="flex-height answer">
-                                            <div  ng-if="talkFS.currentUser" class="upvote-button small">
+                                            <div ng-if="talkFS.currentUser" class="upvote-button small">
                                                 <div class="triangle-button small"><span
                                                         class="triangle triangle-up small"></span></div>
 
                                                 <!--					TO DO: add upvote number -->
                                                 <p>{{answer.like_count ? answer.like_count : 'אהבתי'}}</p>
                                             </div>
-											<a  ng-if="!talkFS.currentUser" class="upvote-button small" href="#/login">
+                                            <a ng-if="!talkFS.currentUser" class="upvote-button small" href="#/login">
                                                 <div class="triangle-button small"><span
                                                         class="triangle triangle-up small"></span></div>
 
                                                 <!--					TO DO: add upvote number -->
                                                 <p>{{answer.like_count ? answer.like_count : 'אהבתי'}}</p>
                                             </a>
-                                            <div  ng-if="talkFS.currentUser" class="comments-button small">
+                                            <div ng-if="talkFS.currentUser" class="comments-button small">
                                                 <svg class="icon icon-comments small">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>
 
 
-                                            
                                                 <p>הגב</p>
                                             </div>
-											<a ng-if="!talkFS.currentUser" class="comments-button small" href="#/login">
+                                            <a ng-if="!talkFS.currentUser" class="comments-button small" href="#/login">
                                                 <svg class="icon icon-comments small">
                                                     <use xlink:href="#icon-comments"></use>
                                                 </svg>
 
 
-                                            
                                                 <p>הגב</p>
                                             </a>
-										
-                                           
+
+
                                             <p class="answer-date">{{answer.created_time | timeago}} </p>
                                         </div>
 
@@ -230,78 +237,76 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                                 </div>
 
 
-<!--                                &lt;!&ndash;					NG-IF: if someone commented on this comment show this html &ndash;&gt;
-                                <ul class="answer-comments">
+                                <!--                                &lt;!&ndash;					NG-IF: if someone commented on this comment show this html &ndash;&gt;
+                                                                <ul class="answer-comments">
 
-                                    &lt;!&ndash;					todo ran add datat for comments NG-REPEAT: show all li comment answers &ndash;&gt;
-                                    <li>
-                                        <div class="answer-box">
-                                            <div class="w-row">
+                                                                    &lt;!&ndash;					todo ran add datat for comments NG-REPEAT: show all li comment answers &ndash;&gt;
+                                                                    <li>
+                                                                        <div class="answer-box">
+                                                                            <div class="w-row">
 
-                                                <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
-                                                    <div class="answer-owner-container">
+                                                                                <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
+                                                                                    <div class="answer-owner-container">
 
-                                                        &lt;!&ndash;					TO DO: add comment owner image and username here (option to have also a smal bio) &ndash;&gt;
-                                                        <img class="owner-img small"
-                                                             src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200">
+                                                                                        &lt;!&ndash;					TO DO: add comment owner image and username here (option to have also a smal bio) &ndash;&gt;
+                                                                                        <img class="owner-img small"
+                                                                                             src="https://graph.facebook.com/1498967693721500/picture?width=200&height=200">
 
-                                                        <div class="owner-wrap">
-                                                            <p class="owner-name small">Elad Lev</p>
+                                                                                        <div class="owner-wrap">
+                                                                                            <p class="owner-name small">Elad Lev</p>
 
-                                                            <div class="owner-stats">
-                                                                <span class="dashline"> — </span>
-                                                                <span class="owner-mantra">ממייסדי Talkme</span>
-                                                            </div>
+                                                                                            <div class="owner-stats">
+                                                                                                <span class="dashline"> — </span>
+                                                                                                <span class="owner-mantra">ממייסדי Talkme</span>
+                                                                                            </div>
 
-                                                        </div>
-                                                    </div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                                    &lt;!&ndash;					TO DO: add comment title &ndash;&gt;
-                                                    <div class="answer-text-box">
-                                                        <p class="answer-title">כן, אבל יכול להיות שהמשקיע ישים כסף אם
-                                                            הוא יראה שמות גדולים... תחשוב אם יש לנו 3 סטארט אפים לבחור
-                                                            מבינהם, אבל לאחד יש advisory board מפוצץ אז הוא יודע שאותה
-                                                            חברה תקבל קשרים טובים ואם היא בנתה קשרים ממש טובים בתחילת
-                                                            הדרך אז בכלל היא תצליח בהמשך הדרך</p>
+                                                                                    &lt;!&ndash;					TO DO: add comment title &ndash;&gt;
+                                                                                    <div class="answer-text-box">
+                                                                                        <p class="answer-title">כן, אבל יכול להיות שהמשקיע ישים כסף אם
+                                                                                            הוא יראה שמות גדולים... תחשוב אם יש לנו 3 סטארט אפים לבחור
+                                                                                            מבינהם, אבל לאחד יש advisory board מפוצץ אז הוא יודע שאותה
+                                                                                            חברה תקבל קשרים טובים ואם היא בנתה קשרים ממש טובים בתחילת
+                                                                                            הדרך אז בכלל היא תצליח בהמשך הדרך</p>
 
-                                                    </div>
-                                                    <div class="flex-height answer">
-                                                        <div class="upvote-button small">
-                                                            <div class="triangle-button small"><span
-                                                                    class="triangle triangle-up small"></span></div>
+                                                                                    </div>
+                                                                                    <div class="flex-height answer">
+                                                                                        <div class="upvote-button small">
+                                                                                            <div class="triangle-button small"><span
+                                                                                                    class="triangle triangle-up small"></span></div>
 
-                                                            &lt;!&ndash;					TO DO: add upvote number &ndash;&gt;
-                                                            <p>3</p>
-                                                        </div>
-                                                        <div class="comments-button small">
-                                                            <svg class="icon icon-comments small">
-                                                                <use xlink:href="#icon-comments"></use>
-                                                            </svg>
+                                                                                            &lt;!&ndash;					TO DO: add upvote number &ndash;&gt;
+                                                                                            <p>3</p>
+                                                                                        </div>
+                                                                                        <div class="comments-button small">
+                                                                                            <svg class="icon icon-comments small">
+                                                                                                <use xlink:href="#icon-comments"></use>
+                                                                                            </svg>
 
-                                                            &lt;!&ndash;					TO DO: add comments number &ndash;&gt;
-                                                            <p>הגב</p>
-                                                        </div>
+                                                                                            &lt;!&ndash;					TO DO: add comments number &ndash;&gt;
+                                                                                            <p>הגב</p>
+                                                                                        </div>
 
-                                                        &lt;!&ndash;					TO DO: add comment upload date &ndash;&gt;
-                                                        <p class="answer-date">פורסם ב 5 למרץ</p>
-                                                    </div>
+                                                                                        &lt;!&ndash;					TO DO: add comment upload date &ndash;&gt;
+                                                                                        <p class="answer-date">פורסם ב 5 למרץ</p>
+                                                                                    </div>
 
 
-                                                </div>
+                                                                                </div>
 
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>-->
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>-->
 
 
                             </div>
 
                             <!--			end of answers ng-repeat-->
 
-					
-						
-							
+
                         </div>
 
 
@@ -314,37 +319,49 @@ url('../client/src/assets/images/rand-images/{{ talkFS.getPicId() }}.jpg');
                     </div>
                     <ul class="categories-list">
                         <li class="flex-box">
-							<a href="http://any-app.com/he/knowledge/improve-mobile-application-rating/" target="_blank">
-							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/08/16243065_ml.jpg" alt="כך תשפרו את דירוג האפליקציה שלכם">
-								<p class="links-title">כך תשפרו את דירוג האפליקציה שלכם</p>
-							
-							</a></li>
-                       <li class="flex-box">
-							<a href="http://any-app.com/he/knowledge/investors-money-cash-flow-management/" target="_blank">
-							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/06/investors.jpg" alt="ניהול תזרים מזומנים בסטארט-אפ או איך לא ליפול למלכודת דבש שנקראת כסף של משקיע">
-								<p class="links-title">ניהול תזרים מזומנים בסטארט-אפ או איך לא ליפול למלכודת דבש שנקראת "כסף של משקיע"</p>
-							
-							</a></li>
-						<li class="flex-box">
-							<a href="http://any-app.com/he/knowledge/mobile-applications-push-notifications-guide/">
-							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/07/push.jpg" alt="המדריך לשיווק אפליקציה באמצעות הודעות Push">
-								<p class="links-title">המדריך לשיווק אפליקציה באמצעות הודעות Push</p>
-							
-							</a></li>
-						<li class="flex-box">
-							<a href="http://any-app.com/he/knowledge/application-entrepreneur-glossary/">
-							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/03/1-1.jpg" alt="מילון המונחים ליזם האפליקציות">
-								<p class="links-title">מילון המונחים ליזם האפליקציות</p>
-							
-							</a></li>
-						<li class="flex-box">
-							<a href="http://any-app.com/he/knowledge/mobile-application-development-outsource-vs-team/">
-							<img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/04/office-620823_1280.jpg" alt="האם לפתח אפליקציה במיקור חוץ או להקים צוות פיתוח?">
-								<p class="links-title">האם לפתח אפליקציה במיקור חוץ או להקים צוות פיתוח?</p>
-							
-							</a></li>
+                            <a href="http://any-app.com/he/knowledge/improve-mobile-application-rating/"
+                               target="_blank">
+                                <img class="img-rounded"
+                                     src="http://any-app.com/wp-content/uploads/2016/08/16243065_ml.jpg"
+                                     alt="כך תשפרו את דירוג האפליקציה שלכם">
+                                <p class="links-title">כך תשפרו את דירוג האפליקציה שלכם</p>
+
+                            </a></li>
+                        <li class="flex-box">
+                            <a href="http://any-app.com/he/knowledge/investors-money-cash-flow-management/"
+                               target="_blank">
+                                <img class="img-rounded"
+                                     src="http://any-app.com/wp-content/uploads/2016/06/investors.jpg"
+                                     alt="ניהול תזרים מזומנים בסטארט-אפ או איך לא ליפול למלכודת דבש שנקראת כסף של משקיע">
+                                <p class="links-title">ניהול תזרים מזומנים בסטארט-אפ או איך לא ליפול למלכודת דבש שנקראת
+                                    "כסף של משקיע"</p>
+
+                            </a></li>
+                        <li class="flex-box">
+                            <a href="http://any-app.com/he/knowledge/mobile-applications-push-notifications-guide/">
+                                <img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/07/push.jpg"
+                                     alt="המדריך לשיווק אפליקציה באמצעות הודעות Push">
+                                <p class="links-title">המדריך לשיווק אפליקציה באמצעות הודעות Push</p>
+
+                            </a></li>
+                        <li class="flex-box">
+                            <a href="http://any-app.com/he/knowledge/application-entrepreneur-glossary/">
+                                <img class="img-rounded" src="http://any-app.com/wp-content/uploads/2016/03/1-1.jpg"
+                                     alt="מילון המונחים ליזם האפליקציות">
+                                <p class="links-title">מילון המונחים ליזם האפליקציות</p>
+
+                            </a></li>
+                        <li class="flex-box">
+                            <a href="http://any-app.com/he/knowledge/mobile-application-development-outsource-vs-team/">
+                                <img class="img-rounded"
+                                     src="http://any-app.com/wp-content/uploads/2016/04/office-620823_1280.jpg"
+                                     alt="האם לפתח אפליקציה במיקור חוץ או להקים צוות פיתוח?">
+                                <p class="links-title">האם לפתח אפליקציה במיקור חוץ או להקים צוות פיתוח?</p>
+
+                            </a></li>
                     </ul>
-<a href="http://any-app.com/he/knowledge/" target="_blank" class="links-title">באדיבות: יזם האפליקציות - מאגר הידע עבור יזמים ישראליים</a>
+                    <a href="http://any-app.com/he/knowledge/" target="_blank" class="links-title">באדיבות: יזם
+                        האפליקציות - מאגר הידע עבור יזמים ישראליים</a>
                 </div>
 
             </div>

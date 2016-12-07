@@ -1,181 +1,137 @@
 <!--	  main    -->
 <div class="main-pages ">
-   <div class="search-body">
+    <div class="search-body">
 
         <main class="w-container main-section">
 
             <header on-search="Search.getSearchResult(query)" query="Search.query">
             </header>
-   
-            <!--
 
-                <section class="ask-question-container">
+            <div class="w-row">
+                <div class="w-col w-col-2  w-col-medium-0 w-col-small-0 w-col-tiny-0 w-col-big-mobile-0 column categories-container">
+                    <div class="categories-header">
+                        <h1 class="categories-title">הנושאים החמים</h1>
+                    </div>
+                    <ul class="categories-list">
+                        <!--
+                        todo Elad Fix bug at JSON
+                                                <li ng-click="Search.getFeaturedResult()" class="flex-box"><a href="">הפופולאריים ביותר</a></li>
+                        -->
+                        <li ng-click="Search.getSearchResult('משקיעים')" class="flex-box"><a href="">משקיעים</a></li>
+                        <li ng-click="Search.getSearchResult('מחפש-שותף')" class="flex-box"><a href="">מחפש שותף</a>
+                        </li>
+                        <li ng-click="Search.getSearchResult('מעצבים')" class="flex-box"><a href="">מעצבים</a></li>
+                        <li ng-click="Search.getSearchResult('חשיפה')" class="flex-box"><a href="">חשיפה</a></li>
+                        <li ng-click="Search.getSearchResult('SEO')" class="flex-box"><a href="">SEO</a></li>
+                        <li ng-click="Search.getSearchResult('שיווק')" class="flex-box"><a href="">שיווק</a></li>
+                        <li ng-click="Search.getSearchResult('seed')" class="flex-box"><a href="">seed</a></li>
+                        <li ng-click="Search.getSearchResult('רעיונות')" class="flex-box"><a href="">רעיונות</a></li>
+                    </ul>
+                </div>
+                <div class="w-col w-col-10 w-col-medium-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
 
-                    <form ng-submit="Search.getSearchResult(query)">
 
-                        <div class="w-row">
+                    <div class="questions-group">
+                        <div class="questions-header">
+                            <svg ng-hide="Search.isQuery" class="icon icon-popular">
+                                <use xlink:href="#icon-popular"></use>
+                            </svg>
+                            <svg ng-show="Search.isQuery" class="icon icon-facebook">
+                                <use xlink:href="#icon-facebook"></use>
+                            </svg>
 
-                            <div class="w-col w-col-7 w-col-small-7 w-col-tiny-12 w-col-big-mobile-12 column">
-
-                                <input id="question-input" class="w-input" placeholder="מה השאלה שלך?" type="text" ng-model="query">
-
-                            </div>
-
-                            <div class="w-col w-col-3 w-col-small-3 w-col-tiny-12 w-col-big-mobile-12 column">
-
-                                <input id="tags-input" class="w-input" placeholder="הוסף מילות מפתח" type="text">
-
-                            </div>
-
-                            <div class="w-col w-col-2 w-col-small-2 w-col-tiny-12 w-col-big-mobile-12 column">
-
-                                <input id="submit-button" class="button" type="submit" value="שלח">
-
-                            </div>
+                            <h1 ng-hide="Search.isQuery" class="questions-date">הפופלאריים ביותר</h1>
+                            <h1 ng-show="Search.isQuery" class="questions-date">השבוע: שאלות ותשובות על סטארטאפים</h1>
 
                         </div>
-
-                    </form>
-
-                </section>
-
-            -->
-            
-					
-    <section class="w-container questions-container">
-		<section class="welcome-box" ng-if="Search.currentUser === undefined" ng-class="Search.closed ? 'closed' : ''">
-		<span ng-click="Search.closing()" class="close welcome">
-			<svg class="icon icon-close">
-				<use xlink:href="#icon-close"></use>
-			</svg>
-	    </span>	
-		
-		<h1 class="welcome-title">ברוכים הבאים לVulu</h1>	
-		<h1 class="welcome-subtitle">שיחות על כל נושא בעולם הסטארטאפים</h1>
-			
-		<div class="icons">
-		<svg class="icon icon-icons"><use xlink:href="#icon-icons"></use></svg>
-		</div>	
-			
-		</section>
-		
-		
-		
-        <div class="w-row">
-            <div class="w-col w-col-2  w-col-medium-0 w-col-small-0 w-col-tiny-0 w-col-big-mobile-0 column categories-container">
-                <div class="categories-header">
-                    <h1 class="categories-title">הנושאים החמים</h1>
-                </div>
-                <ul class="categories-list">
-					 <li ng-click="Search.getFeaturedResult()" class="flex-box"><a href="">הפופולאריים ביותר</a></li>
-                    <li ng-click="Search.getSearchResult('משקיעים')" class="flex-box"><a href="">משקיעים</a></li>
-                    <li ng-click="Search.getSearchResult('מחפש-שותף')" class="flex-box"><a href="">מחפש שותף</a></li>
-                    <li ng-click="Search.getSearchResult('מעצבים')" class="flex-box"><a href="">מעצבים</a></li>
-                    <li ng-click="Search.getSearchResult('חשיפה')" class="flex-box"><a href="">חשיפה</a></li>
-                    <li ng-click="Search.getSearchResult('SEO')" class="flex-box"><a href="">SEO</a></li>
-                    <li ng-click="Search.getSearchResult('שיווק')" class="flex-box"><a href="">שיווק</a></li>
-                    <li ng-click="Search.getSearchResult('seed')" class="flex-box"><a href="">seed</a></li>
-                    <li ng-click="Search.getSearchResult('רעיונות')" class="flex-box"><a href="">רעיונות</a></li>
-				</ul>
-                    </div>
-                    <div class="w-col w-col-10 w-col-medium-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
-
-						
-						
-                        <div class="questions-group" > 
-                            <div class="questions-header">
-                               <svg ng-hide="Search.isQuery" class="icon icon-popular"><use xlink:href="#icon-popular"></use></svg>
-                               <svg ng-show="Search.isQuery" class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
-
-                                <h1 ng-hide="Search.isQuery" class="questions-date">הפופלאריים ביותר</h1>
-								<h1 ng-show="Search.isQuery" class="questions-date">השבוע: שאלות ותשובות על סטארטאפים</h1>
-								
-                            </div>
-                            <div class="questions">
-                                <div class="question-box"
-                            ng-repeat="hit in Search.searchresult.hits |orderBy: '-question.rating'">
-							<a class="question-link" ui-sref="home.talkFS({objectID: hit.objectID})">		
+                        <div class="questions">
+                            <div class="question-box"
+                                 ng-repeat="hit in Search.searchresult.hits |orderBy: '-question.rating'">
+                                <a class="question-link" ui-sref="home.talkFS({objectID: hit.objectID})">
                                     <div class="w-row">
 
                                         <div class="w-col w-col-12 w-col-small-12 w-col-tiny-12 w-col-big-mobile-12 column">
-                                           	
-								
-											<a href="https://www.facebook.com/app_scoped_user_id/{{hit.question.personId}}" target="_blank" title="{{hit.question.personName}}">
-<img class="owner-img" ng-src="https://graph.facebook.com/{{hit.question.personId}}/picture?width=200&height=200">
-                   </a>
-						
+
+
+                                            <a href="https://www.facebook.com/app_scoped_user_id/{{hit.question.personId}}"
+                                               target="_blank" title="{{hit.question.personName}}">
+                                                <img class="owner-img"
+                                                     ng-src="https://graph.facebook.com/{{hit.question.personId}}/picture?width=200&height=200">
+                                            </a>
+
                                             <div class="flex-box">
-                                                <h2 ng-show="hit._highlightResult.question.message.value" class="question-title" 
+                                                <h2 ng-show="hit._highlightResult.question.message.value"
+                                                    class="question-title"
                                                     ng-bind-html="hit._highlightResult.question.message.value | linkyWithHtml"></h2>
-												 <h2 ng-hide="hit._highlightResult.question.message.value" class="question-title" ng-bind-html="hit.question.message | linkyWithHtml"></h2>
-												<a ng-if="hit.question.link" dir="auto" class="post-link" href="{{hit.question.link.link}}" target="_blank">
-													<img ng-if="hit.question.link.picture" ng-src="{{hit.question.link.picture}}">
-													
-													<h2 class="post-link-name">{{hit.question.link.name}}</h2>
-													<span class="post-link-website">{{hit.question.link.caption}}</span>	
-												</a>
-												
-											
-												
-												
+                                                <h2 ng-hide="hit._highlightResult.question.message.value"
+                                                    class="question-title"
+                                                    ng-bind-html="hit.question.message | linkyWithHtml"></h2>
+                                                <a ng-if="hit.question.link" dir="auto" class="post-link"
+                                                   href="{{hit.question.link.link}}" target="_blank">
+                                                    <img ng-if="hit.question.link.picture"
+                                                         ng-src="{{hit.question.link.picture}}">
+
+                                                    <h2 class="post-link-name">{{hit.question.link.name}}</h2>
+                                                    <span class="post-link-website">{{hit.question.link.caption}}</span>
+                                                </a>
+
+
                                             </div>
 
- 
 
                                             <div class="flex-height">
 
-											
-												
-                                                <a ui-sref="home.talkFS({objectID: hit.objectID})" class="comments-button" >
+
+                                                <a ui-sref="home.talkFS({objectID: hit.objectID})"
+                                                   class="comments-button">
                                                     <svg class="icon icon-comments">
                                                         <use xlink:href="#icon-comments"></use>
                                                     </svg>
-                                                    <p>{{hit.answers.length ? hit.answers.length + ' תגובות' : 'ראה תגובות' }}</p>
+                                                    <p>{{hit.answers.length ? hit.answers.length + ' תגובות' : 'ראה
+                                                        תגובות' }}</p>
                                                 </a>
 
 
                                                 <!-- TO DO: add ng-click upvote function      -->
-                                                <div class="upvote-button" ng-click="hit.question.rating = hit.question.rating + 1">
+                                                <div class="upvote-button"
+                                                     ng-click="hit.question.rating = hit.question.rating + 1">
                                                     <div class="triangle-button"><span
                                                             class="triangle triangle-up"></span>
                                                     </div>
 
                                                     <p>{{hit.question.rating ? hit.question.rating : '0' }}</p>
                                                 </div>
-												
-												
-												
+
+
                                             </div>
 
-                                   
 
-                                  
-                                </div>
+                                        </div>
 
+
+                                    </div>
+                                </a>
 
                             </div>
-									</a>
+
 
                         </div>
-
-	
-
                     </div>
+
+                    <div ng-hide="Search.searchresult.hits.length">
+                        <div id="page-loading">
+                            <div class="loading-box">
+                                <div class="loading-icon">
+                                    <p class="loader"></p>
+                                </div>
+                                <h3 class="loading-header">בטעינה</h3>
+                            </div>
+                            <p class="loading-text">מכניסים קצת קסם בינתיים...</p>
+                        </div>
+                    </div>
+
                 </div>
-					
-				<div ng-hide="Search.searchresult.hits.length">		
-		<div id="page-loading" >
-          <div class="loading-box">
-			  <div class="loading-icon">
-				<p class="loader"></p>
-				  </div>
-			  <h3 class="loading-header">בטעינה</h3>
-			  </div>
-			  <p class="loading-text">מכניסים קצת קסם בינתיים...</p>
-				</div></div>
-						
-				</div>
-			</div>
+            </div>
             </section>
 
         </main>

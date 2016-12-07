@@ -1,13 +1,11 @@
-import {auto }              from 'algoliasearch';
+import {auto}              from 'algoliasearch';
 import db from './featureResult.json';
-
-
 
 
 export class SearchController {
 
     /* @ngInject */
-    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state , GLOBALS, $http, $timeout) {
+    constructor($localStorage, $scope, SearchModel, $location, $stateParams, $state, GLOBALS, $http, $timeout) {
 
         this.autolinker = window.autolinker;
         this.$localStorage = $localStorage;
@@ -17,38 +15,30 @@ export class SearchController {
         this.$state = $state;
         this.closed = false;
         this.SearchModel = SearchModel;
-		this.http = $http;
+        this.http = $http;
         this.searchresult = {};
         this.query = $location.search().query;
         this.queryId = this.$localStorage.queryId;
-		this.currentUser = $localStorage.currentUser;
+        this.currentUser = $localStorage.currentUser;
         this.isQuery = false;
         this.$timeout = $timeout;
-		
-        if (this.queryId){
+
+        if (this.queryId) {
             this.query = this.queryId;
             this.$localStorage.queryId = null;
         }
 
         this.GLOBALS = GLOBALS;
         this.groupName = GLOBALS.groupNameTheWeek;
-        
-		
-         
+
+
         if (this.query) {
-            this.getSearchResult(this.query);	
-        }else{
-		this.getFeaturedResult();
-		}
-
-        /*this.$scope.$watchCollection(
-         () => this.searchresult,
-         (newVal) => {
-         if (!_.isEmpty(newVal)) {
-
-         }
-         }
-         );*/
+            this.getSearchResult(this.query);
+        } else {
+            //this.getFeaturedResult();
+            //todo Elad fix feature result bug
+            this.getSearchResult('משקיעים')
+        }
 
     }
 
@@ -57,7 +47,7 @@ export class SearchController {
      * @returns {*}
      */
     getSearchResult(query) {
-		 this.isQuery = true;
+        this.isQuery = true;
         const model = query;
         this.$location.search({query: query});
 
@@ -68,23 +58,12 @@ export class SearchController {
             return searchresult_data;
         });
     }
-	
-	getFeaturedResult() {
-/*		this.http.get("../")
-         .then(searchresult_data => {
-         this.searchreslt = searchresult_data;
-         this.$localStorage.searchresult = 	searchresult_data;
-         return searchresult_data;
-         });*/
 
-/*    this.$timeout(() => {
-        this.searchresult = db ;
-        this.$localStorage.searchresult = 	this.searchresult;
+    getFeaturedResult() {
 
-    },0)*/
         this.isQuery = false;
-        this.searchresult = db ;
-        this.$localStorage.searchresult = 	this.searchresult;
+        this.searchresult = db;
+        this.$localStorage.searchresult = this.searchresult;
 
     }
 
@@ -92,18 +71,18 @@ export class SearchController {
         this.$state.go('home.talkFS', {objectID: hit.objectID});
     }
 
-    closing(){
-		this.closed = true;
-	}
-	
+    closing() {
+        this.closed = true;
+    }
+
     ngBindHtml(hit) {
         return hit._highlightResult.question.message.value;
     }
 
     modifyResult(searchresult_data) {
-        searchresult_data.hits.forEach((element, index, array)=>{
+        searchresult_data.hits.forEach((element, index, array) => {
             //if _highlighted result length is greater than X we will modify it and and leave only part of the
-            if (element._highlightResult.question.message.value.length > 100){
+            if (element._highlightResult.question.message.value.length > 100) {
                 element._highlightResult.question.message.modifyValue = element._highlightResult.question.message.value;
                 element._highlightResult.question.message.originalValue = element._highlightResult.question.message.value;
 

@@ -1,5 +1,5 @@
 {
-  "name": "StartupKnowelgeDB",
+  "name": "vulu",
   "version": "0.0.1",
   "releaseVersion": "0.0.1",
   "description": "AngularJS & node.js Application",
@@ -21,25 +21,25 @@
     "type": "git",
     "url": ""
   },
-  "author": "",
+  "author": "ran styr",
   "license": "UNLICENSED",
   "private": true,
   "homepage": "",
   "dependencies": {
     "algoliasearch": "^3.17.0",
     "algoliasearch-helper": "^2.11.0",
-    "angular": "1.5.5",
-    "angular-animate": "1.5.5",
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.5",
     "angular-filter": "^0.5.9",
     "angular-mighty-datepicker": "git://github.com/monterail/angular-mighty-datepicker.git#v0.1.2",
     "angular-sanitize": "^1.5.7",
-    "angular-translate": "2.11.0",
-    "angular-ui-router": "0.2.18",
+    "angular-translate": "^2.11.0",
+    "angular-ui-router": "^0.2.18",
     "autocomplete.js": "^0.21.0",
     "autolinker": "^0.27.0",
-    "foundation-apps": "1.2.0",
+    "foundation-apps": "^1.2.0",
     "jquery": "^3.1.0",
-    "lodash": "4.11.1",
+    "lodash": "^4.11.1",
     "moment": "2.13.0",
     "ng-tags-input": "^3.1.1",
     "ng-text-truncate": "^1.0.0",
@@ -88,5 +88,8 @@
     "url-loader": "0.5.7",
     "webpack": "1.13.0",
     "webpack-dev-server": "1.14.1"
+  },
+  "directories": {
+    "test": "tests"
   }
 }

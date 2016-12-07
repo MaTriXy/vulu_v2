@@ -16,11 +16,11 @@ export class TalkFSController {
         this.fsResult = {};
         this.GLOBALS = GLOBALS;
         this.groupName = GLOBALS.groupNameTheWeek;
-        this.randNum = '';
-		this.getPicId();
+        this.randNum = this.getPicId();
 
-        this.bgImage = require('../../assets/images/rand-images/' + this.randNum + '.jpg');
-        this.myStyle = {'background-image': {'linear-gradient' : '(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .9))' , 'src' : this.bgImage }};
+
+        //this.bgImage = require('../../assets/images/rand-images/' + this.randNum + '.jpg');
+        //this.myStyle = {'background-image': {'linear-gradient' : '(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .9))' , 'src' : this.bgImage }};
 
         this.SearchModel.getById(this.objectID).
         then((searchFsresult_data)=>{
